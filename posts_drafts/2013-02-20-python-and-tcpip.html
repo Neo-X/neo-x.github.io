@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> | Glen Berseth</title>
+    <link rel="canonical" href="/posts_drafts/2013-02-20-python-and-tcpip">
+    
+
+    <meta property="og:title" content="">
+    <meta property="og:url" content="/posts_drafts/2013-02-20-python-and-tcpip">
+    <meta property="og:site_name" content="Glen Berseth">
+    <meta name="twitter:card" content="summary">
+    <meta property="twitter:title" content="">
+
+	<script type="text/javascript" id="MathJax-script" async
+	  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
+    <script type="application/ld+json">
+    {"@type":"WebSite","headline":"Glen Berseth","url":"/","name":"Glen Berseth","@context":"https://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- <link rel="stylesheet" href="/assets/main.css"> --></head>
+<body><header class="site-header">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/">Glen Berseth</a><nav class="site-nav">
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+            <label for="nav-trigger">
+                <span class="menu-icon">
+                    <svg viewBox="0 0 18 15" width="18px" height="15px">
+                        <path d="M1.5 1.5 h15 M1.5 7.5 h15 M1.5 13.5 h15" stroke="black" stroke-width="3" stroke-linecap="round" />
+                      </svg>
+                </span>
+            </label>
+
+            <div class="trigger">
+                    <a class="page-link" href="/">Home</a>
+                
+                    <a class="page-link" href="/people/">People</a>
+                
+                    <a class="page-link" href="/publications/">Publications</a>
+                
+                    <a class="page-link" href="/join/">Join Us</a>
+                
+                    <a class="page-link" href="/posts/">Posts</a>
+                
+                    <a class="page-link" href="/teaching/">Teaching</a>
+                
+                <a class="page-link" href="/fr/posts_drafts/2013-02-20-python-and-tcpip">Fr</a>
+                
+            </div>
+        </nav></div>
+    
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Python and TCP/IP</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2013-02-21T02:06:00+00:00" itemprop="datePublished">Feb 20, 2013
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Glen B</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>TCP/IP in Python<br /><br />Some notes on how TCP/IP works in Python (2.7).<br /><br />Basic TCP client<br /><br /><br />&lt;pre class="prettyprint"&gt;<code class="language-py"><br /><code>import socket<br />import sys<br /><br /># Create a TCP/IP socket<br />sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br /><br /># Connect the socket to the port where the server is listening<br />server_address = ('localhost', 10000)<br />print &gt;&gt;sys.stderr, 'connecting to %s port %s' % server_address<br />sock.connect(server_address)<br /><br />try:<br />&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; # Send data<br />&nbsp;&nbsp;&nbsp; message = 'This is the message.&nbsp; It will be repeated.'<br />&nbsp;&nbsp;&nbsp; print &gt;&gt;sys.stderr, 'sending "%s"' % message<br />&nbsp;&nbsp;&nbsp; sock.sendall(message)<br /><br />&nbsp;&nbsp;&nbsp; # Look for the response<br />&nbsp;&nbsp;&nbsp; amount_received = 0<br />&nbsp;&nbsp;&nbsp; amount_expected = len(message)<br />&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; while amount_received &lt; amount_expected:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; data = sock.recv(16)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; amount_received += len(data)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print &gt;&gt;sys.stderr, 'received "%s"' % data<br /><br />finally:<br />&nbsp;&nbsp;&nbsp; print &gt;&gt;sys.stderr, 'closing socket'<br />&nbsp;&nbsp;&nbsp; sock.close()</code></code>&lt;/pre&gt;<br /><br />This client is simple and easy to use but I need something that would not block at all. To achieve this Python has a feature called <a href="http://docs.python.org/2/library/select.html" target="_blank">select</a> that can be used on stream like object that have a file descriptor. This selector can be used to check if the selector object has data ready for reading, writing or an exceptional condition (exceptional conditions not covered here).<br /><br />&lt;pre class="prettyprint"&gt;<code class="language-py"><br />import select<br />import socket<br />import sys<br /><br />service = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br /><br /># Connect the socket to the port where the server is listening<br />server_address = ('localhost', 10000)<br />print &gt;&gt; sys.stderr, 'connecting to %s port %s' % server_address<br />service.connect(server_address)</code>&lt;/pre&gt;<br /><br /><br />This beginning stays the same but now the method to receive has changed.<br /><br />&lt;pre class="prettyprint"&gt;<code class="language-py"><br />&nbsp;r, w, e = select.select([service], [], [], 0.0)<br />&nbsp;&nbsp;&nbsp; if r: # There is something to read<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; data = service.recv(256)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; character = 'ChrBrad0'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bmlMessage = data<locomotion manner="jog" target="' + data + ' 0'+ '" type="basic"><locomotion manner="jog" target="' + data + ' 0'+ '" type="basic"></locomotion><br /></locomotion></code>&lt;/pre&gt;<br /><br /><br /><br /><br /><br /><br /></p>
+
+  </div><a class="u-url" href="/posts_drafts/2013-02-20-python-and-tcpip" hidden></a>
+</article>
+
+        </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/%20/"></data>
+
+    <div class="wrapper">
+        
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list">
+                    <li class="p-name">Glen Berseth</li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/neo-x"><svg
+                class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+            </svg> <span class="username">neo-x</span></a></li><li><a
+            href="https://www.linkedin.com/in/glen-berseth-0523278b"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+            </svg> <span class="username">glen-berseth-0523278b</span></a></li><li><a
+            href="https://www.twitter.com/GlenBerseth"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+            </svg> <span class="username">GlenBerseth</span></a></li><li><a rel="me"
+            href="https://www.youtube.com/channel/UCOouaBg4gHIlNvPkJn_8ooA"
+            title="Real Lab"><svg class="svg-icon grey">
+                <use xlink:href="/assets/minima-social-icons.svg#youtube"></use>
+            </svg> <span class="username">Real Lab</span></a></li></ul></div>
+
+            <div class="footer-col footer-col-3">
+                <p>I (he/him/il) am an assistant professor at the University de Montreal and Mila. My research explores how to use deep learning and reinforcement learning to develop generalist robots.</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer></body>
+
+</html>
