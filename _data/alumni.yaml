@@ -24,6 +24,7 @@
 
 - name: Roger Creus
   title: master
+  profile_page: false
   picture: rogercreus
   website: https://roger-creus.github.io/
   period:

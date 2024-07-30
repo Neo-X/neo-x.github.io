@@ -1,0 +1,30 @@
+name: Compress images for bios
+
+on:
+  push:
+    paths:
+        - assets/images/bios/**
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  compress:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get install -y graphicsmagick
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - name: Run compress_bios.sh
+        run: |
+          chmod +x compress_bios.sh
+          ./compress_bios.sh
+      - name: Commit resized images
+        run: |
+          git add ./assets/images/bios_compressed
+          git commit -m "Compressed images"
+          git push

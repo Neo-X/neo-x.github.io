@@ -70,7 +70,6 @@ _Note: Only the maintainer is expected to do this._
 
 1. Add them to [`_data/people.yaml`](https://github.com/chandar-lab/chandar-lab.github.io/edit/main/_data/people.yaml)
 2. Add their profile picture too [`assets/images/bios/`](assets/images/bios/).
-3. Use the `compress_bios.sh` or smiliar, to compress their profile picture to an appropriate size.
 2. Create a pull request.
 
 _To aid the process, you can send them this:_
