@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> | Glen Berseth</title>
+    <link rel="canonical" href="/blog/2023/03/25/VizImitation.html">
+    
+
+    <meta property="og:title" content="">
+    <meta property="og:url" content="/blog/2023/03/25/VizImitation.html">
+    <meta property="og:site_name" content="Glen Berseth">
+    <meta name="twitter:card" content="summary">
+    <meta property="twitter:title" content="">
+
+	<script type="text/javascript" id="MathJax-script" async
+	  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
+    <script type="application/ld+json">
+    {"@type":"WebSite","headline":"Glen Berseth","url":"/","name":"Glen Berseth","@context":"https://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- <link rel="stylesheet" href="/assets/main.css"> --></head>
+<body><header class="site-header">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/">Glen Berseth</a><nav class="site-nav">
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+            <label for="nav-trigger">
+                <span class="menu-icon">
+                    <svg viewBox="0 0 18 15" width="18px" height="15px">
+                        <path d="M1.5 1.5 h15 M1.5 7.5 h15 M1.5 13.5 h15" stroke="black" stroke-width="3" stroke-linecap="round" />
+                      </svg>
+                </span>
+            </label>
+
+            <div class="trigger">
+                    <a class="page-link" href="/">Home</a>
+                
+                    <a class="page-link" href="/people/">People</a>
+                
+                    <a class="page-link" href="/publications/">Publications</a>
+                
+                    <a class="page-link" href="/join/">Join Us</a>
+                
+                    <a class="page-link" href="/posts/">Posts</a>
+                
+                    <a class="page-link" href="/teaching/">Teaching</a>
+                
+                <a class="page-link" href="/fr/blog/2023/03/25/VizImitation.html">Fr</a>
+                
+            </div>
+        </nav></div>
+    
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <article class="post">
+
+    <header class="post-header">
+        <h1 class="post-title"></h1>
+    </header>
+    <div class="post-content">
+        <div align="center">
+	<p>
+				Glen Berseth, Florian Golemo, Christopher Pal
+	</p>
+	<p>	
+            UdeM, Mila Quebec AI Institute, Canada CIFAR AI, Polytechnic Montreal, Service Now
+    </p>
+</div>
+
+<div align="center">
+            <span class="STYLE17"> <img width="600" src="/assets/projects/VizImitation/agresive-walk.gif" /> </span>
+</div>
+
+<p>Imitation learning, the ability to reproduce some behaviour, is a challenging and vital problem. It is what enables animals with the ability to understand and mimic from observation. Many SoTA methods for imitation accomplish this via additional data that is often not available in the real world. For example, along with an expert’s joint positions, the torques used by the expert are available as well. In this work, we describe a learning system that allows an agent to reproduce imitative behaviour of 3D simulated robots from video. This progress will enable us to create robots that can learn behaviour from observing humans, and allow humans to instruct robots in a very natural form of instruction.</p>
+
+<h3 id="distance-learning">Distance Learning</h3>
+
+<p>Often, imitation is posed as a distribution matching problem where we want to minimize a distance function that differentiates between behaviour that is close to the expert demonstration. If we have access to the expert’s actions, we can use semi-supervised learning. However, we rarely have access to such data in the real world. Instead, we can use visual perceptions to observe the expert and have the agent attempt actions until what it does matches what it observed. This method leads to two challenges. First, understanding if the agent’s behaviour matches the expert given only video data, by creating a meaningful distance metric. Second, enabling the agent to learn the actions necessary to match the expert.</p>
+
+<p>While there has been work on imitation strategies from images for manipulation [<a href="https://bair.berkeley.edu/blog/2018/06/28/daml/">BAIR</a>] and 2D robots [<a href="https://sites.google.com/view/actionablerepresentations">GoogleBrain</a>], the challenge of 3D imitation from video is an important milestone. Previous methods have made progress on imitation from images, by learning a transformation of images such that in this transformed space, meaningful distances are available. However, the problem of learning meaningful representations for planning or imitation is far from solved. A critical aspect of imitating a motion is the motions sequential and causal nature. The motion has both an ordering and a speed.</p>
+
+<h3 id="imitation-from-sequences">Imitation from Sequences</h3>
+
+<div align="center">
+            <span class="STYLE17"> <img width="30%" src="/assets/projects/VizImitation/walk_mocap.gif" /> </span>
+            <span class="STYLE17"> <img width="30%" src="/assets/projects/VizImitation/walk_slow.gif" /> </span>
+            <span class="STYLE17"> <img width="30%" src="/assets/projects/VizImitation/fall_mocap.gif" /> </span>
+</div>
+
+<p>Current methods use spatial information to compute distances between images. These methods have worked well given enough compute, good policies can be learned. However, these methods may suffer from false negatives that occur when the agent is out-of-sync with the expert. In the above example, we show a walking motion, followed by a walking motion played back at $1/4$ speed and last, a fallen motion. The limitation of spatial distance methods is that a similar low reward will be given for these two examples, although, the middle motion looks more like a walk then the right.</p>
+
+<p>In this work, we make use of the sequential structure of motion to inform deep reinforcement learning (RL) better. Effectively, we learn two distance functions, one in space and another in time. While the spatial distance function is designed to understand distances between pictures or poses, the time-based distance function understands if two motions look semantically similar. For example, if the imitation goal is to walk, does the agent’s behaviour also look like a walk? In effect, with this new abstraction, we can ask the question, does this motion look <em>like</em> a walk, not, does this motion look <em>precisely</em> like <em>that</em> walk. This distinction allows us to reward the agent for behaviour that is similar to the expert and may be at a different speed or time. This form of reward shaping was critical to learning good policies from video.</p>
+
+<h3 id="siamese-network">Siamese network</h3>
+
+<p>To learn these distances, we train a recurrent Siamese network. We train this method with <em>positive</em> and <em>negative</em> examples. Where positive examples are similar or from the same class, and negative examples are known to be different or are from different classes. The model is trained to produce similar encodings when two videos or images are the same and different encodings otherwise. Additional data is included from other tasks to assist in training the siamese network.</p>
+
+<div align="center">
+            <span class="STYLE17"> <img width="100%" src="/assets/projects/VizImitation/siamese_lstm_2.png" /> </span>
+</div>
+
+<h3 id="results">Results</h3>
+
+<div align="center">
+            <span class="STYLE17"> <img width="600" src="/assets/projects/VizImitation/walk_biped2d.gif" /> </span>
+</div>
+
+<p>Using the spatial and temporal distance functions in combination, we can now train RL agents to match expert demonstrations from a single video example. The new temporal distances allow quick learning but have trouble achieving high-quality results without the addition of spatial rewards.</p>
+
+<div align="center">
+            <span class="STYLE17"> <img width="600" src="/assets/projects/VizImitation/__use_learned_reward_function_Training_curves_edited.png" /> </span>
+</div>
+
+<p>The addition of these new rewards using temporal distances (along with some additional insights) has enabled imitation learning of 3D motion imitation given only a single video demonstration. While these are the first results of its type, additional quality might be gained from multi-view video data or other multi-task data.</p>
+
+<div align="center">
+            <span class="STYLE17"> <img width="600" src="/assets/projects/VizImitation/run_humanoid3d.gif" /> </span>
+</div>
+
+<h2 id="files">Files</h2>
+
+<p><a href="https://arxiv.org/abs/1901.07186">Paper</a></p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/s1KiIrV1YY4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+
+    </div>
+
+</article>
+        </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/%20/"></data>
+
+    <div class="wrapper">
+        
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list">
+                    <li class="p-name">Glen Berseth</li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/neo-x"><svg
+                class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+            </svg> <span class="username">neo-x</span></a></li><li><a
+            href="https://www.linkedin.com/in/glen-berseth-0523278b"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+            </svg> <span class="username">glen-berseth-0523278b</span></a></li><li><a
+            href="https://www.twitter.com/GlenBerseth"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+            </svg> <span class="username">GlenBerseth</span></a></li><li><a rel="me"
+            href="https://www.youtube.com/channel/UCOouaBg4gHIlNvPkJn_8ooA"
+            title="Real Lab"><svg class="svg-icon grey">
+                <use xlink:href="/assets/minima-social-icons.svg#youtube"></use>
+            </svg> <span class="username">Real Lab</span></a></li></ul></div>
+
+            <div class="footer-col footer-col-3">
+                <p>I (he/him/il) am an assistant professor at the University de Montreal and Mila. My research explores how to use deep learning and reinforcement learning to develop generalist robots.</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer></body>
+
+</html>
