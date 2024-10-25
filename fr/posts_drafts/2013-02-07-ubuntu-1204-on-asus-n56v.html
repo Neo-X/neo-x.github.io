@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> | Glen Berseth</title>
+    <link rel="canonical" href="/posts_drafts/2013-02-07-ubuntu-1204-on-asus-n56v">
+    
+
+    <meta property="og:title" content="">
+    <meta property="og:url" content="/posts_drafts/2013-02-07-ubuntu-1204-on-asus-n56v">
+    <meta property="og:site_name" content="Glen Berseth">
+    <meta name="twitter:card" content="summary">
+    <meta property="twitter:title" content="">
+
+	<script type="text/javascript" id="MathJax-script" async
+	  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
+    <script type="application/ld+json">
+    {"@type":"WebSite","headline":"Glen Berseth","url":"/","name":"Glen Berseth","@context":"https://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- <link rel="stylesheet" href="/assets/main.css"> --></head>
+<body><header class="site-header">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/">Glen Berseth</a><nav class="site-nav">
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+            <label for="nav-trigger">
+                <span class="menu-icon">
+                    <svg viewBox="0 0 18 15" width="18px" height="15px">
+                        <path d="M1.5 1.5 h15 M1.5 7.5 h15 M1.5 13.5 h15" stroke="black" stroke-width="3" stroke-linecap="round" />
+                      </svg>
+                </span>
+            </label>
+
+            <div class="trigger">
+                    <a class="page-link" href="/fr/">Accueil</a>
+                
+                    <a class="page-link" href="/fr/people/">Membres</a>
+                
+                    <a class="page-link" href="/fr/publications/">Publications</a>
+                
+                    <a class="page-link" href="/fr/join/">Joignez-nous</a>
+                
+                    <a class="page-link" href="/fr/posts/">Postes</a>
+                
+                    <a class="page-link" href="/fr/teaching/">L'enseignement</a>
+                
+                <a class="page-link" href="/posts_drafts/2013-02-07-ubuntu-1204-on-asus-n56v">En</a>
+                
+            </div>
+        </nav></div>
+    
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Ubuntu 12.04 on ASUS n56v</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2013-02-07T20:43:00+00:00" itemprop="datePublished">Feb 7, 2013
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Glen B</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>This blog is a collection of solutions to issues or not preferred settings in Ubuntu when installing on ASUS n56v<br /><br />Press f2 to get into bios<br /><br />&lt;ol&gt;&lt;li&gt;After installing Ubuntu fix Grub to boot Windows 8 again.&lt;/li&gt;&lt;ol&gt;So installing Ubuntu 12.04 along with a EFI partition with GRUB will result in a boot error for Windows8 (from /dev/sda[some number]), some thing like:      error: unknown command ‘drivemap’       error: invalid EFI file path.   While there are many threads online discussed about this issue. Here is the most elegant solution I found: using the Boot-Repair tool. Here is how: &lt;/ol&gt;&lt;ol&gt; 1. After Ubuntu is installed (make sure you can access the internet), open the terminal: <br /><br />sudo add-apt-repository ppa:yannubuntu/boot-repair <br />sudo apt-get update &lt;/ol&gt;&lt;ol&gt; 2. Press Enter. &lt;/ol&gt;&lt;ol&gt; 3. Then type:&lt;/ol&gt;&lt;ol&gt; &lt;/ol&gt;&lt;ol&gt; sudo apt-get install -y boot-repair&lt;/ol&gt;&lt;ol&gt; boot-repair &lt;/ol&gt;&lt;ol&gt; 4. Press Enter, let this software figure everything out for you.&lt;/ol&gt;&lt;ol&gt;It will automatically generate the GRUB files such that  your Windoes8 can boot again.&lt;/ol&gt;&lt;ol&gt; &lt;/ol&gt;&lt;ol&gt;Best to choose the Recommended option to fix your boot issues in boot-repair &lt;/ol&gt;&lt;ol&gt;<br />&lt;/ol&gt;&lt;li&gt;Get the nvidia card working &lt;/li&gt;&lt;ol&gt;&lt;li&gt;taken from, http://askubuntu.com/questions/163900/ubuntu-any-version-and-650m-cuda&lt;/li&gt;&lt;li&gt;NOTE: if using Ubuntu 12.04.2 read these first &lt;/li&gt;&lt;ol&gt;&lt;li&gt;http://askubuntu.com/questions/256995/ubuntu-12-04-2-wont-boot-after-bumblebee-instalation &lt;/li&gt;&lt;li&gt;https://bugs.launchpad.net/ubuntu/+source/cedarview-drm-drivers/+bug/1132584&lt;/li&gt;&lt;ol&gt;&lt;li&gt;Yes your integrated graphics will no longer work. &lt;/li&gt;&lt;/ol&gt;&lt;/ol&gt;&lt;li&gt;Short story if Ubuntu 12.04:<br />&lt;pre class="prettyprint"&gt;<code class="language-bash"><br />sudo add-apt-repository ppa:ubuntu-x-swat/x-updates<br />sudo add-apt-repository ppa:bumblebee/stable<br />sudo apt-get update</code>&lt;/pre&gt;&lt;pre class="prettyprint"&gt;<code class="language-bash">&nbsp;</code>&lt;/pre&gt;&lt;pre class="prettyprint"&gt;<code class="language-bash">sudo apt-get install bumblebee bumblebee-nvidia </code><code class="language-bash">linux-headers-generic</code>&lt;/pre&gt;&lt;pre class="prettyprint"&gt;<code class="language-bash">&nbsp;</code>&lt;/pre&gt;&lt;pre class="prettyprint"&gt;<code class="language-bash"># If using Ubuntu 12.04.2 with the hardware enablement stack use this to install bumblebee instead</code>&lt;/pre&gt;&lt;pre class="prettyprint"&gt;<code class="language-bash">&nbsp;</code>&lt;/pre&gt;&lt;pre class="prettyprint"&gt;<code class="language-bash">sudo apt-get install bumblebee bumblebee-nvidia linux-headers-generic-lts-quantal </code>&lt;/pre&gt;&lt;pre class="prettyprint"&gt;<code class="language-bash">&nbsp;</code>&lt;/pre&gt;&lt;pre class="prettyprint"&gt;<code class="language-bash">Log out and log back in to update your user groups</code>&lt;/pre&gt;&lt;pre class="prettyprint"&gt;<code class="language-bash">&nbsp;</code>&lt;/pre&gt;&lt;pre class="prettyprint"&gt;<code class="language-bash">optirun glxspheres</code>&lt;/pre&gt;&lt;pre&gt;<code><br /></code>&lt;/pre&gt;Basically to make sure the graphics for the program you want to run is handled by the graphics card run it with optirun. &lt;/li&gt;&lt;li&gt;&lt;pre&gt;<code><br /></code>&lt;/pre&gt;&lt;/li&gt;&lt;/ol&gt;&lt;li&gt;Fixing Eithernet&lt;/li&gt;&lt;ol&gt;&lt;li&gt;http://www.linuxfoundation.org/collaborate/workgroups/networking/alx&lt;/li&gt;&lt;li&gt;Worked great&lt;/li&gt;&lt;/ol&gt;&lt;li&gt;Multi-Touch&lt;/li&gt;&lt;ol&gt;&lt;li&gt;http://askubuntu.com/questions/127049/help-trying-to-get-two-finger-scrolling-to-work-on-asus-ul80vt/220299#220299 &lt;/li&gt;&lt;/ol&gt;&lt;li&gt;Fix computer freezing ever couple of hours<br />For whatever reason the computer seem to freeze every so often. Looks to occur whenever I go to save something.<br /><br />Apparently it can be easily remedied by enabling the long term service hardware stack like so:<br /><br /><tt>sudo apt-get install linux-generic-lts-quantal xserver-xorg-lts-quantal </tt><br />After this you should have kernel version &gt;= 3.5.0 which is the point of enabling the hardware support.<br /> &lt;/li&gt;&lt;ol&gt;&lt;/ol&gt;&lt;li&gt;Fix auto brightness<br />&lt;div class="post-text"&gt;You could try adding a line to /etc/rc.local that will set the desired brightness level. To edit the file, run<br />&lt;pre&gt;<code>gksudo gedit /etc/rc.local<br /></code>&lt;/pre&gt;and add the following<br />&lt;pre&gt;<code>echo X &gt; /sys/class/backlight/intel_backlight/brightness<br /></code>&lt;/pre&gt;so that the end result looks like this<br />&lt;pre&gt;<code>#!/bin/sh -e<br />#<br /># rc.local<br />#<br /># This script is executed at the end of each multiuser runlevel.<br /># Make sure that the script will "exit 0" on success or any other<br /># value on error.<br />#<br /># In order to enable or disable this script just change the execution<br /># bits.<br />#<br /># By default this script does nothing.&nbsp;</code>&lt;/pre&gt;&lt;pre&gt;<code>&nbsp;</code>&lt;/pre&gt;&lt;pre&gt;<code># Max vlaue seems to be 4882 </code>&lt;/pre&gt;&lt;pre&gt;<code>&nbsp;echo X &gt; /sys/class/backlight/intel_backlight/brightness<br /><br />exit 0<br /></code>&lt;/pre&gt;Substitute the <code>X</code> by the desired brightness level.&lt;/div&gt;<br /> &lt;/li&gt;&lt;ol&gt;&lt;/ol&gt;&lt;li&gt;Sub woofer&lt;/li&gt;&lt;ol&gt;&lt;li&gt;Source is http://doc.ubuntu-fr.org/asus_n76vm#son in french&lt;/li&gt;&lt;li&gt;Basically add <br />&lt;pre class="prettyprint"&gt;<code class="language-bash"><br />echo 0x16 0x99130112 &gt; /sys/class/sound/hwC0D0/user_pin_configs<br />echo 1 &gt; /sys/class/sound/hwC0D0/reconfig<br /></code>&lt;/pre&gt; &lt;/li&gt;&lt;/ol&gt;&lt;/ol&gt;                      To /etc/rc.local                      Before exit 0 <br />                      reboot<br />                      Might need to change some settings in alsamixer.  <br />&lt;ol&gt;&lt;ol&gt;&lt;/ol&gt;&lt;/ol&gt;<br /><br /><br />Using PYSdm<br />http://ubuntuforums.org/showthread.php?t=872197 <br />Use: user,exec,auto,uid=1000,gid=1000,utf8,dmask=027,fmask=007<br /><br />References<br />&lt;ol&gt;&lt;li&gt;http://askubuntu.com/questions/166263/fn-keys-not-working-on-an-asus-n56v&lt;/li&gt;&lt;/ol&gt;NOTES:<br />&lt;ol&gt;&lt;li&gt;Kernel 3.5.x will not work with the cedarview GPU on Intel chips. Find the bug here. https://bugs.launchpad.net/ubuntu/+source/cedarview-drm-drivers/+bug/1132584&lt;/li&gt;&lt;/ol&gt;&lt;ol&gt;&lt;/ol&gt;&lt;ol&gt;&lt;ol&gt;&lt;/ol&gt;&lt;/ol&gt;</p>
+
+  </div><a class="u-url" href="/posts_drafts/2013-02-07-ubuntu-1204-on-asus-n56v" hidden></a>
+</article>
+
+        </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/%20/"></data>
+
+    <div class="wrapper">
+        
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list">
+                    <li class="p-name">Glen Berseth</li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/neo-x"><svg
+                class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+            </svg> <span class="username">neo-x</span></a></li><li><a
+            href="https://www.linkedin.com/in/glen-berseth-0523278b"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+            </svg> <span class="username">glen-berseth-0523278b</span></a></li><li><a
+            href="https://www.twitter.com/GlenBerseth"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+            </svg> <span class="username">GlenBerseth</span></a></li><li><a rel="me"
+            href="https://www.youtube.com/channel/UCOouaBg4gHIlNvPkJn_8ooA"
+            title="Real Lab"><svg class="svg-icon grey">
+                <use xlink:href="/assets/minima-social-icons.svg#youtube"></use>
+            </svg> <span class="username">Real Lab</span></a></li></ul></div>
+
+            <div class="footer-col footer-col-3">
+                <p>I (he/him/il) am an assistant professor at the University de Montreal and Mila. My research explores how to use deep learning and reinforcement learning to develop generalist robots.</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer></body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> | Glen Berseth</title>
+    <link rel="canonical" href="/posts_drafts/2013-09-03-generating-latex-table-of-matlaboctave">
+    
+
+    <meta property="og:title" content="">
+    <meta property="og:url" content="/posts_drafts/2013-09-03-generating-latex-table-of-matlaboctave">
+    <meta property="og:site_name" content="Glen Berseth">
+    <meta name="twitter:card" content="summary">
+    <meta property="twitter:title" content="">
+
+	<script type="text/javascript" id="MathJax-script" async
+	  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
+    <script type="application/ld+json">
+    {"@type":"WebSite","headline":"Glen Berseth","url":"/","name":"Glen Berseth","@context":"https://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- <link rel="stylesheet" href="/assets/main.css"> --></head>
+<body><header class="site-header">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/">Glen Berseth</a><nav class="site-nav">
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+            <label for="nav-trigger">
+                <span class="menu-icon">
+                    <svg viewBox="0 0 18 15" width="18px" height="15px">
+                        <path d="M1.5 1.5 h15 M1.5 7.5 h15 M1.5 13.5 h15" stroke="black" stroke-width="3" stroke-linecap="round" />
+                      </svg>
+                </span>
+            </label>
+
+            <div class="trigger">
+                    <a class="page-link" href="/">Home</a>
+                
+                    <a class="page-link" href="/people/">People</a>
+                
+                    <a class="page-link" href="/publications/">Publications</a>
+                
+                    <a class="page-link" href="/join/">Join Us</a>
+                
+                    <a class="page-link" href="/posts/">Posts</a>
+                
+                    <a class="page-link" href="/teaching/">Teaching</a>
+                
+                <a class="page-link" href="/fr/posts_drafts/2013-09-03-generating-latex-table-of-matlaboctave">Fr</a>
+                
+            </div>
+        </nav></div>
+    
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Generating Latex table of Matlab/Octave Matrix</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2013-09-03T21:21:00+00:00" itemprop="datePublished">Sep 3, 2013
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Glen Berseth</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><br />I created some code in Octave/Matlab to generate latex table from matrix data. I created this because in my case I was tuning some data and algorithms for a paper I was writing and I loathed entering my data into the latex over and over in large tables.<br /><br />The use just needs to supply a file descriptor, names for the table rows, column, the data matrix and if desired a wrapper to wrap the data entries from the matric in any specific formatting.<br /><br /><br />Example wrapper functions<br /><style type="text/css">p, li { white-space: pre-wrap; } </style> <br />&lt;pre class="prettyprint"&gt;<code class="language-matlab"><br /><br />function outstr = numWrapper(value)<br /><br />outstr= strcat("\\num{" , num2str (value), "}");<br /><br />endfunction<br />&lt;div style="-qt-block-indent: 0; -qt-paragraph-type: empty; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />function outstr = ccolWrapper(value)&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />outstr= strcat("\\ccol{" , num2str (value), "}");&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />endfunction&lt;/div&gt;<br />&nbsp;</code>&lt;/pre&gt;&lt;pre class="prettyprint"&gt;<code class="language-matlab">&nbsp;</code>&lt;/pre&gt;&lt;pre class="prettyprint"&gt;<code class="language-matlab"><br /><style type="text/css"><br />p, li { white-space: pre-wrap; }<br /></style><br /></code>&lt;/pre&gt;&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;This is the code used to generate the latex&lt;/div&gt;&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;  <br />&lt;pre class="prettyprint"&gt;<code class="language-matlab"><br /></code>&lt;/pre&gt;&lt;/div&gt;&lt;pre class="prettyprint"&gt;<code class="language-matlab"><br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />%&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />% creates a latex style table from matrix data.&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />% wrapper is a function used to wrap the data in each cell&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />% can be used to apply more formatting in latex&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />%&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />% fid is the file pointer to the file to write to&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />% matrix is the data matrix that will be placed starting at row 1 column 1&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />% rowNames is a column vector of the string names to be inserted as the names for the rows&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />%     size(rowNames,1) == size(columnNames,1)+1, i.e. the &lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />% columnNames will be used to label each of the column in the data&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />% wrapper is a special function that will take your input data and wrap it with latex formatting&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />%&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />% Will look like&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />% latex table formatting&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />% columnNames[0] | columnNames[1] | columnNames[2] | <code class="language-matlab">columnNames[2]</code> | ...&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />% rowNames[0]    | matrix(0,0)    |  matrix(0,1)   |  matrix(0,2) | ...&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />% rowNames[1]    | matrix(1,0)    |  matrix(1,1)   |  matrix(1,2) | ...&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />%      .&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />%      .&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />%      .&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />%&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />%&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />%&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />%&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />% latex table formating&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; -qt-paragraph-type: empty; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />function fid = matrixToLatexTable(fid, matrix, rowNames, columnNames, wrapper )&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />fprintf(fid,'\\documentclass{article}\n');&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />fprintf(fid,'\\begin{document}\n');&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />fprintf(fid,' \\begin{tabular}{ |');&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />for col=1:size(matrix,2)+1&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />fprintf(fid,'c | ');&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />end&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; -qt-paragraph-type: empty; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />fprintf(fid,'}\n\\hline\n');&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />for col=1:size(columnNames,1)&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />if col==size(columnNames,1)&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />fprintf(fid,'  %s', columnNames(col,:))&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />else&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />fprintf(fid,'  %s &amp; ', columnNames(col,:))&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />end&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />end   &lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />fprintf(fid,'\n \\\\ \\hline\n');&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />% now write the elements of the matrix&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />for r=1:size(matrix,1)&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />fprintf(fid,' %s &amp; ', rowNames(r,:))&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />for c=1:size(matrix,2)&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />if c==size(matrix,2)&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />if  true&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />fprintf(fid,'%s ',wrapper(matrix(r,c)));&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />else&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />fprintf(fid,'%f ', matrix(r,c));&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />end&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />else&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />if  true&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />fprintf(fid,'%s &amp; ',wrapper(matrix(r,c)));&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />else&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />fprintf(fid,'%f &amp; ', matrix(r,c));&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />end&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />end&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />end            &lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />fprintf(fid,' \\\\ \\hline \n');&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />end&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />fprintf(fid,'\\end{tabular}\n');&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />fprintf(fid,'\\end{document}\n');&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />fclose(fid);&lt;/div&gt;<br />&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;<br />endfunction&lt;/div&gt;<br />&nbsp;</code>&lt;/pre&gt;&lt;pre class="prettyprint"&gt;<code class="language-matlab">&nbsp;</code>&lt;/pre&gt;&lt;pre class="prettyprint"&gt;<code class="language-matlab">Best of luck</code>&lt;/pre&gt;&lt;pre class="prettyprint"&gt;<code class="language-matlab">- Glen </code>&lt;/pre&gt;&lt;div style="-qt-block-indent: 0; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; text-indent: 0px;"&gt;&lt;/div&gt;</p>
+
+  </div><a class="u-url" href="/posts_drafts/2013-09-03-generating-latex-table-of-matlaboctave" hidden></a>
+</article>
+
+        </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/%20/"></data>
+
+    <div class="wrapper">
+        
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list">
+                    <li class="p-name">Glen Berseth</li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/neo-x"><svg
+                class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+            </svg> <span class="username">neo-x</span></a></li><li><a
+            href="https://www.linkedin.com/in/glen-berseth-0523278b"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+            </svg> <span class="username">glen-berseth-0523278b</span></a></li><li><a
+            href="https://www.twitter.com/GlenBerseth"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+            </svg> <span class="username">GlenBerseth</span></a></li><li><a rel="me"
+            href="https://www.youtube.com/channel/UCOouaBg4gHIlNvPkJn_8ooA"
+            title="Real Lab"><svg class="svg-icon grey">
+                <use xlink:href="/assets/minima-social-icons.svg#youtube"></use>
+            </svg> <span class="username">Real Lab</span></a></li></ul></div>
+
+            <div class="footer-col footer-col-3">
+                <p>I (he/him/il) am an assistant professor at the University de Montreal and Mila. My research explores how to use deep learning and reinforcement learning to develop generalist robots.</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer></body>
+
+</html>
