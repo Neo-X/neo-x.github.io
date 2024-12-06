@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> | Glen Berseth</title>
+    <link rel="canonical" href="/posts_drafts/2018-01-19-DeepRL-Algorithms">
+    
+
+    <meta property="og:title" content="">
+    <meta property="og:url" content="/posts_drafts/2018-01-19-DeepRL-Algorithms">
+    <meta property="og:site_name" content="Glen Berseth">
+    <meta name="twitter:card" content="summary">
+    <meta property="twitter:title" content="">
+
+	<script type="text/javascript" id="MathJax-script" async
+	  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
+    <script type="application/ld+json">
+    {"@type":"WebSite","headline":"Glen Berseth","url":"/","name":"Glen Berseth","@context":"https://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- <link rel="stylesheet" href="/assets/main.css"> --></head>
+<body><header class="site-header">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/">Glen Berseth</a><nav class="site-nav">
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+            <label for="nav-trigger">
+                <span class="menu-icon">
+                    <svg viewBox="0 0 18 15" width="18px" height="15px">
+                        <path d="M1.5 1.5 h15 M1.5 7.5 h15 M1.5 13.5 h15" stroke="black" stroke-width="3" stroke-linecap="round" />
+                      </svg>
+                </span>
+            </label>
+
+            <div class="trigger">
+                    <a class="page-link" href="/">Home</a>
+                
+                    <a class="page-link" href="/people/">People</a>
+                
+                    <a class="page-link" href="/publications/">Publications</a>
+                
+                    <a class="page-link" href="/join/">Join Us</a>
+                
+                    <a class="page-link" href="/posts/">Posts</a>
+                
+                    <a class="page-link" href="/teaching/">Teaching</a>
+                
+                <a class="page-link" href="/fr/posts_drafts/2018-01-19-DeepRL-Algorithms">Fr</a>
+                
+            </div>
+        </nav></div>
+    
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <article class="post">
+
+    <header class="post-header">
+        <h1 class="post-title"></h1>
+    </header>
+    <div class="post-content">
+        <p>#Intro</p>
+
+<p>In recent years there has been an explosion in Deep Reinforcement learning research resulting in the creation of many different RL algorithms that work with deep networks. In DeepRL and RL, in general, the goal is to optimize a policy $\pi(a|s,\theta)$ with parameters $\theta$ with respect to the future discounted reward.
+\(J(\pi) = \mathbb{E} [\sum_\limits{t=0}^{T} \gamma^{t} r_{t}]\)
+It can be difficult to keep track of the many algorithms, let alone their properties, and when it is best to use which one.</p>
+
+<p>In this post, I make an effort to organize several RL methods into a few groups. This organization helps clear up some misconceptions of different algorithms and demystifies what these properties mean, for example, on-policy vs off-policy.</p>
+
+<h1 id="algorithms-and-properties">Algorithms and Properties</h1>
+
+<p>Here a table of popular RL algorithms is given.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th style="text-align: center">on/off policy</th>
+      <th style="text-align: right">action space support</th>
+      <th style="text-align: right">exploration method</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TRPO</td>
+      <td style="text-align: center">on-policy</td>
+      <td style="text-align: right">discrete and continuous</td>
+      <td style="text-align: right">e-greedy and Gaussian noise</td>
+    </tr>
+    <tr>
+      <td>DDPG</td>
+      <td style="text-align: center">off-policy</td>
+      <td style="text-align: right">continuous only</td>
+      <td style="text-align: right">Ornstein–Uhlenbeck process</td>
+    </tr>
+    <tr>
+      <td>A3C</td>
+      <td style="text-align: center">on-policy</td>
+      <td style="text-align: right">discrete and continuous</td>
+      <td style="text-align: right">e-greedy and Gaussian noise</td>
+    </tr>
+    <tr>
+      <td>CACLA</td>
+      <td style="text-align: center">on-policy</td>
+      <td style="text-align: right">continuous</td>
+      <td style="text-align: right">e-greedy and Gaussian noise</td>
+    </tr>
+    <tr>
+      <td>DQN</td>
+      <td style="text-align: center">off-policy</td>
+      <td style="text-align: right">discrete</td>
+      <td style="text-align: right">e-greedy</td>
+    </tr>
+    <tr>
+      <td>A2C</td>
+      <td style="text-align: center">on-policy</td>
+      <td style="text-align: right">discrete and continuous</td>
+      <td style="text-align: right">e-greedy and Gaussian noise</td>
+    </tr>
+    <tr>
+      <td>Q-Prop</td>
+      <td style="text-align: center">on-policy</td>
+      <td style="text-align: right">discrete and continuous</td>
+      <td style="text-align: right">e-greedy and Gaussian noise</td>
+    </tr>
+    <tr>
+      <td>PPO</td>
+      <td style="text-align: center">on-policy</td>
+      <td style="text-align: right">discrete and continuous</td>
+      <td style="text-align: right">e-greedy and Gaussian noise</td>
+    </tr>
+    <tr>
+      <td>CEM</td>
+      <td style="text-align: center">on-policy</td>
+      <td style="text-align: right">discrete and continuous</td>
+      <td style="text-align: right">e-greedy and Gaussian noise</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="properties">Properties</h3>
+
+<p>**Exploration Method: **</p>
+
+<ul>
+  <li><strong>e-greedy:</strong> Is primarily used for discrete action domains. The main idea being that a random action should be chosen with a non-zero probability.</li>
+</ul>
+
+<table width="100%">
+ <tr width="100%">
+     <td>
+          <img src="projects/DYmistifying/actionDist.png" width="90%" />
+          &lt;/br&gt;
+          Original action selection probability
+    </td>
+     <td>
+          <img src="projects/DYmistifying/actionDistEpsilon.png" width="90%" />
+            <br />
+          with epsilon greedy
+    </td>
+ </tr>
+</table>
+<ul>
+  <li><strong>Gaussian:</strong> Is typically for continuous action domains and one of a few methods used. Many methods using the neural network to model the mean of a number of Gaussian distributions that may have a fixed variance.</li>
+  <li><strong><a href="https://en.wikipedia.org/wiki/Ornstein%E2%80%93Uhlenbeck_process">Ornstein–Uhlenbeck</a></strong> This is a different kind of exploration noise that is based on “the velocity of a massive Brownian particle under the influence of friction”. Often used for Q-learning with DDPG.</li>
+</ul>
+
+<p>One property of RL algorithms I still rack my brain is on-policy vs off-policy. The line between these two very fuzzy. 
+While it is known that any method that uses an action-valued function is off policy, some methods that claim to be on-policy are used in ways that seem very off-policy.
+In some papers, the amount of data collected before performing training updates is in the 100,000s, far more than anything I have ever used for off-policy learning.
+It has also been shown that <a href="https://learningai.io//projects/2017/07/28/ai-gym-workout.html">keeping around data from the last few data collection cycles</a> is beneficial.
+We also seem to gloss over the fact that we do not train the policy and value function to convergence between data collection cycles.
+Therefore, in practice, we are always using an off-policy critic.</p>
+
+<h1 id="learning-algorithms">Learning algorithms</h1>
+
+<h2 id="continuous-actor-critic-learning-automaton-cacla">Continuous Actor-Critic Learning Automaton (CACLA)</h2>
+
+<p><a href="http://ieeexplore.ieee.org/document/4220844/?reload=true">CACLA</a> can be thought of as a simpler policy learning algorithm that was developed before some of the new formal mathematical methods. A critic (value function) and policy are learned at the same time (aka actor-critic method). CACLA uses the critic as a <em>score function</em> to decide from which actions the policy should learn. In this case, it is used as an indicator function, an action that performs better than the current estimate of the policies future discounted reward is given to the policy for training. The policy uses MSE loss to fit the policy network to these better than expected actions.</p>
+
+<p><strong>Pros:</strong></p>
+
+<ol>
+  <li>CACLA seems to work very well with neural networks. Being able to use a simple MSE loss for the policy makes SGD very stable.</li>
+</ol>
+
+<p><strong>Cons:</strong></p>
+
+<ol>
+  <li>Cannot adjust the amount of exploration the policy should perform.</li>
+  <li>The original method only uses single-step returns to determine if the reward for action is above average.</li>
+</ol>
+
+<h2 id="asynchronous-actor-critic-a3c">Asynchronous Actor-Critic (A3C)</h2>
+
+<p><a href="https://arxiv.org/abs/1602.01783">A3C</a> can be thought of as a modification of CACLA in at least two ways. The MSE loss is traded with a log-likelihood loss, and the score function is exchanged for a multi-step return estimation. 
+Switching to a log-likelihood loss allows us to model the distribution of action better, including the policy variance. 
+In the case of continuous actions, the policy is modeled as a vector of Gaussian distributions. 
+This allows for a better trade-off between the bias of the value function and the variance in Monte-Carlo samples from the simulation allows us to include a loss for the variance in the policy. Now we can update the amount of exploration we think the policy should be performing in an on-policy state-dependent manner.</p>
+
+<p><strong>Pros:</strong></p>
+
+<ol>
+  <li>Using the on-policy method with log-likelihood loss allows the exploration to be learned.</li>
+  <li>The method can be parallelized well.</li>
+</ol>
+
+<p><strong>Cons:</strong></p>
+
+<ol>
+  <li>In practice, stable exploration is still a challenge. An <em>Entropy</em> term is added to the loss to help increase exploration.</li>
+  <li>The policy mean can still change dramatically between training updates, making it challenging to converge on a good policy.</li>
+</ol>
+
+<h2 id="deep-deterministic-policy-gradient-ddpg">Deep Deterministic Policy Gradient (DDPG)</h2>
+
+<p><a href="https://arxiv.org/abs/1509.02971">DDPG</a> is a slightly different framework, more like DQN. Instead of using a score function to push the policy in the direction of actions with higher reward using the stochastic policy gradient, instead, an action-valued Q-function is used. This action-valued function $q(s,a)$ can be used to compute the direction to change the current action in order to increase the overall future discounted reward. 
+Simply, the method maximizes $q(s,\pi(a|s))$. 
+However, this method does not account for how exploration should be performed. 
+Approximating a Q-function is done off-policy, allowing the Q-function to learn the value of taking actions in states the policy might not explore and in doing so, better estimate the value over all actions. 
+This property should theoretically allow for the learning of a Q-function that encodes the best action to take in any state. 
+In practice this model learns estimates over the current policy mean in order to improve the policy.</p>
+
+<p><strong>Pros:</strong></p>
+
+<ol>
+  <li>It can work very well for high dimensional continuous action problems.</li>
+  <li>Learns an action-valued function instead of a state-valued function.</li>
+</ol>
+
+<p><strong>Cons:</strong></p>
+
+<ol>
+  <li>Does not explicitly provide a formalism for the exploration to be used.</li>
+  <li>Needs a target network to increase stability while learning an action-valued function.</li>
+  <li>The policy is only as good as the Q-function is accurate…</li>
+</ol>
+
+<h2 id="trust-region-policy-optimization-trpo">Trust Region Policy Optimization (TRPO)</h2>
+
+<p><a href="https://arxiv.org/abs/1502.05477">TRPO</a> is an algorithm with some good theoretical properties. Stochastic policy optimization can be challenging because the policy distribution can change quickly after network updates. 
+These quick changes, in combination with the properties of deep neural networks, in particular, that deep nets like to receive small gradients, make learning challenging. 
+When the stochasticity grows, so do the gradients; when the gradients grow, so does the stochasticity of the policy. 
+TRPO uses conjugate gradient descent with a line search to optimize the policy parameters $\theta$ with respect to a constraint on the KL divergence. 
+The use of a KL constraint assists in keeping the policy’s stochastic distribution from changing to much between updates.</p>
+
+<p><strong>Pros:</strong></p>
+
+<ol>
+  <li>TRPO can work very well and is known even to exhibit monotonic policy improvements.</li>
+</ol>
+
+<p><strong>Cons:</strong></p>
+
+<ol>
+  <li>Challenging to use TRPO for things like recurrent neural networks.</li>
+  <li>Lots of memory is needed to compute the Fisher vector product (AKA gradient vector product) of the parameters $\theta$</li>
+  <li>Not easily parallelizable.</li>
+</ol>
+
+<h3 id="generalize-advantage-estimation-gae">Generalize Advantage Estimation (GAE)</h3>
+
+<p>While not an RL algorithm, GAE is used to reduce the variance in the advantage estimates for the policy.
+TRPO uses a KL divergence penalty to reduce the amount the policy distribution can shift between updates. However, there can still be a significant variance in the advantage estimate.</p>
+
+<p><img src="projects/DYmistifying/policyGrad.svg" alt="Pelican" /></p>
+
+<p>Here we can see a set of states labeled with their future discounted reward;advantage (from samples);baseline.
+The True policy gradient is visualized with the ellipses.
+One of the challenges with estimating the Advantage is that it is based on the future discounted reward. 
+The agent could have randomly found some suitable reward for a few timesteps and then wandered into a very low reward area of the state space.
+The low average reards will result in a low overall future discounted reward and a high Advantage for the states the agent explored in the high reward area. 
+This advantage is good, but for practical reasons having widely different advantage values can lead to large and noisy gradients.</p>
+
+<p><a href="https://arxiv.org/abs/1506.02438">GAE</a> reduces the variance by mixing the advantage estimates from just the data with estimates computed from the returns using the value function (baseline).</p>
+
+<h2 id="proximal-policy-optimization-ppo">Proximal Policy Optimization (PPO)</h2>
+
+<p><a href="https://arxiv.org/abs/1707.06347">PPO</a> was born from work that was done to combat the weaknesses of TRPO while keeping monotonic behaviour. PPO uses stochastic gradient descent instead of conjugate gradient descent to optimize the policy parameters. Instead of a hard constraint on the KL divergence, a soft constraint is used. This constraint is implemented in the form of a boundary violation penalty or a clipping term (the official version). PPO has been shown to have close to or better performance than TRPO.</p>
+
+<p><strong>Pros:</strong></p>
+
+<ol>
+  <li>Parallelizable.</li>
+  <li>Does not use as much memory as TRPO</li>
+</ol>
+
+<p><strong>Cons:</strong></p>
+
+<ol>
+  <li>KL can still change significantly between updates. Some network-tuning could be necessary</li>
+</ol>
+
+<h2 id="q-prop-q-prop">Q-Prop (Q-Prop)</h2>
+
+<p>It would be really nice if we could combine the good parts of off-policy learning with those of on-policy learning. <a href="https://arxiv.org/abs/1611.02247">Q-Prop</a> is one of a few works in this area. 
+The goal is to combine the gradients from DDPG with unbiased on-policy data. Methods like DDPG can never be extremely accurate because the gradients passed to the actor come from an imperfect deep network with its own error. To get around this inaccuracy, it is better to use data samples to reduce this error directly. Q-Prop does this by using an additional estimate of the advantage function (as the Q-function from DDPG) as a control variate to reduce the advantage variance from GAE.</p>
+
+\[\Delta_{\theta} J(\theta) = E_{\rho \pi}[\Delta_{\theta}~log~\pi(a|s,\theta)(\hat{A}(s_t,a_t) - \bar{A}_w(s_t, a_t)] + E_{\rho \pi} [\Delta_a Q_w(s_t, a)|_a=\mu(s_t,\theta)\Delta_\theta \mu(s_t, \theta)]\]
+
+<p>This estimate works to reduce the advantage variance further, However, <a href="https://arxiv.org/abs/1802.10031">it might not be so clear that this method is an imrovement</a>.</p>
+
+<p>##Discussion</p>
+
+<p>There has been a considerable amount of RL research that shows RL has promise and can find high-value solutions.
+However, RL still suffers from a tenancy to get trapped in local minima.
+Some believe this is related to the basic models we use for policy distributions.
+In this area, some people have used parameter space noise exploration instead of action space (<a href="https://arxiv.org/abs/1706.01905">Parameter Space Noise for Exploration</a>,<a href="https://arxiv.org/abs/1706.10295">Noisy Networks for Exploration</a>).
+Others are doing work on better frameworks to exploit the data better.
+Still, more work using <a href="https://arxiv.org/abs/1510.09142">Stochastic Value Gradients</a> learns a model to optimize the stochastic bellman equation.
+<a href="https://arxiv.org/abs/1707.06887">A Distributional Perspective on Reinforcement Learning</a> focuses on learning an approximate value distribution.
+A similar method has been applied to DDPG as well 
+<a href="https://openreview.net/forum?id=SyZipzbCb">Distributed Distributional Deterministic Policy Gradients</a></p>
+
+<p>There are still many more RL algorithms than the ones mentioned here. These are the ones that are popular, and I am more familiar with.
+This post has followed a road map of how RL research has progressed and why.
+There are many other aspects to consider when using an RL algorithm, such as: how difficult is the problem to be solved, how many dimensions is the action space, does the state include images, etc.
+If you are interested in using an RL algorithm, I suggest picking one off this list and possibly research some of the related papers that may have made small modifications to the algorithm. 
+Also, checking for papers/projects that solved a problem similar to what you are working on is a good start.</p>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+
+var disqus_config = function () {
+this.page.url = www.fracturedplane.com;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 13; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://www-fracturedplane-com.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
+
+</article>
+        </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/%20/"></data>
+
+    <div class="wrapper">
+        
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list">
+                    <li class="p-name">Glen Berseth</li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/neo-x"><svg
+                class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+            </svg> <span class="username">neo-x</span></a></li><li><a
+            href="https://www.linkedin.com/in/glen-berseth-0523278b"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+            </svg> <span class="username">glen-berseth-0523278b</span></a></li><li><a
+            href="https://www.twitter.com/GlenBerseth"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+            </svg> <span class="username">GlenBerseth</span></a></li><li><a rel="me"
+            href="https://www.youtube.com/channel/UCOouaBg4gHIlNvPkJn_8ooA"
+            title="Real Lab"><svg class="svg-icon grey">
+                <use xlink:href="/assets/minima-social-icons.svg#youtube"></use>
+            </svg> <span class="username">Real Lab</span></a></li></ul></div>
+
+            <div class="footer-col footer-col-3">
+                <p>I (he/him/il) am an assistant professor at the University de Montreal and Mila. My research explores how to use deep learning and reinforcement learning to develop generalist robots.</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer></body>
+
+</html>
