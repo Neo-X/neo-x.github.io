@@ -319,3 +319,20 @@
       fr: Apprentissage par renforcement
     - en: Multi-task Generalisation
       fr: Généralisation multitâche
+
+- name: Tabitha Edith Lee
+  title: postdoc
+  cosupervisor: Yoshua Bengio
+  picture: tabitha
+  website: https://tabula-rosa.github.io/
+  period:
+    start: 2025-02-24
+  topics:
+    - en: Causality
+      fr: Causalité
+    - en: Reinforcement Learning
+      fr: Apprentissage par renforcement
+    - en: Representation Learning
+      fr: Apprentissage de représentations
+    - en: Robotics
+      fr: Robotique
