@@ -319,3 +319,15 @@
       fr: Apprentissage par renforcement
     - en: Multi-task Generalisation
       fr: Généralisation multitâche
+
+- name: Ali
+  title: intern
+  picture: ali
+  website: https://www.linkedin.com/in/ali-midhat-45446221b
+  period:
+    start: 2025-02-11
+  topics:
+    - en: Deep Reinforcement Learning
+      fr: Apprentissage profond par renforcement
+    - en: Morphology-agnostic Learning 
+      fr: Apprentissage agnostique à la morphologie
