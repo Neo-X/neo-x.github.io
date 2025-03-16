@@ -311,3 +311,17 @@
       fr: Développement durable
     - en: Urban Agriculture
       fr: Urban Agriculture
+
+- name: Homayoun Honari
+  title: intern
+  picture: homayoun
+  website: https://www.linkedin.com/in/homayoun-honari/
+  period:
+    start: 2025-02-01
+  topics:
+    - en: Deep Reinforcement Learning
+      fr: Apprentissage par renforcement
+    - en: Robotics
+      fr: Robotique
+    - en: Safety
+      fr: Sequrité
