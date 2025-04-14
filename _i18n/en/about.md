@@ -10,3 +10,4 @@ I am an assistant professor at the <a href="https://diro.umontreal.ca/accueil/">
  
  
 - I support [Slow Science](http://slow-science.org/).
+- This short [research statement](/assets/projects/RS-Berseth-short.pdf) explains my labs fundamental research goals.
