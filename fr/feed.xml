@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="fr"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="fr" /><updated>2025-05-24T14:28:59-04:00</updated><id>/feed.xml</id><subtitle>I (he/him/il) am an assistant professor at the University de Montreal and Mila. My research explores how to use deep learning and reinforcement learning to develop generalist robots.</subtitle><entry><title type="html">Data Science Course (IFT6758B)</title><link href="/blog/2022/09/08/IFT6163-DataScience.html" rel="alternate" type="text/html" title="Data Science Course (IFT6758B)" /><published>2022-09-08T10:20:00-04:00</published><updated>2022-09-08T10:20:00-04:00</updated><id>/blog/2022/09/08/IFT6163-DataScience</id><content type="html" xml:base="/blog/2022/09/08/IFT6163-DataScience.html"><![CDATA[<h1 id="data-science-course-ift6758b">Data Science Course (IFT6758B)</h1>
+
+<p>I teach a course on Data Science that covers the most imprtant concepts needed for students to become good data scientists.</p>
+
+<h2 id="content-and-objectives-of-class">Content and objectives of class</h2>
+
+<p>This course is an introduction to data science (DS), a science that combines statistics, data processing, machine learning, scientific inquiry, visualization, business analytics, and big data. The purpose of data science is to address or gain insight into some problem in the real world by the application of computational and statistical techniques.</p>
+
+<p>The course will cover the following subjects:.</p>
+
+<p>Notions covered (indicative titles):</p>
+
+<ul>
+  <li>Conda</li>
+  <li>Version Control</li>
+  <li>Databases</li>
+  <li>Pandas</li>
+  <li>Containers</li>
+  <li>Data Visualization</li>
+  <li>Data collection, web scraping</li>
+  <li>Virtualization and Docker</li>
+  <li>Feature engineering</li>
+  <li>Regression</li>
+  <li>Hypothesis Testing</li>
+  <li>Classification Problems with Scikit-Learn</li>
+  <li>Feature Selection, outlier detection</li>
+</ul>]]></content><author><name>Glen Berseth</name></author><category term="Teaching" /><category term="Machine" /><category term="Learning," /><category term="Data" /><category term="Science" /><summary type="html"><![CDATA[Data Science Course (IFT6758B)]]></summary></entry><entry><title type="html">Montreal Robotics Summer School (2022)</title><link href="/blog/2022/08/08/MRSS2022.html" rel="alternate" type="text/html" title="Montreal Robotics Summer School (2022)" /><published>2022-08-08T10:20:00-04:00</published><updated>2022-08-08T10:20:00-04:00</updated><id>/blog/2022/08/08/MRSS2022</id><content type="html" xml:base="/blog/2022/08/08/MRSS2022.html"><![CDATA[<h1 id="montreal-robotics-summer-school-2022">Montreal Robotics Summer School (2022)</h1>
+
+<div align="center">     <table align="center">        <tr> <td width="33%">   <img width="100%" src="/assets/projects/MRSS/go1.jpg" /> </td>   <td width="33%">   <img width="100%" src="/assets/projects/MRSS/human-robot-collaboration.gif" /> </td>  <td width="33%">   <img width="100%" src="/assets/projects/MRSS/champion-photo.png" /> </td> </tr><tr>    <td width="33%">   The Go1 hardware </td><td width="33%"> Practicing with hardware </td><td width="33%">   This years champions </td> </tr> </table></div>
+
+<p>Robotics is a rapidly growing field with interest from around the world. This summer school offers tutorials and lectures on state-of-the-art machine learning methods for training the next generation of learning robots. This summer school is an extension supported by the many robotics groups around Montreal.</p>
+
+<p>The tutorials and interaction with real robot hardware will take place at Mila, the Quebec AI Institute, the largest academic organization for deep learning researchers worldwide. Attendees will have the opportunity to learn about current deep reinforcement learning methods, how to apply them to real hardware, sim2real transfer techniques, and experience with legged robotics.</p>
+
+<p><strong>Challenge:</strong> On the summer school’s last day, teams will use their new skills to compete in designing the most robust navigation controller on a quadruped robot to navigate an obstacle course. The obstacle course will feature many changes in terrain and difficult to traverse obstacles for the robot. Teams will be given multiple rounds to see how far their robot can make it across the terrain. The team with the best final performance wins!</p>
+
+<p><strong>Who:</strong> This summer school tailors to graduate students with a strong programming background and experience with algorithms.</p>
+
+<h2 id="what-students-learn">What Students Learn</h2>
+
+<p>The goal of the summer school is to give more students skills on how to control and program navigating robots. The content assumes a strong knowledge of python programming, with some Linux and hardware skills.</p>
+
+<ol>
+  <li>We will start with an introduction to robotics.</li>
+  <li>Introduction to Robotics software stack (control and ROS, etc)</li>
+  <li>Presentation on the robotics simulation and how to control the robot</li>
+  <li>State estimation</li>
+  <li>Introduction to deep learning and computer vision for state estimation</li>
+  <li>Presentation on the hardware and how to control the robot using Python</li>
+  <li>SLAM</li>
+  <li>Planning and planning with learned models</li>
+  <li>Introduction to reinforcement learning and sim2real transfer</li>
+</ol>
+
+<h2 id="sponsors">Sponsors</h2>
+
+<ul>
+  <li>Nvidia</li>
+  <li>Ahead.io</li>
+  <li>Mila</li>
+  <li>IVADO</li>
+</ul>]]></content><author><name>Glen Berseth</name></author><category term="Teaching" /><category term="Reinforcement" /><category term="Learning," /><category term="Continual" /><category term="Learning," /><category term="Robotics" /><summary type="html"><![CDATA[Montreal Robotics Summer School (2022)]]></summary></entry><entry><title type="html">Course in Robot (real-world-agent) Learning</title><link href="/blog/2021/09/08/IFT6163-RobotLearning.html" rel="alternate" type="text/html" title="Course in Robot (real-world-agent) Learning" /><published>2021-09-08T10:20:00-04:00</published><updated>2021-09-08T10:20:00-04:00</updated><id>/blog/2021/09/08/IFT6163-RobotLearning</id><content type="html" xml:base="/blog/2021/09/08/IFT6163-RobotLearning.html"><![CDATA[<h1 id="course-in-robot-real-world-agent-learning">Course in Robot (real-world-agent) Learning</h1>
+
+<div align="center">     <table align="center">        <tr>    
+<td width="33%">   <img width="100%" src="/assets/projects/SMiRL/vizdoom/vizdoom_dtl.gif" /> </td>  
+<td width="33%">   <img width="100%" src="/assets/projects/DiscoRL/DisCoRL.png" /> </td>
+<td width="33%">   <img width="100%" src="/assets/projects/ReLMM/complex_room_short.gif" /> </td>
+</tr>
+
+<tr>    
+
+<td width="33%">   Learning from images </td>
+<td width="33%"> Learning reward functions </td>
+<td width="33%">   Learning in the real world </td>
+
+</tr> </table></div>
+
+<p>I teach a course on machine learning for the real world. This course focuses on deep reinforcement learning methods and their application to control real world systems (robotics, etc). <a href="https://diro.umontreal.ca/public/FAS/diro/Documents/1-Programmes-cours/Horaires/2023Hiver2Cyc.html">Here</a> is a link to where you can find the course offered on the DIRO web page as IFT 6163.</p>
+
+<p>Learning methods such as deep reinforcement learning have shown success in solving simulated planning and control problems but struggle to produce diverse, intelligent behaviour on systems that interact in the real world (robots). This class aims to discuss these limitations and study methods to overcome them and enable agents capable of training autonomously, becoming learning and adapting systems that require little supervision. By the end of the course, each student should have a solid grasp of different techniques to train agents to accomplish tasks in the real world. These techniques covered in the course include but are not limited to reinforcement learning, batch RL, multi-task RL, model-based RL, Sim2Real, hierarchical RL, goal-conditioned RL, multi-Agent RL, the fragility of RL, meta-level decision making and learning reward functions.</p>
+
+<h2 id="target-and-objectives-of-the-course">Target and objectives of the course</h2>
+
+<p>Learn the fundamental concepts of machine learning for robotics applications. Such concepts are considered advanced and require a good foundation in machine learning, deep learning and reinforcement learning. This involves:</p>
+
+<ul>
+  <li>Becoming familiar with the main types of machine learning models for a control policy (from model-based to model-free)</li>
+  <li>Developing the ability to read research articles, contextualize them and develop a critical mind;</li>
+  <li>Develop presentation skills;</li>
+  <li>Develop their research autonomy in machine learning.</li>
+  <li>Develop skills related to the strengths and weaknesses of current machine learning methods when being applied to real-world problems.</li>
+</ul>
+
+<h2 id="prerequisites-of-the-course">Prerequisites of the course</h2>
+
+<p>You must have completed or are taking in parallel one of the following courses (or equivalent).</p>
+
+<ul>
+  <li><a href="https://mitliagkas.github.io/ift6390-ml-class/">IFT 6390, Fundamentals of machine learning</a></li>
+  <li><a href="http://admission.umontreal.ca/cours-et-horaires/cours/IFT-6758B/">IFT 6758B</a>    Data science</li>
+  <li><a href="http://www-labs.iro.umontreal.ca/~slacoste/teaching/ift6269/A21/">IFT6269 : Modèles graphiques probabilistes et apprentissage</a></li>
+</ul>
+
+<p>The course will also use Python heavily. I will assume familiarity with linear algebra, probability, statistics, planning, optimization, and operating systems (e.g. multi-threading and memory management). You also need to be able to read and understand research papers from NeurIPS, RSS, ICRA, CoRL, and ICLR.</p>
+
+<h2 id="lectures-covering-topics-related-to-learning-robots-as-well-as-programming-assignments-and-a-final-project">Lectures covering topics related to learning robots as well as programming assignments and a final project.</h2>
+
+<p>The objectives of the assignments and final projects will be:</p>
+
+<ul>
+  <li>Software knowledge: Learning about the available software that is used for deep reinforcement learning.</li>
+  <li>Analysis skills: Collecting proper statistics of results and using server computers and docker to reproduce experiments and validate results.</li>
+  <li>Proposal of a new idea to explore for the final project based on the lectures;</li>
+  <li>Learn how to understand the potential of a method in the real world (positive or negative, social and environmental);</li>
+  <li>Exploration with final project: More free-form investigation of advanced topics from class that produces reusable code, reproducible results and a written report.</li>
+  <li>Estimation of the impact that the new idea could have in an industrial context;</li>
+</ul>
+
+<p>The final project will be achieved as a team of two. Research in academia and industry involves working with others to achieve research goals. This project will evaluate the students’ ideas, research process understanding, teamwork, and presentation.</p>
+
+<p>Regarding the lectures, the instructor will provide live lectures on the topics each week, focusing on their understanding, application, and limitations.</p>
+
+<h2 id="evaluative-approach-and-weighting-indicative-only">EVALUATIVE APPROACH AND WEIGHTING (indicative only)</h2>
+<ul>
+  <li>40%: Programming assignments. (This is needed to provide skills necessary to perform a good final project in the class)</li>
+  <li>10%: Class participation and discussing readings.</li>
+  <li>15%: Midterm on concepts</li>
+  <li>35%: Final project</li>
+</ul>
+
+<h3 id="programming-assignments">Programming Assignments</h3>
+
+<p>The programming assignments cover topics that are important to perform research on combining machine learning and robots. They will cover:</p>
+
+<ul>
+  <li>Behaviour cloning and imitation learning</li>
+  <li>Model-free (PPO) and model-based RL methods (DDPG or PETS).</li>
+  <li>Exploration and pretraining methods, such as HRL and Goal conditioned RL.</li>
+  <li>Safe Exploration</li>
+  <li>Learning reward functions (un/smi-supervised RL)</li>
+</ul>
+
+<p>The assignments are also designed to familiarize students with the software needed to perform research:</p>
+
+<ul>
+  <li>Deep learning libraries, such as pytorch or tensorflow</li>
+  <li>Hardware constraints when working with real robots (power, compute, mechanical limits)</li>
+  <li>Distributed computing for running proper experiments</li>
+  <li>Visualization and analysis (the most important part)</li>
+</ul>
+
+<h3 id="final-project">Final Project</h3>
+
+<p>The final project is designed to let students spread their wings and apply the learned skills in an area of interest of the students while digging deeper into the concepts. Your project does not need to use real robot hardware but there are options to get hardware for this class. Each project will start with a proposal that will ensure the right scope for each project. The projects will be <strong>in groups of 2 or 3 students</strong>. However, to provide some ideas on the scope, a few examples are given below.</p>
+
+<ul>
+  <li>Re-implement a method in a new deep learning framework</li>
+  <li>Re-implement a method in a paper that did not release code (shame on them)</li>
+  <li>Choose a robot to get and train a model to make it solve a task, like walking.</li>
+  <li>Investigate a new method that improves exploration</li>
+  <li>Investigate a new method for learning an improved representation for learning and exploration.</li>
+  <li>Study Sim2Real by learning and transferring policies to another simulation or real robot hardware.</li>
+  <li>Perform a literature review of Sim2Real papers.</li>
+</ul>
+
+<p>One of the broad goals of the class project is also to refine your skills at defining reasonable projects that can be completed and are of sufficient quality.</p>
+
+<h3 id="real-robot-hardware">Real Robot Hardware</h3>
+
+<p>In order to use real hardware for your class project, you need to include the requested hardware in the project proposal. The course has money allocated to purchase hardware for projects.</p>
+
+<p>Some robot ideas for projects</p>
+
+<ul>
+  <li><a href="https://www.trossenrobotics.com/phantomx-ax-hexapod.aspx">Hexapod</a></li>
+  <li><a href="https://edu.irobot.com/what-we-offer/create-robot">iRobot</a></li>
+  <li><a href="https://www.sunfounder.com/products/picrawler-robot-kit">PiCrwaler</a></li>
+  <li><a href="http://www.locobot.org/">Locobot</a></li>
+  <li><a href="http://support.interbotix.com/html/specifications/rx150.html">ReactorX150 arm</a></li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<p>Some content related to the course that will be helpful to review.</p>
+
+<h3 id="other-related-courses">Other Related Courses</h3>
+
+<ul>
+  <li><a href="http://rail.eecs.berkeley.edu/deeprlcourse/">Deep reinforcement learning with Sergey Levine</a></li>
+  <li><a href="https://www.coursera.org/learn/machine-learning">Machine learning with Andrew Ng</a></li>
+  <li><a href="https://www.cs.ox.ac.uk/people/nando.defreitas/machinelearning/">Machine learning with Nando de Freitas</a></li>
+  <li><a href="https://cs231n.github.io/">Neural networks with Andrej Karpathy</a></li>
+  <li><a href="https://www.davidsilver.uk/teaching/">Reinforcement learning with David Silver</a></li>
+  <li><a href="https://cs330.stanford.edu/">Deep multi-task and meta learning with Chelsea Finn</a></li>
+</ul>
+
+<h3 id="relevant-textbooks">Relevant Textbooks</h3>
+
+<ul>
+  <li><a href="http://www.deeplearningbook.org/">Ian Goodfellow and Yoshua Bengio and Aaron Courville, Deep Learning</a></li>
+  <li><a href="http://incompleteideas.net/book/the-book-2nd.html">Sutton &amp; Barto, Reinforcement Learning: An Introduction (2nd edition)</a></li>
+  <li><a href="http://www.ualberta.ca/~szepesva/RLBook.html">Szepesvari, Algorithms for Reinforcement Learning</a></li>
+  <li><a href="http://www.athenasc.com/dpbook.html">Bertsekas, Dynamic Programming and Optimal Control, Vols I and II</a></li>
+  <li><a href="http://www.wiley.com/WileyCDA/WileyTitle/productCd-0471727822.html">Puterman, Markov Decision Processes: Discrete Stochastic Dynamic Programming</a></li>
+  <li><a href="http://adp.princeton.edu/">Powell, Approximate Dynamic Programming</a></li>
+</ul>]]></content><author><name>Glen Berseth</name></author><category term="Teaching" /><category term="Reinforcement" /><category term="Learning," /><category term="Continual" /><category term="Learning," /><category term="Robotics" /><summary type="html"><![CDATA[Course in Robot (real-world-agent) Learning]]></summary></entry></feed>

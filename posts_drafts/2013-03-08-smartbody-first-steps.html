@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> | Glen Berseth</title>
+    <link rel="canonical" href="/posts_drafts/2013-03-08-smartbody-first-steps">
+    
+
+    <meta property="og:title" content="">
+    <meta property="og:url" content="/posts_drafts/2013-03-08-smartbody-first-steps">
+    <meta property="og:site_name" content="Glen Berseth">
+    <meta name="twitter:card" content="summary">
+    <meta property="twitter:title" content="">
+
+	<script type="text/javascript" id="MathJax-script" async
+	  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
+    <script type="application/ld+json">
+    {"@type":"WebSite","headline":"Glen Berseth","url":"/","name":"Glen Berseth","@context":"https://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- <link rel="stylesheet" href="/assets/main.css"> --></head>
+<body><header class="site-header">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/">Glen Berseth</a><nav class="site-nav">
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+            <label for="nav-trigger">
+                <span class="menu-icon">
+                    <svg viewBox="0 0 18 15" width="18px" height="15px">
+                        <path d="M1.5 1.5 h15 M1.5 7.5 h15 M1.5 13.5 h15" stroke="black" stroke-width="3" stroke-linecap="round" />
+                      </svg>
+                </span>
+            </label>
+
+            <div class="trigger">
+                    <a class="page-link" href="/">Home</a>
+                
+                    <a class="page-link" href="/people/">People</a>
+                
+                    <a class="page-link" href="/publications/">Publications</a>
+                
+                    <a class="page-link" href="/join/">Join Us</a>
+                
+                    <a class="page-link" href="/posts/">Posts</a>
+                
+                    <a class="page-link" href="/teaching/">Teaching</a>
+                
+                <a class="page-link" href="/fr/posts_drafts/2013-03-08-smartbody-first-steps">Fr</a>
+                
+            </div>
+        </nav></div>
+    
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">SmartBody, first steps</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2013-03-08T11:06:00-05:00" itemprop="datePublished">Mar 8, 2013
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Glen B</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><br /><a href="http://smartbody.ict.usc.edu/">SmartBody</a> is a character animation platform originally developed at the <a href="http://usc.edu/">University of Southern California</a> <a href="http://ict.usc.edu/">Institute for Creative Technologies</a>. SmartBody provides locomotion, steering, object manipulation, lip syncing, gazing and nonverbal behavior in real time.<br />SmartBody is written in C++ and can be incorporated into most game  and simulation engines. SmartBody is a Behavioral Markup Language (BML)  realization engine that transforms BML behavior descriptions into  realtime animations. SmartBody runs on Windows, Linux, OSx as well as  the iPhone and Android devices.<br /><br />I want to use this to control the character animations for a video game made in Unity3D.<br /><br /> The package does say this it can work with<br />&lt;ul&gt;&lt;li&gt;Unity&lt;/li&gt;&lt;li&gt;Ogre&lt;/li&gt;&lt;li&gt;Unreal&lt;/li&gt;&lt;li&gt;Panda3D&lt;/li&gt;&lt;li&gt;GameBryo&lt;/li&gt;&lt;/ul&gt;However it supports Unity and Ogre actively.  <br /><br />Goal: To send BML messages to a control characters in SmartBody via TCP or UDP messages.<br /><br />Tasks:<br />&lt;ol&gt;&lt;li&gt;<a href="http://fracturedplane.blogspot.ca/2013/02/get-and-compile-smart-body.html" target="_blank">Get and Compile SmartBody ( For Windows and Linux )</a>&lt;/li&gt;&lt;li&gt;<a href="http://fracturedplane.blogspot.ca/2013/03/smartbody-example.html" target="_blank">Familiarize self with SmartBody examples</a>&lt;/li&gt;&lt;li&gt;<a href="http://fracturedplane.blogspot.ca/2013/02/python-and-tcpip.html" target="_blank">Learn how to use TCP in Python.</a>&lt;/li&gt;&lt;li&gt;Produce code to control SmartBody character from python code combining what was learned from 2 and 3.<br /><br /><br />&lt;pre class="prettyprint"&gt;<code class="language-py"><br />import random<br /><br />import select<br />import socket<br />import sys<br /><br />service = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br /><br /># Connect the socket to the port where the server is listening<br />server_address = ('localhost', 3850)<br />print &gt;&gt; sys.stderr, 'connecting to %s port %s' % server_address<br />service.connect(server_address)<br /><br /><br />print "|--------------------------------------------|"<br />print "|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Starting Locomotion Type Demo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |"<br />print "|--------------------------------------------|"<br /><br />smartBodyRelitivePath = "../../smartbody/data/"<br /><br /># Add asset paths<br />scene.addAssetPath('script',smartBodyRelitivePath + 'sbm-common/scripts')<br />scene.addAssetPath('mesh', smartBodyRelitivePath + 'mesh')<br />scene.addAssetPath('mesh', smartBodyRelitivePath + 'retarget/mesh')<br />scene.addAssetPath('motion', smartBodyRelitivePath + 'ChrBrad')<br />scene.addAssetPath('motion', smartBodyRelitivePath + 'ChrRachel')<br />scene.addAssetPath('motion', smartBodyRelitivePath + 'retarget\motion')<br />scene.addAssetPath('motion', smartBodyRelitivePath + 'sbm-common/common-sk')<br />scene.loadAssets()<br /><br /><br /># Set scene parameters and camera<br />print 'Configuring scene parameters and camera'<br />scene.setScale(1.0)<br />scene.setBoolAttribute('internalAudio', True)<br />scene.run('default-viewer.py')<br />camera = getCamera()<br />camera.setEye(0, 2.87, 11.67)<br />camera.setCenter(0, 2.14, 9.81)<br />camera.setUpVector(SrVec(0, 1, 0))<br />camera.setScale(1)<br />camera.setFov(1.0472)<br />camera.setFarPlane(100)<br />camera.setNearPlane(0.1)<br />camera.setAspectRatio(0.966897)<br />scene.getPawn('camera').setPosition(SrVec(0, -5, 0))<br /><br /># Set joint map for Brad<br />print 'Setting up joint map for Brad'<br />scene.run('zebra2-map.py')<br />zebra2Map = scene.getJointMapManager().getJointMap('zebra2')<br />bradSkeleton = scene.getSkeleton('ChrBrad.sk')<br />zebra2Map.applySkeleton(bradSkeleton)<br />zebra2Map.applyMotionRecurse('ChrBrad')<br /><br /># Retarget setup<br />scene.run('motion-retarget.py')<br /># Animation setup<br />scene.run('init-param-animation.py')<br /><br /># Set up 3 Brads<br />print 'Adding characters into scene'<br />posX = -200<br />for i in range(1): # Only add one brad<br />&nbsp;&nbsp;&nbsp; baseName = 'ChrBrad%s' % i<br />&nbsp;&nbsp;&nbsp; brad = scene.createCharacter(baseName, '')<br />&nbsp;&nbsp;&nbsp; bradSkeleton = scene.createSkeleton('ChrBrad.sk')<br />&nbsp;&nbsp;&nbsp; brad.setSkeleton(bradSkeleton)<br />&nbsp;&nbsp;&nbsp; # Set position<br />&nbsp;&nbsp;&nbsp; bradPos = SrVec((posX + (i * 200))/100, 0, 0)<br />&nbsp;&nbsp;&nbsp; brad.setPosition(bradPos)<br />&nbsp;&nbsp;&nbsp; # Set up standard controllers<br />&nbsp;&nbsp;&nbsp; brad.createStandardControllers()<br />&nbsp;&nbsp;&nbsp; # Set deformable mesh<br />&nbsp;&nbsp;&nbsp; brad.setDoubleAttribute('deformableMeshScale', .01)<br />&nbsp;&nbsp;&nbsp; brad.setStringAttribute('deformableMesh', 'ChrBrad')<br />&nbsp;&nbsp;&nbsp; # Play idle animation<br />&nbsp;&nbsp;&nbsp; bml.execBML(baseName, '&lt;body posture="ChrBrad@Idle01"&gt;')<br />&nbsp;&nbsp;&nbsp; # Retarget character<br />&nbsp;&nbsp;&nbsp; retargetCharacter(baseName, 'ChrBrad.sk', False)<br /><br /># Turn on GPU deformable geometry for all<br />for name in scene.getCharacterNames():<br />&nbsp;&nbsp;&nbsp; scene.command("char %s viewer deformableGPU" % name)<br /><br /># Whether character has reached its target<br />brad1Reached = True<br /><br /># Paths for characters<br />brad1Path = [SrVec(-2, 8, 0), SrVec(-2, -8, 0)]<br /><br />bradCur = 0<br />pathAmt = 2<br /><br /><br />class LocomotionDemo(SBScript):<br />&nbsp;&nbsp;&nbsp; def update(self, time):<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Select is a creative way of checking to see if a service has data ready to read,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # ready to write to or an exceptional condition.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; r, w, e = select.select([service], [], [], 0.0)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if r: # There is something to read<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; data = service.recv(256)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; character = 'ChrBrad0'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # The last 0 in the target is zero just so the character stays on the plane<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bmlMessage = '<locomotion manner="jog" target="' + data + ' 0'+ '" type="basic">'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print "BML Message for " + character + ": " + bmlMessage<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bml.execBML(character, bmlMessage)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br /><br /># Run the update script<br />scene.removeScript('locomotiondemo')<br />locomotiondemo = LocomotionDemo()<br />scene.addScript('locomotiondemo', locomotiondemo)</locomotion>&lt;/body&gt;<br /></code>&lt;/pre&gt;&lt;/li&gt;&lt;/ol&gt;&lt;ol&gt;&lt;/ol&gt;</p>
+
+  </div><a class="u-url" href="/posts_drafts/2013-03-08-smartbody-first-steps" hidden></a>
+</article>
+
+        </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/%20/"></data>
+
+    <div class="wrapper">
+        
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list">
+                    <li class="p-name">Glen Berseth</li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/neo-x"><svg
+                class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+            </svg> <span class="username">neo-x</span></a></li><li><a
+            href="https://www.linkedin.com/in/glen-berseth-0523278b"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+            </svg> <span class="username">glen-berseth-0523278b</span></a></li><li><a
+            href="https://www.twitter.com/GlenBerseth"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+            </svg> <span class="username">GlenBerseth</span></a></li><li><a rel="me"
+            href="https://www.youtube.com/channel/UCOouaBg4gHIlNvPkJn_8ooA"
+            title="Real Lab"><svg class="svg-icon grey">
+                <use xlink:href="/assets/minima-social-icons.svg#youtube"></use>
+            </svg> <span class="username">Real Lab</span></a></li></ul></div>
+
+            <div class="footer-col footer-col-3">
+                <p>I (he/him/il) am an assistant professor at the University de Montreal and Mila. My research explores how to use deep learning and reinforcement learning to develop generalist robots.</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer></body>
+
+</html>

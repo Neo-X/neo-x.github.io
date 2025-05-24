@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-05-24T14:28:57-04:00</updated><id>/feed.xml</id><subtitle>I (he/him/il) am an assistant professor at the University de Montreal and Mila. My research explores how to use deep learning and reinforcement learning to develop generalist robots.</subtitle><entry><title type="html">Coding Generalist Robotics Policies from Scratch</title><link href="/blog/2024/10/08/Coding-GRPs.html" rel="alternate" type="text/html" title="Coding Generalist Robotics Policies from Scratch" /><published>2024-10-08T10:20:00-04:00</published><updated>2024-10-08T10:20:00-04:00</updated><id>/blog/2024/10/08/Coding-GRPs</id><content type="html" xml:base="/blog/2024/10/08/Coding-GRPs.html"><![CDATA[<p>In this tutorial and code, I share and walk through the process of building a mini generalist robotics policy. Starting from Karpthy’s mini GPT code, we create a vision transformer, and from the vision transformer, we create a generalist robotics policy, which is a type of multi-modal transformer model. The final model is based on the paper “Octo: An Open-Source Generalist Robot Policy,” which is a great paper that includes open-source code.</p>
+
+<h2 id="tutorial-video">Tutorial Video</h2>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/w12h2tKKl_s?si=KizIufcOMVV96RjQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+
+<h3 id="details">Details</h3>
+
+<p><a href="https://github.com/milarobotlearningcourse/mini-grp">The code</a> is mostly in Python. Is include a python notebook to recreate the steps in the video and a final small script that is just the final version for the model.</p>]]></content><author><name>Glen Berseth</name></author><category term="Tutorials" /><category term="Professional" /><category term="Developement" /><summary type="html"><![CDATA[In this tutorial and code, I share and walk through the process of building a mini generalist robotics policy. Starting from Karpthy’s mini GPT code, we create a vision transformer, and from the vision transformer, we create a generalist robotics policy, which is a type of multi-modal transformer model. The final model is based on the paper “Octo: An Open-Source Generalist Robot Policy,” which is a great paper that includes open-source code.]]></summary></entry><entry><title type="html">Open PostDoc Position in Machine Learning</title><link href="/blog/2024/07/14/PostDoc-in-ML.html" rel="alternate" type="text/html" title="Open PostDoc Position in Machine Learning" /><published>2024-07-14T10:20:00-04:00</published><updated>2024-07-14T10:20:00-04:00</updated><id>/blog/2024/07/14/PostDoc-in-ML</id><content type="html" xml:base="/blog/2024/07/14/PostDoc-in-ML.html"><![CDATA[<p>Looking to shape the future of machine learning? Interested in doing research in a stimulating, collaborative academic environment? We (<a href="http://www.fracturedplane.com/">Glen Berseth</a> and <a href="https://yoshuabengio.org/">Yoshua Bengio</a>) are hiring a postdoctoral researcher to collaborate across our labs. This position will be at Mila, the world-renowned AI hub located in Montreal, Canada—home to over 1,000 people pushing the boundaries of AI research. For this call, we are prioritizing candidates with experience in reinforcement learning, scientific discovery, or high-impact applications of ML. However, candidates who overlap in related areas are encouraged to apply.</p>
+
+<h3 id="related-research-areas">Related research areas</h3>
+
+<ul>
+  <li>Reinforcement learning</li>
+  <li>Generalization in reinforcement learning</li>
+  <li>ML for scientific discovery (new materials, drugs, etc)</li>
+  <li>Bayesian optimization</li>
+  <li>Foundational models for decision making</li>
+  <li>Real-world ML (robotics, process control, nuclear fusion, power grids, etc)</li>
+</ul>
+
+<h3 id="candidates-should">Candidates should</h3>
+
+<ul>
+  <li>Be interested in mentoring opportunities.</li>
+  <li>Have completed (or will soon complete) a PhD with experience in AI and machine learning or related topics.</li>
+  <li>Have some proficiency in Python and ML tools for Python.</li>
+  <li>A track record of publishing at top international venues (e.g., ICRL, ICML, NeurIPS, JMLR, TMLR, AAAI, etc.) or related (interpreted broadly to encourage more fresh research ideas).</li>
+  <li>A demonstrated ability to initiate new research projects and a desire to lead a research team.</li>
+</ul>
+
+<h3 id="application-procedures">Application procedures</h3>
+
+<p>Please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLScqXiMClkgDBvrIZyxdtx60Pcbj3JzZeC-LFg3yiUOZlvgyLw/viewform?usp=sf_link">this form</a> to apply for the position.
+We will directly contact shortlisted applicants – we may not be able to respond to follow-up requests.</p>
+
+<h2 id="about-montreal-quebec-canada">About Montreal, Quebec, Canada</h2>
+
+<p>Montreal is a city of about 2 million (Greater Montreal: 4 million) located in the province of Quebec, Canada. It is famous for its art and food scenes and its summer festivals, including the Montreal Jazz Festival. There are few days from late May to late September when there isn’t some festival going on. Although the winters can get cold, they enable a wide range of winter activities, from cross-country skiing on Mont-Royal Park to feasting on maple syrup-laden foods in late March.</p>]]></content><author><name>Glen Berseth</name></author><category term="Jobs" /><category term="Professional" /><category term="Developement" /><summary type="html"><![CDATA[Looking to shape the future of machine learning? Interested in doing research in a stimulating, collaborative academic environment? We (Glen Berseth and Yoshua Bengio) are hiring a postdoctoral researcher to collaborate across our labs. This position will be at Mila, the world-renowned AI hub located in Montreal, Canada—home to over 1,000 people pushing the boundaries of AI research. For this call, we are prioritizing candidates with experience in reinforcement learning, scientific discovery, or high-impact applications of ML. However, candidates who overlap in related areas are encouraged to apply.]]></summary></entry><entry><title type="html">DROID A Large-Scale In-the-Wild Robot Manipulation Dataset</title><link href="/blog/2024/02/08/Droid.html" rel="alternate" type="text/html" title="DROID A Large-Scale In-the-Wild Robot Manipulation Dataset" /><published>2024-02-08T10:20:00-05:00</published><updated>2024-02-08T10:20:00-05:00</updated><id>/blog/2024/02/08/Droid</id><content type="html" xml:base="/blog/2024/02/08/Droid.html"><![CDATA[<p>The creation of large, diverse, high-quality robot manipulation datasets is an important stepping stone on the path toward more capable and robust robotic manipulation policies. However, creating such datasets is challenging: collecting robot manipulation data in diverse environments poses logistical and safety challenges and requires substantial investments in hardware and human labour. As a result, even the most general robot manipulation policies today are mostly trained on data collected in a small number of environments with limited scene and task diversity. In this work, we introduce DROID (Distributed Robot Interaction Dataset), a diverse robot manipulation dataset with 76k demonstration trajectories or 350h of interaction data, collected across 564 scenes and 86 tasks by 50 data collectors in North America, Asia, and Europe over the course of 12 months. We demonstrate that training with DROID leads to policies with higher performance, greater robustness, and improved generalization ability. We open source the full dataset, code for policy training, and a detailed guide for reproducing our robot hardware setup.</p>
+
+<p>I would like to personally thank Simon for his contribution to this dataset via the make a wish foundation.</p>
+
+<h3 id="details">Details</h3>
+
+<p><a href="https://droid-dataset.github.io/">The Data</a>.</p>]]></content><author><name>Glen Berseth</name></author><category term="Paper" /><category term="Robotics," /><category term="Transformers" /><summary type="html"><![CDATA[The creation of large, diverse, high-quality robot manipulation datasets is an important stepping stone on the path toward more capable and robust robotic manipulation policies. However, creating such datasets is challenging: collecting robot manipulation data in diverse environments poses logistical and safety challenges and requires substantial investments in hardware and human labour. As a result, even the most general robot manipulation policies today are mostly trained on data collected in a small number of environments with limited scene and task diversity. In this work, we introduce DROID (Distributed Robot Interaction Dataset), a diverse robot manipulation dataset with 76k demonstration trajectories or 350h of interaction data, collected across 564 scenes and 86 tasks by 50 data collectors in North America, Asia, and Europe over the course of 12 months. We demonstrate that training with DROID leads to policies with higher performance, greater robustness, and improved generalization ability. We open source the full dataset, code for policy training, and a detailed guide for reproducing our robot hardware setup.]]></summary></entry><entry><title type="html">Graduate Applications Tips for Computer Science Students</title><link href="/blog/2023/09/14/GradApps.html" rel="alternate" type="text/html" title="Graduate Applications Tips for Computer Science Students" /><published>2023-09-14T10:20:00-04:00</published><updated>2023-09-14T10:20:00-04:00</updated><id>/blog/2023/09/14/GradApps</id><content type="html" xml:base="/blog/2023/09/14/GradApps.html"><![CDATA[<h1 id="graduate-applications-tips-for-computer-science-students">Graduate Applications Tips for Computer Science Students</h1>
+
+<p>A graduate application is made up of many parts, and each part serves a purpose and speaks to a different audience. Remember that the readers of these applications want to be confident that the applicant has the knowledge and passion to succeed in graduate school.</p>
+
+<p>To <strong>increase the chances of success,</strong> it is often helpful to have a short list of schools that best fit the student’s profile. For example, this will help find a good match between the student and the prof. Not all schools are this way, but before considering a student, the professor may want to know if the student has <strong>skills</strong> and <strong>interests</strong> in the <strong>same area</strong> as the professor. While professors may accept generally skilled students, all students will likely perform better if they share interests similar to the professor’s planned research direction. It is with this in mind I provide a few tips on how students can design tier applications to help find good pairs between graduates and professors, which will make the graduate student program more synergistic—starting with the purpose of each component of the application and what is essential to communicate.</p>
+
+<p><strong>Transcripts or Grades (learning ability)</strong></p>
+
+<p>Good <strong>grades</strong> show that a student can study and learn. Learning is an essential skill for graduate school as most of the job will be spent learning, whether in class or generating new knowledge for the research community. Getting good grades is important but possibly not the most critical aspect of the application.</p>
+
+<p><strong>The CV (leadership and independence)</strong></p>
+
+<p>The CV is meant to tell the reader about accomplishments. Students should organize this well to put their best achievements at the top of this document. This should focus on achievements that are not already listed in the transcripts. For example, if the student participated in interesting extra-curricular activities, competitions or student groups and what was learned from those experiences.</p>
+
+<p><strong>The Research Proposal (passion and creativity)</strong></p>
+
+<p>The proposal should communicate the types of problems the student is interested in working on and <strong>why the student is passionate enough to progress through the challenges during the program.</strong> The proposal should avoid repeating information in the transcripts and CV. It should be easier to find that information in those documents. For example, it is not very inspiring to say a student got good grades and wants to use ML/AI to detect dark matter. A more helpful item to put in the proposal document is a good story about why you are interested in this research area. Be honest and sincere here. Tell the story within a broad enough scope of research that you will be truly interested in.</p>
+
+<p><strong>You Reference Letter Writers (unbiased assessment)</strong>**</p>
+
+<p>The reference letters are designed to back up the content in the rest of the application. They are a third-person account of the student’s skills and their assessment of their potential. When looking for letter writers, it is good to get a mix of people who know you well and can comment on your work in detail and writers who are stronger in their research field.</p>
+
+<h2 id="contacting-faculty-before-applying"><strong>Contacting Faculty Before Applying</strong></h2>
+
+<p>Students can message professors to ask about open positions and express interest. If students are going to cold email professors, in the first line or two of the email, it will be helpful to include why the student thinks they are a good match with that individual professor. Also, just stating that the student is a great match may not work well because, for example, a professor’s research direction changes, and it can be presumptuous to assume a professor’s research plans.</p>
+
+<h2 id="practice-for-interviews"><strong>Practice for Interviews</strong></h2>
+
+<p>If you are offered an interview, practice beforehand by researching common interview questions and preparing thoughtful responses. This will help you feel more confident and be more articulate during the interview.</p>]]></content><author><name>Glen Berseth</name></author><category term="Teaching" /><category term="Professional" /><category term="Development" /><summary type="html"><![CDATA[Graduate Applications Tips for Computer Science Students]]></summary></entry><entry><title type="html">Montreal Robotics Summer School (2023)</title><link href="/blog/2023/06/24/MRSS2023.html" rel="alternate" type="text/html" title="Montreal Robotics Summer School (2023)" /><published>2023-06-24T10:20:00-04:00</published><updated>2023-06-24T10:20:00-04:00</updated><id>/blog/2023/06/24/MRSS2023</id><content type="html" xml:base="/blog/2023/06/24/MRSS2023.html"><![CDATA[<h1 id="montreal-robotics-summer-school-2022">Montreal Robotics Summer School (2022)</h1>
+
+<div align="center">     <table align="center">        <tr> <td width="33%">   <img width="100%" src="/assets/projects/MRSS2023/SchoolPhoto.jpg" /> </td>   <td width="33%">   <img width="100%" src="/assets/projects/MRSS2023/leggsAreGreat.gif" /> </td>  <td width="33%">   <img width="100%" src="/assets/projects/MRSS2023/Winners.jpg" /> </td> </tr><tr>    <td width="33%">   School Photo </td><td width="33%"> Getting excited </td><td width="33%">   This years champions </td> </tr> </table></div>
+
+<p>Robotics is a rapidly growing field with interest from around the world. This summer school offers tutorials and lectures on state-of-the-art machine learning methods for training the next generation of learning robots. This summer school is an extension supported by the many robotics groups around Montreal.</p>
+
+<p>The tutorials and interaction with real robot hardware will take place at Mila, the Quebec AI Institute, the largest academic organization for deep learning researchers worldwide. Attendees will have the opportunity to learn about current deep reinforcement learning methods, how to apply them to real hardware, sim2real transfer techniques, and experience with legged robotics.</p>
+
+<p><strong>Challenge:</strong> On the summer school’s last day, teams will use their new skills to compete in designing the most robust navigation controller on a quadruped robot to navigate an obstacle course. The obstacle course will feature many changes in terrain and difficult to traverse obstacles for the robot. Teams will be given multiple rounds to see how far their robot can make it across the terrain. The team with the best final performance wins!</p>
+
+<p><strong>Who:</strong> This summer school tailors to graduate students with a strong programming background and experience with algorithms.</p>
+
+<h2 id="what-students-learn">What Students Learn</h2>
+
+<p>The goal of the summer school is to give more students skills on how to control and program navigating robots. The content assumes a strong knowledge of python programming, with some Linux and hardware skills.</p>
+
+<ol>
+  <li>We will start with an introduction to robotics.</li>
+  <li>Introduction to Robotics software stack (control and ROS, etc)</li>
+  <li>Presentation on the robotics simulation and how to control the robot</li>
+  <li>State estimation</li>
+  <li>Introduction to deep learning and computer vision for state estimation</li>
+  <li>Presentation on the hardware and how to control the robot using Python</li>
+  <li>SLAM</li>
+  <li>Planning and planning with learned models</li>
+  <li>Introduction to reinforcement learning and sim2real transfer</li>
+</ol>
+
+<h2 id="sponsors">Sponsors</h2>
+
+<ul>
+  <li>Google</li>
+  <li>L’Institute Courtios</li>
+  <li>Mila</li>
+</ul>
+
+<h2 id="volunteersteam">Volunteers/Team</h2>
+<ul>
+  <li>Aneri Muni: DeepRL and Sim2Real prep</li>
+  <li>Annie-Shan Morin: Logistics and Promotion</li>
+  <li>Elham Daneshmand: DeepRL and Sim2Real prep</li>
+  <li>Florian Golemo: Sim2Real Demo and DeepRL support</li>
+  <li>Ken Ming Lee: DeepRL and Sim2Real prep</li>
+  <li>Miguel Saavedra: Computer Vision and ROS support</li>
+  <li>Sacha Morin: Computer Vision and ROS support</li>
+  <li>Steven Parkison: Computer Vision and ROS support</li>
+  <li>Simon Chamorro: Social organization</li>
+  <li>Special thanks to Mila for giving us space and Mila IT/IDT for setting up the computers used for training deepRL policies in IsaacsGym.</li>
+</ul>]]></content><author><name>Glen Berseth</name></author><category term="Teaching" /><category term="Reinforcement" /><category term="Learning," /><category term="Continual" /><category term="Learning," /><category term="Robotics" /><summary type="html"><![CDATA[Montreal Robotics Summer School (2022)]]></summary></entry><entry><title type="html">Towards Learning to Imitate from a Single Video Demonstration</title><link href="/blog/2023/03/25/VizImitation.html" rel="alternate" type="text/html" title="Towards Learning to Imitate from a Single Video Demonstration" /><published>2023-03-25T10:20:00-04:00</published><updated>2023-03-25T10:20:00-04:00</updated><id>/blog/2023/03/25/VizImitation</id><content type="html" xml:base="/blog/2023/03/25/VizImitation.html"><![CDATA[<div align="center">
+	<p>
+				Glen Berseth, Florian Golemo, Christopher Pal
+	</p>
+	<p>	
+            UdeM, Mila Quebec AI Institute, Canada CIFAR AI, Polytechnic Montreal, Service Now
+    </p>
+</div>
+
+<div align="center">
+            <span class="STYLE17"> <img width="600" src="/assets/projects/VizImitation/agresive-walk.gif" /> </span>
+</div>
+
+<p>Imitation learning, the ability to reproduce some behaviour, is a challenging and vital problem. It is what enables animals with the ability to understand and mimic from observation. Many SoTA methods for imitation accomplish this via additional data that is often not available in the real world. For example, along with an expert’s joint positions, the torques used by the expert are available as well. In this work, we describe a learning system that allows an agent to reproduce imitative behaviour of 3D simulated robots from video. This progress will enable us to create robots that can learn behaviour from observing humans, and allow humans to instruct robots in a very natural form of instruction.</p>
+
+<h3 id="distance-learning">Distance Learning</h3>
+
+<p>Often, imitation is posed as a distribution matching problem where we want to minimize a distance function that differentiates between behaviour that is close to the expert demonstration. If we have access to the expert’s actions, we can use semi-supervised learning. However, we rarely have access to such data in the real world. Instead, we can use visual perceptions to observe the expert and have the agent attempt actions until what it does matches what it observed. This method leads to two challenges. First, understanding if the agent’s behaviour matches the expert given only video data, by creating a meaningful distance metric. Second, enabling the agent to learn the actions necessary to match the expert.</p>
+
+<p>While there has been work on imitation strategies from images for manipulation [<a href="https://bair.berkeley.edu/blog/2018/06/28/daml/">BAIR</a>] and 2D robots [<a href="https://sites.google.com/view/actionablerepresentations">GoogleBrain</a>], the challenge of 3D imitation from video is an important milestone. Previous methods have made progress on imitation from images, by learning a transformation of images such that in this transformed space, meaningful distances are available. However, the problem of learning meaningful representations for planning or imitation is far from solved. A critical aspect of imitating a motion is the motions sequential and causal nature. The motion has both an ordering and a speed.</p>
+
+<h3 id="imitation-from-sequences">Imitation from Sequences</h3>
+
+<div align="center">
+            <span class="STYLE17"> <img width="30%" src="/assets/projects/VizImitation/walk_mocap.gif" /> </span>
+            <span class="STYLE17"> <img width="30%" src="/assets/projects/VizImitation/walk_slow.gif" /> </span>
+            <span class="STYLE17"> <img width="30%" src="/assets/projects/VizImitation/fall_mocap.gif" /> </span>
+</div>
+
+<p>Current methods use spatial information to compute distances between images. These methods have worked well given enough compute, good policies can be learned. However, these methods may suffer from false negatives that occur when the agent is out-of-sync with the expert. In the above example, we show a walking motion, followed by a walking motion played back at $1/4$ speed and last, a fallen motion. The limitation of spatial distance methods is that a similar low reward will be given for these two examples, although, the middle motion looks more like a walk then the right.</p>
+
+<p>In this work, we make use of the sequential structure of motion to inform deep reinforcement learning (RL) better. Effectively, we learn two distance functions, one in space and another in time. While the spatial distance function is designed to understand distances between pictures or poses, the time-based distance function understands if two motions look semantically similar. For example, if the imitation goal is to walk, does the agent’s behaviour also look like a walk? In effect, with this new abstraction, we can ask the question, does this motion look <em>like</em> a walk, not, does this motion look <em>precisely</em> like <em>that</em> walk. This distinction allows us to reward the agent for behaviour that is similar to the expert and may be at a different speed or time. This form of reward shaping was critical to learning good policies from video.</p>
+
+<h3 id="siamese-network">Siamese network</h3>
+
+<p>To learn these distances, we train a recurrent Siamese network. We train this method with <em>positive</em> and <em>negative</em> examples. Where positive examples are similar or from the same class, and negative examples are known to be different or are from different classes. The model is trained to produce similar encodings when two videos or images are the same and different encodings otherwise. Additional data is included from other tasks to assist in training the siamese network.</p>
+
+<div align="center">
+            <span class="STYLE17"> <img width="100%" src="/assets/projects/VizImitation/siamese_lstm_2.png" /> </span>
+</div>
+
+<h3 id="results">Results</h3>
+
+<div align="center">
+            <span class="STYLE17"> <img width="600" src="/assets/projects/VizImitation/walk_biped2d.gif" /> </span>
+</div>
+
+<p>Using the spatial and temporal distance functions in combination, we can now train RL agents to match expert demonstrations from a single video example. The new temporal distances allow quick learning but have trouble achieving high-quality results without the addition of spatial rewards.</p>
+
+<div align="center">
+            <span class="STYLE17"> <img width="600" src="/assets/projects/VizImitation/__use_learned_reward_function_Training_curves_edited.png" /> </span>
+</div>
+
+<p>The addition of these new rewards using temporal distances (along with some additional insights) has enabled imitation learning of 3D motion imitation given only a single video demonstration. While these are the first results of its type, additional quality might be gained from multi-view video data or other multi-task data.</p>
+
+<div align="center">
+            <span class="STYLE17"> <img width="600" src="/assets/projects/VizImitation/run_humanoid3d.gif" /> </span>
+</div>
+
+<h2 id="files">Files</h2>
+
+<p><a href="https://arxiv.org/abs/1901.07186">Paper</a></p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/s1KiIrV1YY4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>]]></content><author><name>Glen Berseth</name></author><category term="Publication" /><summary type="html"><![CDATA[Glen Berseth, Florian Golemo, Christopher Pal UdeM, Mila Quebec AI Institute, Canada CIFAR AI, Polytechnic Montreal, Service Now]]></summary></entry><entry><title type="html">Data Science Course (IFT6758B)</title><link href="/blog/2022/09/08/IFT6163-DataScience.html" rel="alternate" type="text/html" title="Data Science Course (IFT6758B)" /><published>2022-09-08T10:20:00-04:00</published><updated>2022-09-08T10:20:00-04:00</updated><id>/blog/2022/09/08/IFT6163-DataScience</id><content type="html" xml:base="/blog/2022/09/08/IFT6163-DataScience.html"><![CDATA[<h1 id="data-science-course-ift6758b">Data Science Course (IFT6758B)</h1>
+
+<p>I teach a course on Data Science that covers the most imprtant concepts needed for students to become good data scientists.</p>
+
+<h2 id="content-and-objectives-of-class">Content and objectives of class</h2>
+
+<p>This course is an introduction to data science (DS), a science that combines statistics, data processing, machine learning, scientific inquiry, visualization, business analytics, and big data. The purpose of data science is to address or gain insight into some problem in the real world by the application of computational and statistical techniques.</p>
+
+<p>The course will cover the following subjects:.</p>
+
+<p>Notions covered (indicative titles):</p>
+
+<ul>
+  <li>Conda</li>
+  <li>Version Control</li>
+  <li>Databases</li>
+  <li>Pandas</li>
+  <li>Containers</li>
+  <li>Data Visualization</li>
+  <li>Data collection, web scraping</li>
+  <li>Virtualization and Docker</li>
+  <li>Feature engineering</li>
+  <li>Regression</li>
+  <li>Hypothesis Testing</li>
+  <li>Classification Problems with Scikit-Learn</li>
+  <li>Feature Selection, outlier detection</li>
+</ul>]]></content><author><name>Glen Berseth</name></author><category term="Teaching" /><category term="Machine" /><category term="Learning," /><category term="Data" /><category term="Science" /><summary type="html"><![CDATA[Data Science Course (IFT6758B)]]></summary></entry><entry><title type="html">Montreal Robotics Summer School (2022)</title><link href="/blog/2022/08/08/MRSS2022.html" rel="alternate" type="text/html" title="Montreal Robotics Summer School (2022)" /><published>2022-08-08T10:20:00-04:00</published><updated>2022-08-08T10:20:00-04:00</updated><id>/blog/2022/08/08/MRSS2022</id><content type="html" xml:base="/blog/2022/08/08/MRSS2022.html"><![CDATA[<h1 id="montreal-robotics-summer-school-2022">Montreal Robotics Summer School (2022)</h1>
+
+<div align="center">     <table align="center">        <tr> <td width="33%">   <img width="100%" src="/assets/projects/MRSS/go1.jpg" /> </td>   <td width="33%">   <img width="100%" src="/assets/projects/MRSS/human-robot-collaboration.gif" /> </td>  <td width="33%">   <img width="100%" src="/assets/projects/MRSS/champion-photo.png" /> </td> </tr><tr>    <td width="33%">   The Go1 hardware </td><td width="33%"> Practicing with hardware </td><td width="33%">   This years champions </td> </tr> </table></div>
+
+<p>Robotics is a rapidly growing field with interest from around the world. This summer school offers tutorials and lectures on state-of-the-art machine learning methods for training the next generation of learning robots. This summer school is an extension supported by the many robotics groups around Montreal.</p>
+
+<p>The tutorials and interaction with real robot hardware will take place at Mila, the Quebec AI Institute, the largest academic organization for deep learning researchers worldwide. Attendees will have the opportunity to learn about current deep reinforcement learning methods, how to apply them to real hardware, sim2real transfer techniques, and experience with legged robotics.</p>
+
+<p><strong>Challenge:</strong> On the summer school’s last day, teams will use their new skills to compete in designing the most robust navigation controller on a quadruped robot to navigate an obstacle course. The obstacle course will feature many changes in terrain and difficult to traverse obstacles for the robot. Teams will be given multiple rounds to see how far their robot can make it across the terrain. The team with the best final performance wins!</p>
+
+<p><strong>Who:</strong> This summer school tailors to graduate students with a strong programming background and experience with algorithms.</p>
+
+<h2 id="what-students-learn">What Students Learn</h2>
+
+<p>The goal of the summer school is to give more students skills on how to control and program navigating robots. The content assumes a strong knowledge of python programming, with some Linux and hardware skills.</p>
+
+<ol>
+  <li>We will start with an introduction to robotics.</li>
+  <li>Introduction to Robotics software stack (control and ROS, etc)</li>
+  <li>Presentation on the robotics simulation and how to control the robot</li>
+  <li>State estimation</li>
+  <li>Introduction to deep learning and computer vision for state estimation</li>
+  <li>Presentation on the hardware and how to control the robot using Python</li>
+  <li>SLAM</li>
+  <li>Planning and planning with learned models</li>
+  <li>Introduction to reinforcement learning and sim2real transfer</li>
+</ol>
+
+<h2 id="sponsors">Sponsors</h2>
+
+<ul>
+  <li>Nvidia</li>
+  <li>Ahead.io</li>
+  <li>Mila</li>
+  <li>IVADO</li>
+</ul>]]></content><author><name>Glen Berseth</name></author><category term="Teaching" /><category term="Reinforcement" /><category term="Learning," /><category term="Continual" /><category term="Learning," /><category term="Robotics" /><summary type="html"><![CDATA[Montreal Robotics Summer School (2022)]]></summary></entry><entry><title type="html">Course in Robot (real-world-agent) Learning</title><link href="/blog/2021/09/08/IFT6163-RobotLearning.html" rel="alternate" type="text/html" title="Course in Robot (real-world-agent) Learning" /><published>2021-09-08T10:20:00-04:00</published><updated>2021-09-08T10:20:00-04:00</updated><id>/blog/2021/09/08/IFT6163-RobotLearning</id><content type="html" xml:base="/blog/2021/09/08/IFT6163-RobotLearning.html"><![CDATA[<h1 id="course-in-robot-real-world-agent-learning">Course in Robot (real-world-agent) Learning</h1>
+
+<div align="center">     <table align="center">        <tr>    
+<td width="33%">    
+<img width="100%" src="/assets/projects/SMiRL/vizdoom/doom_obs.png" /> 
+ </td>  
+<td width="33%">   <img width="100%" src="/assets/projects/DisCoRL/DisCoRL.png" /> </td>
+<td width="33%">   <img width="100%" src="/assets/projects/ReLMM/complex_room_short.gif" /> </td>
+</tr>
+
+<tr>    
+
+<td width="33%">   Learning from images </td>
+<td width="33%"> Learning reward functions </td>
+<td width="33%">   Learning in the real world </td>
+
+</tr> </table></div>
+
+<p>I teach a course on machine learning for the real world. This course focuses on deep reinforcement learning methods and their application to control real world systems (robotics, etc). <a href="https://diro.umontreal.ca/public/FAS/diro/Documents/1-Programmes-cours/Horaires/2023Hiver2Cyc.html">Here</a> is a link to where you can find the course offered on the DIRO web page as IFT 6163.</p>
+
+<p>Learning methods such as deep reinforcement learning have shown success in solving simulated planning and control problems but struggle to produce diverse, intelligent behaviour on systems that interact in the real world (robots). This class aims to discuss these limitations and study methods to overcome them and enable agents capable of training autonomously, becoming learning and adapting systems that require little supervision. By the end of the course, each student should have a solid grasp of different techniques to train agents to accomplish tasks in the real world. These techniques covered in the course include but are not limited to reinforcement learning, batch RL, multi-task RL, model-based RL, Sim2Real, hierarchical RL, goal-conditioned RL, multi-Agent RL, the fragility of RL, meta-level decision making and learning reward functions.</p>
+
+<h2 id="target-and-objectives-of-the-course">Target and objectives of the course</h2>
+
+<p>Learn the fundamental concepts of machine learning for robotics applications. Such concepts are considered advanced and require a good foundation in machine learning, deep learning and reinforcement learning. This involves:</p>
+
+<ul>
+  <li>Becoming familiar with the main types of machine learning models for a control policy (from model-based to model-free)</li>
+  <li>Developing the ability to read research articles, contextualize them and develop a critical mind;</li>
+  <li>Develop presentation skills;</li>
+  <li>Develop their research autonomy in machine learning.</li>
+  <li>Develop skills related to the strengths and weaknesses of current machine learning methods when being applied to real-world problems.</li>
+</ul>
+
+<h2 id="prerequisites-of-the-course">Prerequisites of the course</h2>
+
+<p>You must have completed or are taking in parallel one of the following courses (or equivalent).</p>
+
+<ul>
+  <li><a href="https://mitliagkas.github.io/ift6390-ml-class/">IFT 6390, Fundamentals of machine learning</a></li>
+  <li><a href="http://admission.umontreal.ca/cours-et-horaires/cours/IFT-6758B/">IFT 6758B</a>    Data science</li>
+  <li><a href="http://www-labs.iro.umontreal.ca/~slacoste/teaching/ift6269/A21/">IFT6269 : Modèles graphiques probabilistes et apprentissage</a></li>
+</ul>
+
+<p>The course will also use Python heavily. I will assume familiarity with linear algebra, probability, statistics, planning, optimization, and operating systems (e.g. multi-threading and memory management). You also need to be able to read and understand research papers from NeurIPS, RSS, ICRA, CoRL, and ICLR.</p>
+
+<h2 id="lectures-covering-topics-related-to-learning-robots-as-well-as-programming-assignments-and-a-final-project">Lectures covering topics related to learning robots as well as programming assignments and a final project.</h2>
+
+<p>The objectives of the assignments and final projects will be:</p>
+
+<ul>
+  <li>Software knowledge: Learning about the available software that is used for deep reinforcement learning.</li>
+  <li>Analysis skills: Collecting proper statistics of results and using server computers and docker to reproduce experiments and validate results.</li>
+  <li>Proposal of a new idea to explore for the final project based on the lectures;</li>
+  <li>Learn how to understand the potential of a method in the real world (positive or negative, social and environmental);</li>
+  <li>Exploration with final project: More free-form investigation of advanced topics from class that produces reusable code, reproducible results and a written report.</li>
+  <li>Estimation of the impact that the new idea could have in an industrial context;</li>
+</ul>
+
+<p>The final project will be achieved as a team of two. Research in academia and industry involves working with others to achieve research goals. This project will evaluate the students’ ideas, research process understanding, teamwork, and presentation.</p>
+
+<p>Regarding the lectures, the instructor will provide live lectures on the topics each week, focusing on their understanding, application, and limitations.</p>
+
+<h2 id="evaluative-approach-and-weighting-indicative-only">EVALUATIVE APPROACH AND WEIGHTING (indicative only)</h2>
+<ul>
+  <li>40%: Programming assignments. (This is needed to provide skills necessary to perform a good final project in the class)</li>
+  <li>10%: Class participation and discussing readings.</li>
+  <li>15%: Midterm on concepts</li>
+  <li>35%: Final project</li>
+</ul>
+
+<h3 id="programming-assignments">Programming Assignments</h3>
+
+<p>The programming assignments cover topics that are important to perform research on combining machine learning and robots. They will cover:</p>
+
+<ul>
+  <li>Behaviour cloning and imitation learning</li>
+  <li>Model-free (PPO) and model-based RL methods (DDPG or PETS).</li>
+  <li>Exploration and pretraining methods, such as HRL and Goal conditioned RL.</li>
+  <li>Safe Exploration</li>
+  <li>Learning reward functions (un/smi-supervised RL)</li>
+</ul>
+
+<p>The assignments are also designed to familiarize students with the software needed to perform research:</p>
+
+<ul>
+  <li>Deep learning libraries, such as pytorch or tensorflow</li>
+  <li>Hardware constraints when working with real robots (power, compute, mechanical limits)</li>
+  <li>Distributed computing for running proper experiments</li>
+  <li>Visualization and analysis (the most important part)</li>
+</ul>
+
+<h3 id="final-project">Final Project</h3>
+
+<p>The final project is designed to let students spread their wings and apply the learned skills in an area of interest of the students while digging deeper into the concepts. Your project does not need to use real robot hardware but there are options to get hardware for this class. Each project will start with a proposal that will ensure the right scope for each project. The projects will be <strong>in groups of 2 or 3 students</strong>. However, to provide some ideas on the scope, a few examples are given below.</p>
+
+<ul>
+  <li>Re-implement a method in a new deep learning framework</li>
+  <li>Re-implement a method in a paper that did not release code (shame on them)</li>
+  <li>Choose a robot to get and train a model to make it solve a task, like walking.</li>
+  <li>Investigate a new method that improves exploration</li>
+  <li>Investigate a new method for learning an improved representation for learning and exploration.</li>
+  <li>Study Sim2Real by learning and transferring policies to another simulation or real robot hardware.</li>
+  <li>Perform a literature review of Sim2Real papers.</li>
+</ul>
+
+<p>One of the broad goals of the class project is also to refine your skills at defining reasonable projects that can be completed and are of sufficient quality.</p>
+
+<h3 id="real-robot-hardware">Real Robot Hardware</h3>
+
+<p>In order to use real hardware for your class project, you need to include the requested hardware in the project proposal. The course has money allocated to purchase hardware for projects.</p>
+
+<p>Some robot ideas for projects</p>
+
+<ul>
+  <li><a href="https://www.trossenrobotics.com/phantomx-ax-hexapod.aspx">Hexapod</a></li>
+  <li><a href="https://edu.irobot.com/what-we-offer/create-robot">iRobot</a></li>
+  <li><a href="https://www.sunfounder.com/products/picrawler-robot-kit">PiCrwaler</a></li>
+  <li><a href="http://www.locobot.org/">Locobot</a></li>
+  <li><a href="http://support.interbotix.com/html/specifications/rx150.html">ReactorX150 arm</a></li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+
+<p>Some content related to the course that will be helpful to review.</p>
+
+<h3 id="other-related-courses">Other Related Courses</h3>
+
+<ul>
+  <li><a href="http://rail.eecs.berkeley.edu/deeprlcourse/">Deep reinforcement learning with Sergey Levine</a></li>
+  <li><a href="https://www.coursera.org/learn/machine-learning">Machine learning with Andrew Ng</a></li>
+  <li><a href="https://www.cs.ox.ac.uk/people/nando.defreitas/machinelearning/">Machine learning with Nando de Freitas</a></li>
+  <li><a href="https://cs231n.github.io/">Neural networks with Andrej Karpathy</a></li>
+  <li><a href="https://www.davidsilver.uk/teaching/">Reinforcement learning with David Silver</a></li>
+  <li><a href="https://cs330.stanford.edu/">Deep multi-task and meta learning with Chelsea Finn</a></li>
+</ul>
+
+<h3 id="relevant-textbooks">Relevant Textbooks</h3>
+
+<ul>
+  <li><a href="http://www.deeplearningbook.org/">Ian Goodfellow and Yoshua Bengio and Aaron Courville, Deep Learning</a></li>
+  <li><a href="http://incompleteideas.net/book/the-book-2nd.html">Sutton &amp; Barto, Reinforcement Learning: An Introduction (2nd edition)</a></li>
+  <li><a href="http://www.ualberta.ca/~szepesva/RLBook.html">Szepesvari, Algorithms for Reinforcement Learning</a></li>
+  <li><a href="http://www.athenasc.com/dpbook.html">Bertsekas, Dynamic Programming and Optimal Control, Vols I and II</a></li>
+  <li><a href="http://www.wiley.com/WileyCDA/WileyTitle/productCd-0471727822.html">Puterman, Markov Decision Processes: Discrete Stochastic Dynamic Programming</a></li>
+  <li><a href="http://adp.princeton.edu/">Powell, Approximate Dynamic Programming</a></li>
+</ul>]]></content><author><name>Glen Berseth</name></author><category term="Teaching" /><category term="Reinforcement" /><category term="Learning," /><category term="Continual" /><category term="Learning," /><category term="Robotics" /><summary type="html"><![CDATA[Course in Robot (real-world-agent) Learning]]></summary></entry><entry><title type="html">XT2: Training an X-to-Text Typing Interface with Online Learning from Implicit Feedback</title><link href="/blog/2020/11/10/X2-Text.html" rel="alternate" type="text/html" title="XT2: Training an X-to-Text Typing Interface with Online Learning from Implicit Feedback" /><published>2020-11-10T10:20:00-05:00</published><updated>2020-11-10T10:20:00-05:00</updated><id>/blog/2020/11/10/X2-Text</id><content type="html" xml:base="/blog/2020/11/10/X2-Text.html"><![CDATA[<div align="center">  <img width="100%" src="/assets/projects/XT2/XT2.png" /> </div>
+
+<p>We aim to help users communicate their intent to machines using flexible, adaptive interfaces that translate arbitrary user input into desired actions. In this work, we focus on assistive typing applications in which a user cannot operate a keyboard, but can instead supply other inputs, such as webcam images that capture eye gaze. Standard methods train a model on a fixed dataset of user inputs, then deploy a static interface that does not learn from its mistakes; in part, because extracting an error signal from user behavior can be challenging. We investigate a simple idea that would enable such interfaces to improve over time, with minimal additional effort from the user: online learning from user feedback on the accuracy of the interface’s actions. In the typing domain, we leverage backspaces as feedback that the interface did not perform the desired action. We propose an algorithm called x-to-text (X2T) that trains a predictive model of this feedback signal, and uses this model to fine-tune any existing, default interface for translating user input into actions that select words or characters. We evaluate X2T through a small-scale online user study with 12 participants who type sentences by gazing at their desired words, and a large-scale observational study on handwriting samples from 60 users. The results show that X2T learns to outperform a non-adaptive default interface, stimulates user co-adaptation to the interface, personalizes the interface to individual users, and can leverage offline data collected from the default interface to improve its initial performance and accelerate online learning.</p>
+
+<p><a href="/assets/projects/XT2/XT2.pdf">Paper</a>
+<a href="https://slideslive.com/38941310/xt2-training-an-xtotext-typing-interface-through-online-learning-from-implicit-feedback?ref=account-folder-62083-folders">Presentation</a></p>]]></content><author><name>Glen Berseth</name></author><category term="Publication" /><summary type="html"><![CDATA[]]></summary></entry></feed>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> | Glen Berseth</title>
+    <link rel="canonical" href="/posts_drafts/2013-02-22-indigolog-basics">
+    
+
+    <meta property="og:title" content="">
+    <meta property="og:url" content="/posts_drafts/2013-02-22-indigolog-basics">
+    <meta property="og:site_name" content="Glen Berseth">
+    <meta name="twitter:card" content="summary">
+    <meta property="twitter:title" content="">
+
+	<script type="text/javascript" id="MathJax-script" async
+	  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
+    <script type="application/ld+json">
+    {"@type":"WebSite","headline":"Glen Berseth","url":"/","name":"Glen Berseth","@context":"https://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- <link rel="stylesheet" href="/assets/main.css"> --></head>
+<body><header class="site-header">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/">Glen Berseth</a><nav class="site-nav">
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+            <label for="nav-trigger">
+                <span class="menu-icon">
+                    <svg viewBox="0 0 18 15" width="18px" height="15px">
+                        <path d="M1.5 1.5 h15 M1.5 7.5 h15 M1.5 13.5 h15" stroke="black" stroke-width="3" stroke-linecap="round" />
+                      </svg>
+                </span>
+            </label>
+
+            <div class="trigger">
+                    <a class="page-link" href="/fr/">Accueil</a>
+                
+                    <a class="page-link" href="/fr/people/">Membres</a>
+                
+                    <a class="page-link" href="/fr/publications/">Publications</a>
+                
+                    <a class="page-link" href="/fr/join/">Joignez-nous</a>
+                
+                    <a class="page-link" href="/fr/posts/">Postes</a>
+                
+                    <a class="page-link" href="/fr/teaching/">L'enseignement</a>
+                
+                <a class="page-link" href="/posts_drafts/2013-02-22-indigolog-basics">En</a>
+                
+            </div>
+        </nav></div>
+    
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">IndiGolog Basics</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2013-02-22T23:42:00-05:00" itemprop="datePublished">Feb 22, 2013
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Glen B</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>This is a guide on the steps I took set-up a IndiGolog Program.<br /><br />I prefer to divide up the sections of an IndiGolog program into different files. The different sections of an IndiGolog program are:<br />&lt;ol&gt;&lt;li&gt;Exogenous Actions&lt;/li&gt;&lt;ol&gt;&lt;li&gt;Contains the code to handle exogenous actions from then environment. &lt;/li&gt;&lt;/ol&gt;&lt;li&gt;Fluents&lt;/li&gt;&lt;ol&gt;&lt;li&gt;Fluents handle the current state of the environment relative to the agent. &lt;/li&gt;&lt;/ol&gt;&lt;li&gt;Initial Conditions&lt;/li&gt;&lt;ol&gt;&lt;li&gt;The initial conditions of the agent &lt;/li&gt;&lt;/ol&gt;&lt;li&gt;Primitive Actions&lt;/li&gt;&lt;ol&gt;&lt;li&gt;The primitive actions of the agent. These are the lowest level actions that the agent can make &lt;/li&gt;&lt;/ol&gt;&lt;li&gt;Procedures &lt;/li&gt;&lt;ol&gt;&lt;li&gt;The procedures of the agents. Procedures are sequences of primitive actions that are created from knowledge of the Agent.&lt;/li&gt;&lt;/ol&gt;&lt;/ol&gt;<br />The exogenous actions code can be small but will grow depending design. For a basic set of exogenous actions this short list could be used. <br /><br /><br />&lt;pre class="prettyprint"&gt;<code class="language-bash"><br />/* exog_action(reached(Location)).<br />&nbsp;&nbsp;&nbsp; Lets the Agent know when it has fully arived at a location it was navigating<br />to.<br />*/<br />exog_action(reached(_)).<br /><br />/*<br />&nbsp;&nbsp;&nbsp; catch all to make sure system does not crash<br />*/<br />exog_action(_).<br /></code>&lt;/pre&gt;<br />Fluents are one of the most important parts of the Agents design. fluents are supposed to evolve according to actions that occur. Then these fluents can be used in procedures to make good choices or in any conditions.<br /><br />&lt;pre class="prettyprint"&gt;<code class="language-bash"><br />% Used to keep track of the state of the Entity<br />% When the controlled Entity dies this will be set to false.<br />rel_fluent(alive).<br />causes_val(died, alive, false, true) :-<br />&nbsp;&nbsp;&nbsp; nl, write('Entity died'), nl.<br /></code>&lt;/pre&gt;<br /><br />There are different kinds of fluents in IndiGolog rel_fluent and fun_fluent which I believe stand for relational fluent and functional fluent. I am not totally sure what the difference is…<br /><br />&lt;pre class="prettyprint"&gt;<code class="language-bash"><br />% Will be used to keep track of the inventory of the Entity.<br />/*&nbsp;&nbsp;&nbsp; hasItem(item, player)<br />&nbsp;&nbsp;&nbsp; Use to keep track of the many game items and players with an<br />&nbsp;&nbsp;&nbsp; association of players with items.<br />*/<br />rel_fluent(hasItem(_,_)).<br />causes_val(pickup(Item,Player), hasItem(Item, Player), true, true).<br />causes_val(drop(Item,Player), hasItem(Item, Player), false, hasItem(Item, Player)).</code>&lt;/pre&gt;&lt;pre class="prettyprint"&gt;<code class="language-bash">&nbsp;</code>&lt;/pre&gt;&lt;pre class="prettyprint"&gt;<code class="language-bash">% -- causes_true(action,fluent,cond)<br />%          when cond holds, doing act causes relational fluent to hold<br />% doing this because predicate does not exist<br />% these need to be defined so that the causes_val will work properly because it is<br />% defined to use these two predicates in ../../Eval/evalbat.pl<br />% because of relational fluents<br />causes_true(action,fluent,false).<br /><br />causes_false(action, fluent, false).<br /></code>&lt;/pre&gt;<br /><br />The initial conditions describe the state of the agents world when the program is started. This section can also be use to test the agent by adjusting initial conditions to inspect of the agent still preforms a reasonable set of actions.<code>&nbsp;</code><br /><br />Some predicates can be defined to help solidify the definition of initial conditions<br /><br /><br />&lt;pre class="prettyprint"&gt;<code class="language-bash"><br />enemies([valerie, will, amy, player]).<br />friends([glensnemesis, heather, jim, bob, self]).<br />isEnemy(Player) :- domain(Player, enemies).<br />isFriend(Player) :- domain(Player, friends).<br />isPlayer(Player) :- isFriend(Player); isEnemy(Player).&nbsp;</code>&lt;/pre&gt;<br /><br /><br />&lt;pre class="prettyprint"&gt;<code class="language-bash"><br />%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<br />%% Initial conditions<br />%% Initial values of fluents<br />%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<br /><br />initially(alive, true).<br />initially(hasItem(Item, Player), false) :-<br />&nbsp;&nbsp;&nbsp; isItem(Item),<br />&nbsp;&nbsp;&nbsp; isPlayer(Player).<br /><br /><br />initially(name, none).<br /></code>&lt;/pre&gt;<br /><br /><br /><code>Primitive actions as said are the lowest actions that an Agent can take. The reason for the primitive actions are to define what is a acceptable action and to define when a particular action is indeed possible in a given situation.</code><br /><br />&lt;pre class="prettyprint"&gt;<code class="language-bash"><br />%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<br />% Primitive actions<br />%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%<br /><br /><br />prim_action(die).<br /> prim_action(look(_)).<br /><br /><br />prim_action(startgoto(_)).<br /><br /></code>&lt;/pre&gt;<br /><br />These are preconditions for the primitive actions. These are very important in a search so the search knows that the actions it selects are valid in the situation thet are selected for.<br /><br />&lt;pre class="prettyprint"&gt;<code class="language-bash"><br />/*<br />&nbsp;&nbsp;&nbsp; Preconditions for primitive actions<br />*/<br /><br />poss(check_for_enemy, true).<br /><br />poss(look(_), true).<br /><br /><br /><br /><code>poss(startgoto(Location), location(Location)).&nbsp;<br /></code></code>&lt;/pre&gt;<br /><br /><br />Now procedures are more involved than any of the other pieces of code but they are heavily depandant on them. Some can be as simple as,<br /><br />&lt;pre class="prettyprint"&gt;<code class="language-bash"><br />proc(defendCapturer,<br />&nbsp;&nbsp;&nbsp; pi(teammate, <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; [?(hasItem(enemyflag, teammate)), <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; defend(teammate)<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ]<br />&nbsp;&nbsp;&nbsp; )<br />).<br /></code>&lt;/pre&gt;<br /><br />This procedure is to defend the capturer (comes form an agent written to play capture the flag). Essentially it uses pi (pronounced “pick”) to choose the teammate of the agent for which the condition hasItem(enemyflag, teammate) is true. Choose the teammate that has the enemyflag and defend that teammate. Pretty awesome for really only 4 lines of code.  <br /><br />For the functionality of the IndiGolog agent this line needs to be added and is very importand<br /><br />&lt;pre class="prettyprint"&gt;<code class="language-bash"><br />% THIS IS THE MAIN PROCEDURE FOR INDIGOLOG<br />proc(main,&nbsp; mainControl(N)) :- controller(N), !.<br /></code>&lt;/pre&gt;<br /><br />When the “main” method is called it will try all of controllers defined for the agent.  <br /><br />Some examples<br /><br />&lt;pre class="prettyprint"&gt;<code class="language-bash"><br />/*<br /><br />&nbsp;&nbsp;&nbsp; This procedures includes parts of the last. This one will loop while<br /><br />&nbsp;&nbsp;&nbsp; the Entity is still alive. It will prioritize these action states<br /><br />&nbsp;&nbsp;&nbsp; 1. If there is enemyContact engage and attack that enemy.<br /><br />&nbsp;&nbsp;&nbsp; 2. If an enemy is seen follow that enemy.<br /><br />&nbsp;&nbsp;&nbsp; 3. Otherwise wonder the map.<br /><br />*/<br /><br />proc(mainControl(2),<br /><br />%&nbsp;&nbsp;&nbsp; [goto(home), sleep]<br /><br />&nbsp;&nbsp;&nbsp;&nbsp; prioritized_interrupts(<br /><br />&nbsp;&nbsp;&nbsp; [<br /><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; interrupt(contactedEnemy=glen, attack( _, [target,glen], _)),<br /><br />&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; interrupt(seenEnemy=glen, follow(_, [target,glen])),<br /><br />&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; interrupt(true, pi(start, pi(location, [relocate(start,location)])))<br /><br />&nbsp;&nbsp;&nbsp;&nbsp; ]) % end of interupts<br /><br />).<br /></code>&lt;/pre&gt;<br /><br />prioritize interrupts chooses the interrupt for which its condition is true first.<br /><br />&lt;pre class="prettyprint"&gt;<code class="language-bash"><br />% Controller for the Wumpus:<br /><br />%&nbsp;&nbsp; &nbsp;1. If agent knows where the wumpus is, she is in line with it and<br /><br />%&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; the wumpus may be alive, then aim to wumpus and shoot arrow<br /><br />%&nbsp;&nbsp; &nbsp;2. If agent knows that there is gold in the current square, pick it up<br /><br />%&nbsp;&nbsp; &nbsp;3. Otherwise: sense everything and take a randomWalk<br /><br />proc(mainControl(3),<br /><br />&nbsp;&nbsp; prioritized_interrupts(<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [interrupt([dir], and(aliveWumpus=true,<br /><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; in_line(locRobot,dir,locWumpus)), [shoot(dir)] ),<br /><br />&nbsp;&nbsp;&nbsp; &nbsp; interrupt(isGold(locRobot)=true, [pickGold]),<br /><br />&nbsp;&nbsp;&nbsp; &nbsp; interrupt(inDungeon=true, [smell,senseBreeze,senseGold,<br /><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;wndet(newRandomWalk, [goto(loc(1,1)),climb])])<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ])&nbsp; % END OF INTERRUPTS<br /><br />).<br /><br /><br /><br /><br /><br />proc(mainControl(4),<br /><br />&nbsp;&nbsp;&nbsp; while(alive, searchForEnemy(glen))<br /><br />).<br /><br /><br /><br /><br /><br />proc(mainControl(9),<br /><br />%&nbsp;&nbsp;&nbsp; [goto(home), sleep]<br /><br />&nbsp;&nbsp;&nbsp;&nbsp; prioritized_interrupts( <br /><br />&nbsp;&nbsp;&nbsp; [<br /><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; interrupt(and(role=capdef, neg(hasenemyflag=false)), defendCapturer),<br /><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; interrupt(and(role=capdef, some([enemy, friend], and(attacking(enemy, friend)=yes, neg(isEnemy(friend))))), <br /><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; pi(enemy, attack( _, [target, enemy], _))),<br /><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; interrupt(and(role=capdef, neg(seeEnemy=false)),&nbsp;&nbsp;&nbsp; pi(enemy, <br /><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if(bAttackedBy(enemy), <br /><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; attack( _, [target,enemy], _), <br /><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; avoidEnemy))),<br /><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; interrupt(role=capdef, startgoto(_, [destination, enemyflag2]))<br /><br />&nbsp;&nbsp;&nbsp; ]%,<br /><br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; %if&nbsp; % end of if<br /><br />&nbsp;&nbsp;&nbsp;&nbsp; )% end of while<br /><br />).<br /></code>&lt;/pre&gt;<br /><br /><br />References:<br />&lt;ol&gt;&lt;li&gt;http://www.cs.toronto.edu/~alexei/ig-oaa/indigolog.htm&lt;/li&gt;&lt;li&gt;http://www.cse.yorku.ca/~lesperan/IndiGolog/&lt;/li&gt;&lt;li&gt;http://sourceforge.net//projects/indigolog/&lt;/li&gt;&lt;/ol&gt;<br /><br /><br /></p>
+
+  </div><a class="u-url" href="/posts_drafts/2013-02-22-indigolog-basics" hidden></a>
+</article>
+
+        </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/%20/"></data>
+
+    <div class="wrapper">
+        
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list">
+                    <li class="p-name">Glen Berseth</li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/neo-x"><svg
+                class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+            </svg> <span class="username">neo-x</span></a></li><li><a
+            href="https://www.linkedin.com/in/glen-berseth-0523278b"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+            </svg> <span class="username">glen-berseth-0523278b</span></a></li><li><a
+            href="https://www.twitter.com/GlenBerseth"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+            </svg> <span class="username">GlenBerseth</span></a></li><li><a rel="me"
+            href="https://www.youtube.com/channel/UCOouaBg4gHIlNvPkJn_8ooA"
+            title="Real Lab"><svg class="svg-icon grey">
+                <use xlink:href="/assets/minima-social-icons.svg#youtube"></use>
+            </svg> <span class="username">Real Lab</span></a></li></ul></div>
+
+            <div class="footer-col footer-col-3">
+                <p>I (he/him/il) am an assistant professor at the University de Montreal and Mila. My research explores how to use deep learning and reinforcement learning to develop generalist robots.</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer></body>
+
+</html>

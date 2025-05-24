@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> | Glen Berseth</title>
+    <link rel="canonical" href="/blog/2020/08/13/CHER.html">
+    
+
+    <meta property="og:title" content="">
+    <meta property="og:url" content="/blog/2020/08/13/CHER.html">
+    <meta property="og:site_name" content="Glen Berseth">
+    <meta name="twitter:card" content="summary">
+    <meta property="twitter:title" content="">
+
+	<script type="text/javascript" id="MathJax-script" async
+	  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
+    <script type="application/ld+json">
+    {"@type":"WebSite","headline":"Glen Berseth","url":"/","name":"Glen Berseth","@context":"https://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- <link rel="stylesheet" href="/assets/main.css"> --></head>
+<body><header class="site-header">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/">Glen Berseth</a><nav class="site-nav">
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+            <label for="nav-trigger">
+                <span class="menu-icon">
+                    <svg viewBox="0 0 18 15" width="18px" height="15px">
+                        <path d="M1.5 1.5 h15 M1.5 7.5 h15 M1.5 13.5 h15" stroke="black" stroke-width="3" stroke-linecap="round" />
+                      </svg>
+                </span>
+            </label>
+
+            <div class="trigger">
+                    <a class="page-link" href="/">Home</a>
+                
+                    <a class="page-link" href="/people/">People</a>
+                
+                    <a class="page-link" href="/publications/">Publications</a>
+                
+                    <a class="page-link" href="/join/">Join Us</a>
+                
+                    <a class="page-link" href="/posts/">Posts</a>
+                
+                    <a class="page-link" href="/teaching/">Teaching</a>
+                
+                <a class="page-link" href="/fr/blog/2020/08/13/CHER.html">Fr</a>
+                
+            </div>
+        </nav></div>
+    
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <article class="post">
+
+    <header class="post-header">
+        <h1 class="post-title"></h1>
+    </header>
+    <div class="post-content">
+        <div align="center">
+	<p>
+				Abdul Rahman Kreidieh, Glen Berseth, Brandon Trabucco, Samyak Parajuli, Sergey Levine, and Alexandre M. Bayen
+	</p>
+	<p>	
+            UC Berkeley
+    </p>
+</div>
+
+<p>Motivated by studies on differentiable communication and emergent cooperation phenomena in MARL, we propose a novel optimization procedure to address limitations associated with inter-level cooperation in HRL. Our approach attempts to encourage cooperation between various levels of a hierarchy by redefining the objective of higher-level policies to directly account for losses experienced by lower-level policies, thereby allowing the policy to disambiguate goals with small expected returns from goals that were unachievable by the lower-level policy. The gradients associated with these additions to the loss of the higher-level policies are then propagated through its parameters by replacing the communication actions (or goals) by the higher-level policy during training with direct connections between its output and the input to the lower-level policy (see the right figure below).</p>
+
+<div align="center">
+            <img width="80%" src="/assets/projects/CHER/overview.png" />
+</div>
+
+<p>#Results</p>
+
+<p>We demonstrate improved performance over current HRL methods across a number of difficult long term planning tasks.</p>
+
+<h2 id="antmaze">AntMaze</h2>
+
+<p>We present the performance of the CHER algorithm on a suite of continuous control tasks. The first of these, AntMaze, can be seen in the videos of below. In this task, the agent is tasked with reaching an arbitrary position in the maze, with the videos below representing the task of reaching each of the three corners. In this problem, both the standard HRL and CHER algorithms are capable of attaining approximately similar optimal solutions. The goals in both situations (represented by the blue ant) are also very distant from the agent and do not need to change frequently, but instead simply provide the ant with a direction of movement. The simplicity of the required higher level behavior is likely a factor explaining why inter-level cooperation is not required here.</p>
+
+<div class="t">
+    <table align="center">
+    	&lt;/tr&gt;
+        <tr align="center">
+        <td>
+            Normal HRL
+            </td>
+        <td>
+            CHER
+            </td>
+        </tr>
+        <tr>
+    <td align="center">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ak37Y0aqU0I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+        </td>
+    <td>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/3eIsEfuC9FY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+           </td>
+&lt;/table&gt;
+&lt;/div&gt;
+
+##AntFourRooms
+
+In the AntFourRooms environment, we begin seeing the performative improvements that can arise from promoting inter-level cooperation between agents. In this environment, the agent is tasked to reach one of the three corners of the environment. While both standard HRL and CHER are capable of navigating to the adjacent rooms, the standard approach does not succeed in navigating to the diagonal room via any of the adjacent lane, but instead move the shortest distance, thereby colliding into the walls ahead.
+
+<div class="t">
+    <table align="center">
+    	&lt;/tr&gt;
+        <tr align="center">
+        <td>
+            Normal HRL
+            </td>
+        <td>
+            CHER
+            </td>
+        </tr>
+        <tr>
+    <td align="center">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/SVKuKV20_RA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+        </td>
+    <td>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/gf0LrAIrh3A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+           </td>
+&lt;/table&gt;
+&lt;/div&gt;
+
+
+This post is based on the following paper:
+
+- Abdul Rahman Kreidieh, Glen Berseth, Brandon Trabucco, Samyak Parajuli, Sergey Levine, and Alexandre M. Bayen. <br />
+  [Inter-Level Cooperation in Hierarchical Reinforcement Learning](https://arxiv.org/abs/1912.02368) <br />
+  [Project Website](https://sites.google.com/berkeley.edu/cooperative-hrl)
+</tr></table></div></tr></table></div>
+
+    </div>
+
+</article>
+        </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/%20/"></data>
+
+    <div class="wrapper">
+        
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list">
+                    <li class="p-name">Glen Berseth</li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/neo-x"><svg
+                class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+            </svg> <span class="username">neo-x</span></a></li><li><a
+            href="https://www.linkedin.com/in/glen-berseth-0523278b"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+            </svg> <span class="username">glen-berseth-0523278b</span></a></li><li><a
+            href="https://www.twitter.com/GlenBerseth"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+            </svg> <span class="username">GlenBerseth</span></a></li><li><a rel="me"
+            href="https://www.youtube.com/channel/UCOouaBg4gHIlNvPkJn_8ooA"
+            title="Real Lab"><svg class="svg-icon grey">
+                <use xlink:href="/assets/minima-social-icons.svg#youtube"></use>
+            </svg> <span class="username">Real Lab</span></a></li></ul></div>
+
+            <div class="footer-col footer-col-3">
+                <p>I (he/him/il) am an assistant professor at the University de Montreal and Mila. My research explores how to use deep learning and reinforcement learning to develop generalist robots.</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer></body>
+
+</html>

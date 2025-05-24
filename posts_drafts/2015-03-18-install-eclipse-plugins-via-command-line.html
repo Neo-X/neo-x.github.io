@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> | Glen Berseth</title>
+    <link rel="canonical" href="/posts_drafts/2015-03-18-install-eclipse-plugins-via-command-line">
+    
+
+    <meta property="og:title" content="">
+    <meta property="og:url" content="/posts_drafts/2015-03-18-install-eclipse-plugins-via-command-line">
+    <meta property="og:site_name" content="Glen Berseth">
+    <meta name="twitter:card" content="summary">
+    <meta property="twitter:title" content="">
+
+	<script type="text/javascript" id="MathJax-script" async
+	  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
+    <script type="application/ld+json">
+    {"@type":"WebSite","headline":"Glen Berseth","url":"/","name":"Glen Berseth","@context":"https://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- <link rel="stylesheet" href="/assets/main.css"> --></head>
+<body><header class="site-header">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/">Glen Berseth</a><nav class="site-nav">
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+            <label for="nav-trigger">
+                <span class="menu-icon">
+                    <svg viewBox="0 0 18 15" width="18px" height="15px">
+                        <path d="M1.5 1.5 h15 M1.5 7.5 h15 M1.5 13.5 h15" stroke="black" stroke-width="3" stroke-linecap="round" />
+                      </svg>
+                </span>
+            </label>
+
+            <div class="trigger">
+                    <a class="page-link" href="/">Home</a>
+                
+                    <a class="page-link" href="/people/">People</a>
+                
+                    <a class="page-link" href="/publications/">Publications</a>
+                
+                    <a class="page-link" href="/join/">Join Us</a>
+                
+                    <a class="page-link" href="/posts/">Posts</a>
+                
+                    <a class="page-link" href="/teaching/">Teaching</a>
+                
+                <a class="page-link" href="/fr/posts_drafts/2015-03-18-install-eclipse-plugins-via-command-line">Fr</a>
+                
+            </div>
+        </nav></div>
+    
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Install eclipse plugins via the command line</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2015-03-18T19:40:00-04:00" itemprop="datePublished">Mar 18, 2015
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Glen Berseth</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>I am always a fan of making features usable on the command line. I use Ubuntu a bunch and one task I started was to write a script to install all of may favourite packages I like. One of the packages I love it Eclipse. It gives me the same experience across operating systems. Has many features for many different programming languages.<br /><br />I asked myself today “I wonder if I can install eclipse plugins on the command line?” The amount of plugins I like to have installed in eclipse is numerous. From PyDev to SubClipse to CDT. Having to go in and select all of these each time is time consuming. As well having to add in the new repos for plugins outside of the standard version repo was also annoying. It turns out you can very easily install eclipse plugins with the command line<br /><br />The Basic syntax is<br /><br />&lt;pre class="prettyprint"&gt;<code class="language-bash"><br />eclipse -application <b>org.eclipse.equinox.p2.director</b> -repository &lt; repo_link &gt; -installIU &lt; plugin &amp;gt <br /></code><br />&lt;/code&gt;&lt;/pre&gt;<br />To find the plugin names in eclipse to go Help -&gt; Install New Software -&gt; Select a repo -&gt; select a plugin -&gt; go to <u>More</u> -&gt; General Information -&gt; Identifier;<br /><br />&lt;div class="separator" style="clear: both; text-align: center;"&gt;<a href="http://3.bp.blogspot.com/-jWRlDTh83u4/VQoMweohwWI/AAAAAAAABOk/aliIBGZtx2k/s1600/Eclipse%2BBlugins%2Bnames.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-jWRlDTh83u4/VQoMweohwWI/AAAAAAAABOk/aliIBGZtx2k/s1600/Eclipse%2BBlugins%2Bnames.png" height="480" width="640" /></a>&lt;/div&gt;<br />Here is an example list of command in a script that installed many of the features I use.<br /><br />&lt;pre class="prettyprint"&gt;<code class="language-bash"><br />&nbsp;&nbsp;&nbsp; eclipse -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/juno/ -installIU org.eclipse.cdt.feature.group/<br />&nbsp;&nbsp;&nbsp; eclipse -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/juno/ -installIU org.eclipse.egit.feature.group<br />&nbsp;&nbsp;&nbsp; eclipse -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/juno/ -installIU org.eclipse.cdt.sdk.feature.group<br />&nbsp;&nbsp;&nbsp; eclipse -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/juno/ -installIU org.eclipse.linuxtools.cdt.libhover.feature.group<br />&nbsp;&nbsp;&nbsp; eclipse -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/juno/ -installIU org.eclipse.wst.xml_ui.feature.feature.group<br />&nbsp;&nbsp;&nbsp; eclipse -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/juno/ -installIU org.eclipse.wst.web_ui.feature.feature.group<br />&nbsp;&nbsp;&nbsp; eclipse -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/juno/ -installIU org.eclipse.wst.jsdt.feature.feature.group<br />&nbsp;&nbsp;&nbsp; eclipse -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/juno/ -installIU org.eclipse.php.sdk.feature.group<br />&nbsp;&nbsp;&nbsp; eclipse -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/juno/ -installIU org.eclipse.rap.tooling.feature.group<br />&nbsp;&nbsp;&nbsp; eclipse -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/juno/ -installIU org.eclipse.linuxtools.cdt.libhover.devhelp.feature.feature.group<br />&nbsp;&nbsp;&nbsp; eclipse -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/juno/ -installIU org.eclipse.linuxtools.valgrind.feature.group<br />&nbsp;&nbsp;&nbsp; eclipse -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/juno/ -installIU org.eclipse.egit.feature.group<br /><br /><br />#Subclipse<br /><br />&nbsp;&nbsp;&nbsp; eclipse -application org.eclipse.equinox.p2.director -repository http://subclipse.tigris.org/update_1.10.x -installIU org.tigris.subversion.subclipse.feature.group<br />&nbsp;&nbsp;&nbsp; eclipse -application org.eclipse.equinox.p2.director -repository http://subclipse.tigris.org/update_1.10.x -installIU SVNKit<br /><br />#PyDev<br />eclipse -application org.eclipse.equinox.p2.director -repository http://pydev.org/updates -installIU org.python.pydev.feature.feature.group<br />eclipse -application org.eclipse.equinox.p2.director -repository http://pydev.org/updates -installIU org.python.pydev.mylyn.feature.feature.group <br /></code>&lt;/pre&gt;<br /><br />Best of luck.<br /><br />References:<br />&lt;ol&gt;&lt;li&gt;http://help.eclipse.org/indigo/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Freference%2Fmisc%2Fupdate_standalone.html&lt;/li&gt;&lt;/ol&gt;<br /></p>
+
+  </div><a class="u-url" href="/posts_drafts/2015-03-18-install-eclipse-plugins-via-command-line" hidden></a>
+</article>
+
+        </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/%20/"></data>
+
+    <div class="wrapper">
+        
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list">
+                    <li class="p-name">Glen Berseth</li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/neo-x"><svg
+                class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+            </svg> <span class="username">neo-x</span></a></li><li><a
+            href="https://www.linkedin.com/in/glen-berseth-0523278b"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+            </svg> <span class="username">glen-berseth-0523278b</span></a></li><li><a
+            href="https://www.twitter.com/GlenBerseth"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+            </svg> <span class="username">GlenBerseth</span></a></li><li><a rel="me"
+            href="https://www.youtube.com/channel/UCOouaBg4gHIlNvPkJn_8ooA"
+            title="Real Lab"><svg class="svg-icon grey">
+                <use xlink:href="/assets/minima-social-icons.svg#youtube"></use>
+            </svg> <span class="username">Real Lab</span></a></li></ul></div>
+
+            <div class="footer-col footer-col-3">
+                <p>I (he/him/il) am an assistant professor at the University de Montreal and Mila. My research explores how to use deep learning and reinforcement learning to develop generalist robots.</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer></body>
+
+</html>

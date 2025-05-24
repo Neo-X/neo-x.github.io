@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> | Glen Berseth</title>
+    <link rel="canonical" href="/posts_drafts/2014-10-12-mesh-subdivision-with-loop-algorithm">
+    
+
+    <meta property="og:title" content="">
+    <meta property="og:url" content="/posts_drafts/2014-10-12-mesh-subdivision-with-loop-algorithm">
+    <meta property="og:site_name" content="Glen Berseth">
+    <meta name="twitter:card" content="summary">
+    <meta property="twitter:title" content="">
+
+	<script type="text/javascript" id="MathJax-script" async
+	  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
+    <script type="application/ld+json">
+    {"@type":"WebSite","headline":"Glen Berseth","url":"/","name":"Glen Berseth","@context":"https://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- <link rel="stylesheet" href="/assets/main.css"> --></head>
+<body><header class="site-header">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/">Glen Berseth</a><nav class="site-nav">
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+            <label for="nav-trigger">
+                <span class="menu-icon">
+                    <svg viewBox="0 0 18 15" width="18px" height="15px">
+                        <path d="M1.5 1.5 h15 M1.5 7.5 h15 M1.5 13.5 h15" stroke="black" stroke-width="3" stroke-linecap="round" />
+                      </svg>
+                </span>
+            </label>
+
+            <div class="trigger">
+                    <a class="page-link" href="/fr/">Accueil</a>
+                
+                    <a class="page-link" href="/fr/people/">Membres</a>
+                
+                    <a class="page-link" href="/fr/publications/">Publications</a>
+                
+                    <a class="page-link" href="/fr/join/">Joignez-nous</a>
+                
+                    <a class="page-link" href="/fr/posts/">Postes</a>
+                
+                    <a class="page-link" href="/fr/teaching/">L'enseignement</a>
+                
+                <a class="page-link" href="/posts_drafts/2014-10-12-mesh-subdivision-with-loop-algorithm">En</a>
+                
+            </div>
+        </nav></div>
+    
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Mesh Subdivision with the Loop Algorithm</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2014-10-12T16:25:00-04:00" itemprop="datePublished">Oct 12, 2014
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Glen Berseth</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Recently I have been learning more about Polygonal meshes and operations you can perform on them. One of the first operations that can be done on a mesh, that is a kind of cool, is subdivision. The basic idea is that you have a mesh that is very course (few polygons, rough) and we want a method that can construct a smoother mesh from this course mesh. This has been a popular method for constructing extremely smooth meshes for movies for many years. <br /><br /><br />&lt;div class="separator" style="clear: both; text-align: center;"&gt;<a href="http://3.bp.blogspot.com/-AICgkcR7QK0/VDrdccOm27I/AAAAAAAAA7o/MSfZ_KHUIMg/s1600/camel_simple_wire.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-AICgkcR7QK0/VDrdccOm27I/AAAAAAAAA7o/MSfZ_KHUIMg/s1600/camel_simple_wire.png" height="332" width="640" /></a>&lt;/div&gt;&lt;div class="separator" style="clear: both; text-align: center;"&gt;<a href="http://3.bp.blogspot.com/-zTXOQ4xit5Y/VDrdox2CbDI/AAAAAAAAA8Q/Apm57rjHToM/s1600/camel_simple.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-zTXOQ4xit5Y/VDrdox2CbDI/AAAAAAAAA8Q/Apm57rjHToM/s1600/camel_simple.png" height="334" width="640" /></a>&lt;/div&gt;<br /><picture course="" mesh="" of=""></picture><br /><br /><br />This is an example very course mesh of a Camel. This mesh was not constructed this way by chance. An artist spent many hours adjusting verticies (points) and faces (polygons or triangles) on this mesh in order for subdivision to work well. <br /><br />The Loop algorithm is a popular algorithm to perform mesh subdivision. One reason for its popularity is that it ensures that after subdivision the mesh is C2 continuous (smooth second derivative on surface) everywhere on the mesh except for at extreme points.<br /><br />After lots of careful thought I decided to implement the algorithm in 3 steps.<br />&lt;ol&gt;&lt;li&gt;Add all of the new verticies for the mesh (easy)&lt;/li&gt;&lt;ol&gt;&lt;li&gt;Take every edge and add a new point between the two points that define the edge&lt;/li&gt;&lt;/ol&gt;&lt;li&gt;Construct/fix all of the polygons in the mesh (not so easy)&lt;/li&gt;&lt;ol&gt;&lt;li&gt;Add edges between all of the new points and update the face/polygon labels for these edges&lt;/li&gt;&lt;li&gt;Most bugs came from this step&lt;/li&gt;&lt;/ol&gt;&lt;li&gt;Compute the new positions of the verticies on a copy of the mesh from 2 (almost easy)&lt;/li&gt;&lt;ol&gt;&lt;li&gt;Simply use the old mesh to compute all of the neighbours for old points. &lt;/li&gt;&lt;li&gt;Computed the weighted sum of positions from neighbours and selected point (See loop Algorithm) and assign this position on the mesh copy&lt;/li&gt;&lt;li&gt;For new points I used the new mesh to get the neighbours of each new point that was in the old mesh&lt;/li&gt;&lt;li&gt;Last I had to run a query to get the edge between the points from (3). This got me the edge I should use to find the last two neighbour points for the Loop Algorithm&lt;/li&gt;&lt;/ol&gt;&lt;/ol&gt;The coding also assumes some knowledge of how to work with a half-edge data structure for the mesh.<br /><br />original mesh <br /><br />&lt;div class="separator" style="clear: both; text-align: center;"&gt;<a href="http://3.bp.blogspot.com/-Uf4SAD-tT4s/VDrdnvQNnoI/AAAAAAAAA78/jyj1RMYy72Y/s1600/CowHead-smooth-1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-Uf4SAD-tT4s/VDrdnvQNnoI/AAAAAAAAA78/jyj1RMYy72Y/s1600/CowHead-smooth-1.png" height="298" width="320" /></a>&lt;/div&gt;<br /><br />After one subdivision<br /><br />&lt;div class="separator" style="clear: both; text-align: center;"&gt;<a href="http://1.bp.blogspot.com/-8Byl43ouCGM/VDrdnXxvtzI/AAAAAAAAA70/r8DQnGfa90k/s1600/CowHead-1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-8Byl43ouCGM/VDrdnXxvtzI/AAAAAAAAA70/r8DQnGfa90k/s1600/CowHead-1.png" height="266" width="320" /></a><a href="http://3.bp.blogspot.com/-hQ9wMMlKqMY/VDrdn66ifbI/AAAAAAAAA8o/FawQ6AEBI4M/s1600/CowHead-smooth-2.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-hQ9wMMlKqMY/VDrdn66ifbI/AAAAAAAAA8o/FawQ6AEBI4M/s1600/CowHead-smooth-2.png" height="314" width="320" /></a>&lt;/div&gt;<br /><br />After two<br />&lt;div class="separator" style="clear: both; text-align: center;"&gt;<a href="http://4.bp.blogspot.com/-q_tVWUpyEbo/VDrdnaprKoI/AAAAAAAAA7w/omzVnBVUfwM/s1600/CowHead-2.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-q_tVWUpyEbo/VDrdnaprKoI/AAAAAAAAA7w/omzVnBVUfwM/s1600/CowHead-2.png" height="278" width="320" /></a><a href="http://4.bp.blogspot.com/-nunQjpuFamI/VDrdoCuP-WI/AAAAAAAAA8A/_Y0gXrdtKF8/s1600/CowHead-smooth-3.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-nunQjpuFamI/VDrdoCuP-WI/AAAAAAAAA8A/_Y0gXrdtKF8/s1600/CowHead-smooth-3.png" height="312" width="320" /></a>&lt;/div&gt;<br />After three<br />&lt;div class="separator" style="clear: both; text-align: center;"&gt;<a href="http://3.bp.blogspot.com/-c89yG2pWFEM/VDrdnihOCKI/AAAAAAAAA74/xQdoXXmKO40/s1600/CowHead-3.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-c89yG2pWFEM/VDrdnihOCKI/AAAAAAAAA74/xQdoXXmKO40/s1600/CowHead-3.png" height="291" width="320" /></a><a href="http://4.bp.blogspot.com/-xuH-cbOARn8/VDrfxnQAUdI/AAAAAAAAA88/ZWucJn2ytv0/s1600/CowHead-smooth-4.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-xuH-cbOARn8/VDrfxnQAUdI/AAAAAAAAA88/ZWucJn2ytv0/s1600/CowHead-smooth-4.png" height="298" width="320" /></a>&lt;/div&gt;<br /><br /><br />final mesh<br />&lt;div class="separator" style="clear: both; text-align: center;"&gt;<a href="http://4.bp.blogspot.com/-NVn9abY_Twk/VDrdoRnRh6I/AAAAAAAAA8E/9E3gLJhy14k/s1600/CowHead-smooth.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-NVn9abY_Twk/VDrdoRnRh6I/AAAAAAAAA8E/9E3gLJhy14k/s1600/CowHead-smooth.png" height="602" width="640" /></a>&lt;/div&gt;<br />Camel mesh after simplifaction<br />&lt;div class="separator" style="clear: both; text-align: center;"&gt;<a href="http://3.bp.blogspot.com/-MCFc0-Ef-OA/VDrdok6Hz8I/AAAAAAAAA8M/ZSCrD2xMWMw/s1600/camel_simple-smooth.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-MCFc0-Ef-OA/VDrdok6Hz8I/AAAAAAAAA8M/ZSCrD2xMWMw/s1600/camel_simple-smooth.png" height="332" width="640" /></a>&lt;/div&gt;<br /><br /><br /><br />References:<br />&lt;ol&gt;&lt;li&gt;http://www.cs.ubc.ca/labs/imager/tr/2014/CartelModeling/Cartel_website/&lt;/li&gt;&lt;li&gt;https://www.graphics.rwth-aachen.de/media/papers/sqrt31.pdf&lt;/li&gt;&lt;li&gt;http://research.microsoft.com/en-us/um/people/cloop/thesis.pdf&lt;/li&gt;&lt;/ol&gt;</p>
+
+  </div><a class="u-url" href="/posts_drafts/2014-10-12-mesh-subdivision-with-loop-algorithm" hidden></a>
+</article>
+
+        </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/%20/"></data>
+
+    <div class="wrapper">
+        
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list">
+                    <li class="p-name">Glen Berseth</li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/neo-x"><svg
+                class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+            </svg> <span class="username">neo-x</span></a></li><li><a
+            href="https://www.linkedin.com/in/glen-berseth-0523278b"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+            </svg> <span class="username">glen-berseth-0523278b</span></a></li><li><a
+            href="https://www.twitter.com/GlenBerseth"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+            </svg> <span class="username">GlenBerseth</span></a></li><li><a rel="me"
+            href="https://www.youtube.com/channel/UCOouaBg4gHIlNvPkJn_8ooA"
+            title="Real Lab"><svg class="svg-icon grey">
+                <use xlink:href="/assets/minima-social-icons.svg#youtube"></use>
+            </svg> <span class="username">Real Lab</span></a></li></ul></div>
+
+            <div class="footer-col footer-col-3">
+                <p>I (he/him/il) am an assistant professor at the University de Montreal and Mila. My research explores how to use deep learning and reinforcement learning to develop generalist robots.</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer></body>
+
+</html>

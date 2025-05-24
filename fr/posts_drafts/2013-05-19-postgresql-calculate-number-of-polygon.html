@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> | Glen Berseth</title>
+    <link rel="canonical" href="/posts_drafts/2013-05-19-postgresql-calculate-number-of-polygon">
+    
+
+    <meta property="og:title" content="">
+    <meta property="og:url" content="/posts_drafts/2013-05-19-postgresql-calculate-number-of-polygon">
+    <meta property="og:site_name" content="Glen Berseth">
+    <meta name="twitter:card" content="summary">
+    <meta property="twitter:title" content="">
+
+	<script type="text/javascript" id="MathJax-script" async
+	  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
+    <script type="application/ld+json">
+    {"@type":"WebSite","headline":"Glen Berseth","url":"/","name":"Glen Berseth","@context":"https://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- <link rel="stylesheet" href="/assets/main.css"> --></head>
+<body><header class="site-header">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/">Glen Berseth</a><nav class="site-nav">
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+            <label for="nav-trigger">
+                <span class="menu-icon">
+                    <svg viewBox="0 0 18 15" width="18px" height="15px">
+                        <path d="M1.5 1.5 h15 M1.5 7.5 h15 M1.5 13.5 h15" stroke="black" stroke-width="3" stroke-linecap="round" />
+                      </svg>
+                </span>
+            </label>
+
+            <div class="trigger">
+                    <a class="page-link" href="/fr/">Accueil</a>
+                
+                    <a class="page-link" href="/fr/people/">Membres</a>
+                
+                    <a class="page-link" href="/fr/publications/">Publications</a>
+                
+                    <a class="page-link" href="/fr/join/">Joignez-nous</a>
+                
+                    <a class="page-link" href="/fr/posts/">Postes</a>
+                
+                    <a class="page-link" href="/fr/teaching/">L'enseignement</a>
+                
+                <a class="page-link" href="/posts_drafts/2013-05-19-postgresql-calculate-number-of-polygon">En</a>
+                
+            </div>
+        </nav></div>
+    
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Postgresql: Calculate the number of polygon islands or overlapping groups</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2013-05-19T15:03:00-04:00" itemprop="datePublished">May 19, 2013
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Glen B</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <table>
+  <tbody>
+    <tr>
+      <td>This post is about some work I did on how to calculate the number of number of groups of intersecting polygons in an array of polygons in Postgresql<br /><br /><br />First lets be a little more strict about what the definition of an island is. For the purposes of this algorithm an island consists of a set polygons where at least one polygon in the set overlaps another in the set. <br /><br /><br />I created a function to calculate the number of islands attached is the plpgsql code for the function.<br /><br />&lt;pre class="prettyprint"&gt;<code class="language-sql"><br />CREATE OR REPLACE FUNCTION getNumIslands(polys polygon[]) RETURNS INT AS<br />$BODY$<br />DECLARE<br />islandList polygon[]; -- holds the set of obstacles that make up the current island.<br />islandCount INT; -- holds the count of the number of islands.<br />poly polygon; -- holds the polygon to start an island search<br />polys_copy polygon[]; -- A copy of the input list<br />inddex INT; -- keeps track of the current index in the polys_copy search<br /><br />BEGIN<br />&nbsp;&nbsp;&nbsp; <br />islandCount := 0;<br /><br />islandList := polys;<br />polys_copy := polys;<br />inddex := 1;<br /><br />WHILE array_length(polys_copy,1) &gt; 0<br />LOOP<br />&nbsp;&nbsp;&nbsp; -- RAISE NOTICE 'Poly_list length is: %', array_length(polys_copy, 1);<br />&nbsp;&nbsp;&nbsp; -- grab the first poly<br />&nbsp;&nbsp;&nbsp; poly := polys_copy[1];<br />&nbsp;&nbsp;&nbsp; islandList := array_append(ARRAY[]::polygon[], poly);<br />&nbsp;&nbsp;&nbsp; -- RAISE NOTICE 'Current island is %', islandList;<br />&nbsp;&nbsp;&nbsp; -- remove the first poly because we dont care about it overlaping itself.<br />&nbsp;&nbsp;&nbsp; polys_copy := polys_copy[2:array_length(polys_copy, 1)];<br />&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; -- Make a list of all the polys left that overlap with poly<br />&nbsp;&nbsp;&nbsp; WHILE inddex &lt;= array_length(polys_copy, 1)<br />&nbsp;&nbsp;&nbsp; LOOP<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; -- If the poly_copy overlaps the poly then add its index to the list<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; -- of polys to be removed<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; FOREACH poly IN ARRAY islandList<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; LOOP<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; IF polys_copy[inddex] &amp;&amp; poly<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; THEN<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; islandList := array_append(islandList, polys_copy[inddex]);<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; --<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; IF array_length(polys_copy,1) = 1<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; THEN<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; polys_copy := null;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ELSE<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; polys_copy := polys_copy[1:inddex-1] || polys_copy[inddex+1:array_length(polys_copy, 1)];<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; END IF;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; -- RAISE NOTICE 'Intersects with poly index: %', inddex;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; -- When a new intersecting poly is found it needs to be compared<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; -- to every poly not just the polys left in the list<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; inddex := 0;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; EXIT;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; END IF;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; END LOOP;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; -- RAISE NOTICE 'Current island is %', islandList;<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; inddex := inddex + 1;<br />&nbsp;&nbsp;&nbsp; END LOOP;<br />&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; islandCount := islandCount + 1;<br />&nbsp;&nbsp;&nbsp; inddex := 1;<br />END LOOP;<br /><br />RETURN islandCount;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />END<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />$BODY$ LANGUAGE plpgsql;</code>&lt;/pre&gt;© 2013 Glen Berseth</td>
+      <td>www.fracturedplane.com</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div><a class="u-url" href="/posts_drafts/2013-05-19-postgresql-calculate-number-of-polygon" hidden></a>
+</article>
+
+        </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/%20/"></data>
+
+    <div class="wrapper">
+        
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list">
+                    <li class="p-name">Glen Berseth</li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/neo-x"><svg
+                class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+            </svg> <span class="username">neo-x</span></a></li><li><a
+            href="https://www.linkedin.com/in/glen-berseth-0523278b"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+            </svg> <span class="username">glen-berseth-0523278b</span></a></li><li><a
+            href="https://www.twitter.com/GlenBerseth"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+            </svg> <span class="username">GlenBerseth</span></a></li><li><a rel="me"
+            href="https://www.youtube.com/channel/UCOouaBg4gHIlNvPkJn_8ooA"
+            title="Real Lab"><svg class="svg-icon grey">
+                <use xlink:href="/assets/minima-social-icons.svg#youtube"></use>
+            </svg> <span class="username">Real Lab</span></a></li></ul></div>
+
+            <div class="footer-col footer-col-3">
+                <p>I (he/him/il) am an assistant professor at the University de Montreal and Mila. My research explores how to use deep learning and reinforcement learning to develop generalist robots.</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer></body>
+
+</html>

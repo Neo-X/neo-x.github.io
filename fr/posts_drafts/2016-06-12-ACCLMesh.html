@@ -1,0 +1,60 @@
+<table width="100%">
+								<tr width="100%">
+									<td width="45%" align="center">
+										<img src="/assets/projects/acclmesh/underpass.png" width="300px" />
+										<p>
+											Evaluating height clearance with the navigation mesh allows agents to walk under a slanted overpass safely.
+										</p>
+									</td>
+									
+									<td width="45%" align="center">
+										<img src="/assets/projects/acclmesh/1100agents-on-terrain.png" width="300px" />
+										<p>
+											The approach can be integrated into standard navigation and animation systems to simulate thousands of agents on 3D surfaces in real-time.
+										</p>
+									</td>
+								</tr>
+							</table>
+
+<p>With this work we build upon prevous work to construct navigation meshes. These meshes are used to limit the locations	characters can travel in interactive simulations to only include safe or navigable areas. We use the curvature of the mesh surface to decide if the area is navigable or not.</p>
+
+<h1 id="abstract">Abstract</h1>
+
+<p>The proposed method robustly and efficiently computes a navigation mesh for arbitrary and dynamic 3D environments based on curvature. This method addresses a number of known limitations in state-of-the-art techniques to produce navigation meshes that are tightly coupled to the original geometry, incorporate geometric details that are crucial for movement decisions and can robustly handle complex surfaces. The method is integrated into a standard navigation and collision-avoidance system to simulate thousands of agents on complex 3D surfaces in real-time.</p>
+
+<h2 id="files">Files</h2>
+
+<p><a href="/assets/projects/acclmesh/MIG_2015_ACCLMesh.pdf">Paper</a></p>
+
+<h3 id="bibtex">Bibtex</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@inproceedings{10.1145/2822013.2822043,
+author = {Berseth, Glen and Kapadia, Mubbasir and Faloutsos, Petros},
+title = {ACCLMesh: Curvature-Based Navigation Mesh Generation},
+year = {2015},
+isbn = {9781450339919},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/2822013.2822043},
+doi = {10.1145/2822013.2822043},
+booktitle = {Proceedings of the 8th ACM SIGGRAPH Conference on Motion in Games},
+pages = {97–102},
+numpages = {6},
+keywords = {navigation mesh, crowd simulation, curvature},
+location = {Paris, France},
+series = {MIG '15}
+}
+</code></pre></div></div>
+
+<h2 id="videos">Videos!</h2>
+
+<article style="text-align:center">
+							<p>
+								This video demonstrates some of the example results of our ACCLMesh method.
+							</p>
+							<video width="720" height="410" controls="">
+							  <source type="video/mp4" src="/assets/projects/acclmesh/ACCLMesh_CAVW.mp4" />&lt;/source&gt;
+							  Your browser does not support the encoded video.
+							</video>
+						</article>
+

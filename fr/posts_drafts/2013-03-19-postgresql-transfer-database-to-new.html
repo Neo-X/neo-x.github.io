@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> | Glen Berseth</title>
+    <link rel="canonical" href="/posts_drafts/2013-03-19-postgresql-transfer-database-to-new">
+    
+
+    <meta property="og:title" content="">
+    <meta property="og:url" content="/posts_drafts/2013-03-19-postgresql-transfer-database-to-new">
+    <meta property="og:site_name" content="Glen Berseth">
+    <meta name="twitter:card" content="summary">
+    <meta property="twitter:title" content="">
+
+	<script type="text/javascript" id="MathJax-script" async
+	  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
+    <script type="application/ld+json">
+    {"@type":"WebSite","headline":"Glen Berseth","url":"/","name":"Glen Berseth","@context":"https://schema.org"}</script>
+    <!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- <link rel="stylesheet" href="/assets/main.css"> --></head>
+<body><header class="site-header">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/">Glen Berseth</a><nav class="site-nav">
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+            <label for="nav-trigger">
+                <span class="menu-icon">
+                    <svg viewBox="0 0 18 15" width="18px" height="15px">
+                        <path d="M1.5 1.5 h15 M1.5 7.5 h15 M1.5 13.5 h15" stroke="black" stroke-width="3" stroke-linecap="round" />
+                      </svg>
+                </span>
+            </label>
+
+            <div class="trigger">
+                    <a class="page-link" href="/fr/">Accueil</a>
+                
+                    <a class="page-link" href="/fr/people/">Membres</a>
+                
+                    <a class="page-link" href="/fr/publications/">Publications</a>
+                
+                    <a class="page-link" href="/fr/join/">Joignez-nous</a>
+                
+                    <a class="page-link" href="/fr/posts/">Postes</a>
+                
+                    <a class="page-link" href="/fr/teaching/">L'enseignement</a>
+                
+                <a class="page-link" href="/posts_drafts/2013-03-19-postgresql-transfer-database-to-new">En</a>
+                
+            </div>
+        </nav></div>
+    
+</header>
+<main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Postgresql Transfer Database to New Tablespace with Python</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2013-03-19T11:34:00-04:00" itemprop="datePublished">Mar 19, 2013
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Glen B</span></span></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>This is a quick script I wrote in python to generate the sql file needed to transfer one database to another tablespace.<br /><br /><br />&lt;pre class="prettyprint"&gt;<code class="language-py"><br />&nbsp;#!/usr/bin/python<br /><br /># will generate the sql file needed to alter the tablespace for a database.<br /><br />import psycopg2<br />import psycopg2.extras<br />import sys<br /><br />#<br /># Configuration<br /># <br />host = '<provide-me>';&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # The host on which the database resides.<br />user = '<provide-me>';&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # The username to access the database.<br />password = '<provide-me>';&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # The password to access the database.<br />db = '<provide-me>';&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # The database to move.<br />tablespace = '<provide-me>';&nbsp;&nbsp;&nbsp; # The tablespace to move the database to.<br />output = ""<br /><br />#<br /># Application<br />#<br />conn = psycopg2.connect(database=db, user=user, password=password)<br />conn.set_isolation_level(0)&nbsp; <br />cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)<br /><br /># Create SQL code to put new tables and indexes in the new tablespace.<br />output = output + "ALTER DATABASE " + db + " SET default_tablespace = " + tablespace + ";\n"<br /><br /># Select all tables from the database.<br />tableQuery = "SELECT * FROM pg_tables where tableowner='" + user + "' ORDER BY tablename"<br /><br />cur.execute(tableQuery)<br /><br />db_tables = cur.fetchall()<br /># print db_tables <br />for table in db_tables:<br />&nbsp;&nbsp;&nbsp; schemaName = table['schemaname']<br />&nbsp;&nbsp;&nbsp; tableName = table['tablename']<br /><br />&nbsp;&nbsp;&nbsp; # Create SQL code to move the table to the new tablespace.<br />&nbsp;&nbsp;&nbsp; output = output + "ALTER TABLE "+ schemaName +"." + tableName + " SET TABLESPACE " + tablespace + ";\n";<br />&nbsp;&nbsp;&nbsp; # print output<br /><br />&nbsp;&nbsp;&nbsp; # Select all indexes from the table.<br />&nbsp;&nbsp;&nbsp; indexQuery = "SELECT * FROM pg_indexes WHERE schemaname = '" + schemaName + "' AND tablename = '" + tableName + "' ORDER BY indexname"<br />&nbsp;&nbsp;&nbsp; print indexQuery<br />&nbsp;&nbsp;&nbsp; cur.execute(indexQuery)<br />&nbsp;&nbsp;&nbsp; print cur.statusmessage<br />&nbsp;&nbsp;&nbsp; db_indexes = cur.fetchall()<br />&nbsp;&nbsp;&nbsp; # print db_indexes<br />&nbsp;&nbsp;&nbsp; for index in db_indexes:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print dict(index)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; indexName = index['indexname']<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Create SQL code to move the index to the new tablespace.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; output = output + "ALTER INDEX " + schemaName + "." + indexName + " SET TABLESPACE " + tablespace+ ";\n";<br />&nbsp;&nbsp;&nbsp; <br /><br /><br /># Write the resulting SQL code to a file.<br />filename = 'migrate_' + host + '_' + db + '_to_' + tablespace + '.sql'<br />sqlfile = open('filename, 'w')<br />sqlfile.write(output)<br /><br />&nbsp;</provide-me></provide-me></provide-me></provide-me></provide-me><br /><br /></code>&lt;/pre&gt;<br />Best of luck.<br /><code></code> <br /><code></code> <br /><code>References:</code><br />&lt;ol&gt;&lt;li&gt;<code>http://blog.lodeblomme.be/2008/03/15/move-a-postgresql-database-to-a-different-tablespace/</code>&lt;/li&gt;&lt;li&gt;<code>http://www.postgresql.org/docs/9.1/static/sql-createtablespace.html </code>&lt;/li&gt;&lt;/ol&gt;</p>
+
+  </div><a class="u-url" href="/posts_drafts/2013-03-19-postgresql-transfer-database-to-new" hidden></a>
+</article>
+
+        </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/%20/"></data>
+
+    <div class="wrapper">
+        
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col footer-col-1">
+                <ul class="contact-list">
+                    <li class="p-name">Glen Berseth</li></ul>
+            </div>
+
+            <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/neo-x"><svg
+                class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+            </svg> <span class="username">neo-x</span></a></li><li><a
+            href="https://www.linkedin.com/in/glen-berseth-0523278b"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+            </svg> <span class="username">glen-berseth-0523278b</span></a></li><li><a
+            href="https://www.twitter.com/GlenBerseth"><svg class="svg-icon">
+                <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+            </svg> <span class="username">GlenBerseth</span></a></li><li><a rel="me"
+            href="https://www.youtube.com/channel/UCOouaBg4gHIlNvPkJn_8ooA"
+            title="Real Lab"><svg class="svg-icon grey">
+                <use xlink:href="/assets/minima-social-icons.svg#youtube"></use>
+            </svg> <span class="username">Real Lab</span></a></li></ul></div>
+
+            <div class="footer-col footer-col-3">
+                <p>I (he/him/il) am an assistant professor at the University de Montreal and Mila. My research explores how to use deep learning and reinforcement learning to develop generalist robots.</p>
+            </div>
+        </div>
+
+    </div>
+
+</footer></body>
+
+</html>

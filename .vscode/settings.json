@@ -1,9 +1,0 @@
-{
-    "yaml.schemas": {
-        "./_schema/alumni.schema.json": "_data/alumni.yaml",
-        "./_schema/news.schema.json": "_data/news.yaml",
-        "./_schema/people.schema.json": "_data/people.yaml",
-        "./_schema/publications.schema.json": "_data/publications.yaml",
-        "./_schema/theses.schema.json": "_data/theses.yaml"
-    }
-}
