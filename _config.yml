@@ -31,7 +31,7 @@ description: "I (he/him/il) am an assistant professor at the University de Montr
 #   line in _config.yml. It will appear in your document head meta (for
 #   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://www.fracturedplane.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  neo-x
 youtube_channel: UCOouaBg4gHIlNvPkJn_8ooA
 youtube_channel_name: Real Lab
