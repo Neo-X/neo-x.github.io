@@ -43,7 +43,6 @@ linkedin_username: glen-berseth-0523278b
 
 gems:
     - jekyll-paginate
-    - jekyll/scholar
     - jemoji
 
 # Build settings
@@ -52,6 +51,7 @@ markdown: kramdown
 theme: minima
 
 plugins:
+  - jekyll/scholar
   - jekyll-redirect-from
   - jekyll-multiple-languages-plugin
   - jekyll-datapage-generator

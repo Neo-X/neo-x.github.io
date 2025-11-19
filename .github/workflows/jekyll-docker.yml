@@ -1,54 +1,52 @@
-name: Deploy Jekyll site to Pages
+name: Deploy Jekyll site with Custom Gems
 
-# Triggers the workflow on pushes to the master branch
 on:
   push:
     branches: ["master"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions needed to deploy to GitHub Pages
 permissions:
   contents: read
-  pages: write # Required for the new deployment mechanism
-  id-token: write # Required for authentication
+  pages: write
+  id-token: write
 
-# Ensure only one concurrent deployment is running
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # 1. Build job: Configures the environment and builds the Jekyll site
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4 # Update to v4
-      
-      # Step 1: Configure the GitHub Pages environment
+        uses: actions/checkout@v4
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      
-      # Step 2: Build the Jekyll site using the official build action
+
+      # 🚨 NEW STEPS: Install Ruby and Dependencies
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.x' # Use a recent Ruby version compatible with your gems
+          bundler-cache: true # Installs dependencies from Gemfile.lock
+
       - name: Build with Jekyll
-        # We still use the jekyll-build-pages action for the build *process*
-        # but it no longer handles the deployment itself.
-        uses: actions/jekyll-build-pages@v1 
-        
-      # Step 3: Upload the resulting site files as an artifact
+        # Run bundle exec jekyll build to use the installed gems
+        run: bundle exec jekyll build --destination ${{ steps.setup-pages.outputs.destination }}
+        env:
+          JEKYLL_ENV: production # Ensure production configuration is used
+          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
-        
-  # 2. Deployment job: Waits for the build and deploys the artifact
+
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build # This ensures deployment only runs after a successful build
+    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 # The official deployment action
+        uses: actions/deploy-pages@v4

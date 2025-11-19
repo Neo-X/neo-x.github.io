@@ -5,9 +5,5 @@
     Publications d'{{ page._name }}
   {%- endif -%}
 {%- else -%}
-  {%- if site.lang == 'en' -%}
-    {{ page.title | default: site.title }}
-  {%- elsif site.lang == 'fr' -%}
-    {{ page.title | default: site.title_fr }}
-  {%- endif -%}
+  {%- t page.title -%}
 {%- endif -%}
