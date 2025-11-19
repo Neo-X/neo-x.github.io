@@ -219,6 +219,21 @@
     - en: Robotics
       fr: Les règles de mise à échelle
 
+- name: Jesse Silverberg
+  title: phd
+  cosupervisor: Marc G. Bellemare
+  picture: jesse
+  website: https://jessesilverberg.com/
+  period:
+    start: 2025-08-31
+  topics:
+    - en: Reinforcement Learning
+      fr: Apprentissage par renforcement
+    - en: Robotics
+      fr: Robotique
+    - en: Deep Learning
+      fr: Apprentissage profond
+
 - name: Kirsty Ellis
   title: dev
   picture: kirsty
