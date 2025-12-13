@@ -50,18 +50,6 @@
       fr: Generalization
     - en: Planning
       fr: Planification
-
-- name: Cyrus Neary
-  title: postdoc
-  picture: cyrus
-  website: https://www.cyrusneary.com/
-  period:
-    start: 2024-09-01
-  topics:
-    - en: Reinforcement learning
-      fr: Apprentissage par renforcement
-    - en: Safety
-      fr: Sequrité
    
 - name: Siddarth Venkatraman
   title: phd
@@ -178,19 +166,6 @@
     - en: Unsupervised Reinforcement Learning
       fr: Unsupervised Reinforcement Learning
       
-- name: Michael Przystupa
-  title: intern
-  cosupervisor: Matthew E. Taylor
-  picture: michael
-  website: https://www.linkedin.com/in/michael-przystupa-984816120/
-  period:
-    start: 2024-01-01
-  topics:
-    - en: Robotics 
-      fr: Robotique
-    - en: Reinforcement Learning 
-      fr: Apprentissage par renforcement
-      
 - name: Adriana Hugensen
   title: phd
   picture: adriana
@@ -300,32 +275,6 @@
       fr: Apprentissage de représentations
     - en: Robotics
       fr: Robotique
-
-- name: Ali
-  title: intern
-  picture: ali
-  website: https://www.linkedin.com/in/ali-midhat-45446221b
-  period:
-    start: 2025-02-11
-  topics:
-    - en: Deep Reinforcement Learning
-      fr: Apprentissage profond par renforcement
-    - en: Morphology-agnostic Learning 
-      fr: Apprentissage agnostique à la morphologie
-
-- name: Charlotte Cloutier
-  title: intern
-  picture: charlotte
-  website: https://www.linkedin.com/in/charlotte-cloutier-994654203/
-  period:
-    start: 2025-01-06
-  topics:
-    - en: Reinforcement Learning
-      fr: Apprentissage par renforcement
-    - en: Sustainable Development
-      fr: Développement durable
-    - en: Urban Agriculture
-      fr: Urban Agriculture
 
 - name: Homayoun Honari
   title: intern

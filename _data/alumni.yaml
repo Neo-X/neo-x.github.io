@@ -10,6 +10,44 @@
 # The next field must contain both english (en) and french (fr) translations.
 # People will be sorted by period.end
 
+- name: Michael Przystupa
+  title: intern
+  profile_page: false
+  cosupervisor: Matthew E. Taylor
+  picture: michael
+  website: https://www.linkedin.com/in/michael-przystupa-984816120/
+  period:
+    start: 2024-01-01
+    end: 2025-09-01
+  topics:
+    - en: Robotics 
+      fr: Robotique
+    - en: Reinforcement Learning 
+      fr: Apprentissage par renforcement
+  next:
+    en: PostDoc @ Vrije Universiteit Amsterdam
+    fr: PostDoc @ Vrije Universiteit Amsterdam
+
+- name: Cyrus Neary
+  title: postdoc
+  profile_page: false
+  picture: cyrus
+  website: https://www.cyrusneary.com/
+  period:
+    start: 2024-09-01
+    end: 2025-08-01
+  topics:
+    - en: Reinforcement learning
+      fr: Apprentissage par renforcement
+    - en: Safety
+      fr: Sequrité
+    - en: Robotics
+      fr: Robotique
+  next:
+    en: Assistant Professor @ University of British Columbia
+    fr: Professeur adjoint @ Université de la Colombie-Britannique
+
+
 - name: Léa Demule
   title: master
   picture: simon
@@ -20,7 +58,7 @@
     end: 2023-09-01
   next:
     en: PhD @ Mila
-    fr: Ou
+    fr: PhD @ Mila
 
 - name: Roger Creus
   title: master
@@ -227,6 +265,7 @@
   website: https://www.linkedin.com/in/charlie-gauthier/?originalSubdomain=ca
   period:
     start: 2023-01-01
+    end: 2024-12-31
   topics:
     - en: Deep Reinforcement Learning
       fr: Apprentissage par renforcement
@@ -234,3 +273,37 @@
       fr: Robotique
     - en: Sim2Real
       fr: Sim2Real
+
+- name: Charlotte Cloutier
+  title: intern
+  picture: charlotte
+  website: https://www.linkedin.com/in/charlotte-cloutier-994654203/
+  period:
+    start: 2025-01-06
+    end: 2025-09-06
+  topics:
+    - en: Reinforcement Learning
+      fr: Apprentissage par renforcement
+    - en: Sustainable Development
+      fr: Développement durable
+    - en: Urban Agriculture
+      fr: Urban Agriculture
+  next:
+    en: Internship @ google
+    fr: Stage chez Google
+
+- name: Ali Midhat
+  title: intern
+  picture: ali
+  website: https://www.linkedin.com/in/ali-midhat-45446221b
+  period:
+    start: 2025-02-11
+    end: 2025-08-11
+  topics:
+    - en: Deep Reinforcement Learning
+      fr: Apprentissage profond par renforcement
+    - en: Morphology-agnostic Learning 
+      fr: Apprentissage agnostique à la morphologie
+  next:
+    en: Internship
+    fr: Internship
