@@ -33,7 +33,7 @@ jobs:
 
       - name: Build with Jekyll
         # Run bundle exec jekyll build to use the installed gems
-        run: bundle exec jekyll build --destination ${{ steps.setup-pages.outputs.destination }}
+        run: bundle exec jekyll build --destination ./_site
         env:
           JEKYLL_ENV: production # Ensure production configuration is used
           
