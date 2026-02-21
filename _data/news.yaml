@@ -6,6 +6,11 @@
 #   Therefore, do not remove old news, simply set the hidden: true
 #   property.
 
+- en: 'Three new papers accepted to ICLR 2025 on <a href="https://openreview.net/forum?id=gqjT7g5ZRa">Efficient exploration with contrastive learning</a>, <a href="https://arxiv.org/abs/2506.10137">Self-Predictive Representations for Combinatorial Generalization</a>, and <a href="https://arxiv.org/abs/2510.14176">Use LLMs to generate structred reward functions</a>!'
+## and in French
+  fr: "Trois nouveaux articles acceptés à ICLR 2025 sur <a href='https://openreview.net/forum?id=gqjT7g5ZRa'>l'exploration efficace avec apprentissage contrastif</a>, <a href='https://arxiv.org/abs/2506.10137'>des représentations auto-prédictives pour la généralisation combinatoire</a>, et <a href='https://arxiv.org/abs/2510.14176'>l'utilisation des LLM pour générer des fonctions de récompense structurées</a>!"
+  date: 2026-01-14
+
 - en: 'Two new papers accepted to ICML 2025 on <a href="https://arxiv.org/abs/2502.06999">Outsourced diffusion models</a> and <a href="https://arxiv.org/abs/2506.00592">Continual RL</a>!'
   fr: "Deux nouveaux articles acceptés à ICML 2025 sur <a href='https://arxiv.org/abs/2502.06999'>Outsourced diffusion models</a> et <a href='https://arxiv.org/abs/2506.00592'>Continual RL</a>!"
   date: 2025-05-01
