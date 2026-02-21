@@ -1,5 +1,7 @@
 # Lab Website
 
+[![Deploy Jekyll site with Custom Gems](https://github.com/Neo-X/neo-x.github.io/actions/workflows/jekyll-docker.yml/badge.svg)](https://github.com/Neo-X/neo-x.github.io/actions/workflows/jekyll-docker.yml)
+
 Jekyll setup and content for the lab.
 
 ## Maintenance

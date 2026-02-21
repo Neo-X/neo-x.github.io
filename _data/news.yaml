@@ -1,12 +1,12 @@
 # This file contains all news displayed on https://chandar-lab.github.io/
-# Both english (en) and french (fr) transplations must be provided.
+# Both english (en) and french (fr) translations must be provided.
 # The date is specified in the format YYYY-MM-DD (ISO-8601).
 # A `hidden: true` property can be set to hide a news item from the
-#   website. Old news are relevant for in grant applications etc..
+#   website. Old news are relevant in grant applications etc..
 #   Therefore, do not remove old news, simply set the hidden: true
 #   property.
 
-- en: 'Three new papers accepted to ICLR 2025 on <a href="https://openreview.net/forum?id=gqjT7g5ZRa">Efficient exploration with contrastive learning</a>, <a href="https://arxiv.org/abs/2506.10137">Self-Predictive Representations for Combinatorial Generalization</a>, and <a href="https://arxiv.org/abs/2510.14176">Use LLMs to generate structred reward functions</a>!'
+- en: 'Three new papers accepted to ICLR 2025 on <a href="https://openreview.net/forum?id=gqjT7g5ZRa">Efficient exploration with contrastive learning</a>, <a href="https://arxiv.org/abs/2506.10137">Self-Predictive Representations for Combinatorial Generalization</a>, and <a href="https://arxiv.org/abs/2510.14176">Use LLMs to generate structured reward functions</a>!'
 ## and in French
   fr: "Trois nouveaux articles acceptés à ICLR 2025 sur <a href='https://openreview.net/forum?id=gqjT7g5ZRa'>l'exploration efficace avec apprentissage contrastif</a>, <a href='https://arxiv.org/abs/2506.10137'>des représentations auto-prédictives pour la généralisation combinatoire</a>, et <a href='https://arxiv.org/abs/2510.14176'>l'utilisation des LLM pour générer des fonctions de récompense structurées</a>!"
   date: 2026-01-14
@@ -15,7 +15,7 @@
   fr: "Deux nouveaux articles acceptés à ICML 2025 sur <a href='https://arxiv.org/abs/2502.06999'>Outsourced diffusion models</a> et <a href='https://arxiv.org/abs/2506.00592'>Continual RL</a>!"
   date: 2025-05-01
 
-- en: 'Three new papers accepted to ICLR 2025 on <a href="http://arxiv.org/abs/2411.07007">efficient imitation learning</a>, <a href="https://openreview.net/forum?id=HH4KWP8RP5">exploration for GFNs</a>, and <a href="https://arxiv.org/abs/2412.14355">realtime reinforcementlearning</a>!'
+- en: 'Three new papers accepted to ICLR 2025 on <a href="http://arxiv.org/abs/2411.07007">efficient imitation learning</a>, <a href="https://openreview.net/forum?id=HH4KWP8RP5">exploration for GFNs</a>, and <a href="https://arxiv.org/abs/2412.14355">real-time reinforcement learning</a>!'
   fr: "Trois nouveaux articles acceptés à ICLR 2025 sur <a href='http://arxiv.org/abs/2411.07007'>l\\'apprentissage par imitation efficace</a>, <a href='https://openreview.net/forum?id=HH4KWP8RP5'>l\\'exploration pour les GFN</a>, et <a href='https://arxiv.org/abs/2412.14355'>l\\'apprentissage par renforcement en temps réel</a>!"
   date: 2025-01-01
 
@@ -23,7 +23,7 @@
   fr: "Trois nouveaux articles acceptés à NeurIPS 2024 sur <a href='https://openreview.net/forum?id=T5Cerv7PT2'>l'inverse safe RL</a>, <a href='http://arxiv.org/abs/2409.04792'>la convergence et la mise à l'échelle des algorithmes deepRL</a>, et <a href='http://arxiv.org/abs/2405.20971'>l'amortissement de l'inférence intraitable</a>!"
   date: 2024-11-01
 
-- en: "The first <a href='https://rl-conference.cc/'>Conference on Reinforecment Learning</a> was a blast!"
+- en: "The first <a href='https://rl-conference.cc/'>Conference on Reinforcement Learning</a> was a blast!"
   fr: "La première <a href=« https://rl-conference.cc/ »>Conférence sur l'apprentissage par renforcement</a> a été un véritable succès!"
   date: 2024-08-15
   
