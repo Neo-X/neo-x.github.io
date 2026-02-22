@@ -21,9 +21,9 @@ Behavioral cloning performs well when predictions stay near the expert distribut
 
 Behavioral Cloning (BC) is one of the simplest ways to learn control policies: train a model to imitate expert actions from state-action pairs. It can work surprisingly well in short horizons—and fail surprisingly fast in longer rollouts.
 
-This post walks through a compact set of experiments showing where BC fails, why those failures happen, and what partial fixes look like.
+This post walks through a compact set of experiments showing where BC fails, why those failures happen, and what partial fixes look like. These Failures are connection to the error bounds from the Dagger paper which are $$J(\hat{\pi}) \leq J(\pi^*) + T^2\epsilon$$ for normal BC. Where $$T$$ is the number of time steps for panning and $$\epsilon$$ is the average error of the model.
 
-The notebook this post is based on was intentionally designed to make these failure modes visible rather than hidden by over-tuning. In practice, changing seeds, model width/depth, or rollout length can make outcomes look better or worse in a single run, but the same structural issues keep reappearing: distribution shift and mode ambiguity.
+This post is based on [this notebook](https://github.com/milarobotlearningcourse/robot_learning_2026/tree/main/examples#behaviour-cloning) which was intentionally designed to make these failure modes visible rather than hidden by over-tuning. In practice, changing seeds, model width/depth, or rollout length can make outcomes look better or worse in a single run, but the same structural issues keep reappearing: distribution shift and mode ambiguity.
 
 ## How to Read the Notebook and Plots
 
@@ -46,7 +46,7 @@ Two issues dominate in practice:
 2. **Stochastic experts (multi-modal behavior):**
    If experts sometimes choose different valid actions in the same context, a standard MSE objective tends to average those modes. The average can be physically invalid or unsafe.
 
-In the notebook, these are illustrated with low-dimensional trajectory plots so the pathology is easy to see: one failure looks like growing drift away from a reference path, and the other looks like “going down the middle” between two valid expert modes.
+In this post, these are illustrated with low-dimensional trajectory plots so the pathology is easy to see: one failure looks like growing drift away from a reference path, and the other looks like “going down the middle” between two valid expert modes.
 
 ## Experiment 1: Regular BC and Drift
 
@@ -54,7 +54,7 @@ I trained a simple feedforward BC model on a smooth expert trajectory, then roll
 
 The key detail here is that training and testing are mismatched by construction: during training, the model sees expert states; during rollout, it must consume its own predicted next states. That mismatch is small at the beginning and larger later in time.
 
-The notebook explicitly calls out that you may need to run this setup multiple times or with longer training to surface stronger divergence. That is not a bug in the demonstration; it reflects instability in rollout behavior under slightly different training outcomes.
+The accompanying notebook explicitly calls out that you may need to run this setup multiple times or with longer training to surface stronger divergence. That is not a bug in the demonstration; it reflects instability in rollout behavior under slightly different training outcomes.
 
 **Observed behavior:**
 - Early trajectory tracking is reasonable.
@@ -92,7 +92,7 @@ I generated multi-modal expert demonstrations (e.g., trajectories that go "high"
 
 This setup highlights a second, different BC limitation: ambiguity in the target itself. If the same or similar states map to multiple valid actions in the data, plain regression losses encourage averaging across those choices.
 
-In the notebook framing, this is exactly why the result is described as potentially disastrous in robotics: averaging between valid modes can produce behavior that matches neither intent nor safe execution.
+The behaviour we observe, is a combination of mode averaging new [0,0] and then mode seeking after x > 1 is exactly why the result is described as potentially disastrous in robotics: averaging between valid modes can produce behavior that matches neither intent nor safe execution.
 
 **Observed behavior:**
 - The learned policy often tracks the middle region between modes.
@@ -109,13 +109,7 @@ In robotics terms, averaging can produce actions that are locally “reasonable�
 
 I compared a basic BC network against a deeper, wider variant.
 
-The notebook discussion notes an important nuance: more capacity can improve in-distribution fit and initially cleaner trajectories, but it can also become more sensitive to small errors if not well regularized.
-
-To mirror the notebook summary more directly, the Part 4 comparison should be read line-by-line:
-
-- Expert path: the ideal reference behavior.
-- Simple BC: clear compounding drift over time.
-- Deeper flexible BC: often better short-horizon matching, but still vulnerable to eventual rollout deviation.
+The notebook discussion notes an important nuance: more capacity can improve in-distribution fit and initially cleaner trajectories, but it can also become more sensitive to small errors if not well regularized. There is an odd behavour where if 16 layers are used the model does a good job of mathcing the expert, but once a a 17th layer is added the model learns very little.
 
 **Observed behavior:**
 - Larger models can fit expert actions better in-distribution.
@@ -125,7 +119,7 @@ To mirror the notebook summary more directly, the Part 4 comparison should be re
 **Interpretation:**
 Model capacity improves approximation but does not solve BC’s core mismatch between training and deployment distributions.
 
-This is why architecture changes alone usually plateau: they reduce error constants but do not remove the recursive rollout feedback loop that creates compounding drift.
+This is why architecture changes alone usually plateau: they reduce error constants but do not remove the recursive rollout feedback loop that creates compounding drift. In addition, training more complex models mean deadling with more complex training dynamics, which complicates the understanding from parts 1-3. Reducing the error such that $$\epsilon$$ is not we evenly distributed across the state and action space.
 
 <img src="/assets/projects/behaviour-cloning/part4-varying-layers.png" alt="Part 4: Model depth comparison" width="70%">
 
@@ -136,10 +130,6 @@ I trained the deeper BC model on the same multi-modal data.
 Relative to the shallow model, the deeper network can represent richer patterns and may appear to commit to one mode for longer segments. But because mode selection is still implicit, behavior can remain inconsistent across runs and along long rollouts.
 
 The notebook text also emphasizes the setup logic here: regenerate stochastic data, train a configurable flexible model in a self-contained block, then evaluate rollout behavior against the gray expert-mode trajectories. That structure is useful because it isolates whether improved behavior comes from architecture capacity versus accidental state carry-over between cells.
-
-**Observed behavior:**
-- The policy sometimes aligns more strongly with one mode than simple BC.
-- It still shows ambiguity, drift, or inconsistent mode commitment.
 
 **Interpretation:**
 Higher capacity helps represent richer behavior, but without explicit mode modeling or conditioning, stochasticity remains a hard problem.
