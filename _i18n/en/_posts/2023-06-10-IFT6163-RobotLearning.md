@@ -12,7 +12,6 @@ summary: I teach a course on machine learning for the real world. This course fo
 layout: page
 type: Continual Learning
 titleShort: Course in Robot (real-world-agent) Learning
-layout: page
 ---
 
 # Course in Robot (real-world-agent) Learning

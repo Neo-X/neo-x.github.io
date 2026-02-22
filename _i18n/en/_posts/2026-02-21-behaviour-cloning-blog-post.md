@@ -3,17 +3,19 @@ title: "Behavioral Cloning Breaks in Predictable Ways (and What Helps)"
 date: 2026-02-21
 description: "A compact walkthrough of why behavioral cloning drifts, why multi-modal experts break MSE imitation, and what action chunking and model capacity actually improve."
 summary: "Behavioral cloning can look strong in one-step metrics but fail in closed-loop rollouts due to compounding error. In multi-modal settings, MSE often averages valid expert behaviors into invalid trajectories. Action chunking and larger models can help stability and representation, but they do not solve distribution shift on their own."
+category: Teaching
 tags:
    - robotics
    - imitation-learning
    - behavioral-cloning
    - machine-learning
 draft: false
+layout: page
+type: Continual Learning
+titleShort: Behavioral Cloning Breaks in Predictable Ways (and What Helps)
 ---
 
 # Behavioral Cloning Breaks in Predictable Ways (and What Helps)
-
-## Short Abstract
 
 Behavioral cloning performs well when predictions stay near the expert distribution, but small rollout errors compound and push policies into unseen states. In multi-modal expert data, standard MSE objectives tend to average distinct behaviors, producing trajectories that match neither mode. Action chunking improves short-horizon consistency, and deeper models can better fit demonstrations, yet neither fully resolves distribution shift. These experiments show why BC is a strong baseline but not a complete solution for long-horizon, stochastic control.
 
@@ -64,7 +66,7 @@ This is classic compounding error. One-step prediction quality does not guarante
 
 In other words, BC can look strong under teacher-forced metrics while still failing in closed-loop execution, which is what actually matters for control.
 
-![Part 1: Compounding error rollout](assets/projects/behaviour-cloning/part1-compounding-error.png)
+<img src="/assets/projects/behaviour-cloning/part1-compounding-error.png" alt="Part 1: Compounding error rollout" width="70%">
 
 ## Experiment 2: Action Chunking
 
@@ -82,7 +84,7 @@ Chunking helps by enforcing short-horizon consistency and reducing per-step feed
 
 It is best viewed as a mitigation, not a cure: the agent can still leave the expert manifold over long horizons, just less abruptly.
 
-![Part 2: Action chunking rollout](assets/projects/behaviour-cloning/part2-action-chunking.png)
+<img src="/assets/projects/behaviour-cloning/part2-action-chunking.png" alt="Part 2: Action chunking rollout" width="70%">
 
 ## Experiment 3: Stochastic Expert Failure Mode
 
@@ -101,7 +103,7 @@ MSE-trained BC collapses distinct behaviors into an average. This is a known fai
 
 In robotics terms, averaging can produce actions that are locally “reasonable” under loss minimization but globally poor under task dynamics.
 
-![Part 3: Stochastic expert with simple BC](assets/projects/behaviour-cloning/part3-stochastic-simple-bc.png)
+<img src="/assets/projects/behaviour-cloning/part3-stochastic-simple-bc.png" alt="Part 3: Stochastic expert with simple BC" width="70%">
 
 ## Experiment 4: Increasing Model Depth
 
@@ -125,7 +127,7 @@ Model capacity improves approximation but does not solve BC’s core mismatch be
 
 This is why architecture changes alone usually plateau: they reduce error constants but do not remove the recursive rollout feedback loop that creates compounding drift.
 
-![Part 4: Model depth comparison](assets/projects/behaviour-cloning/part4-varying-layers.png)
+<img src="/assets/projects/behaviour-cloning/part4-varying-layers.png" alt="Part 4: Model depth comparison" width="70%">
 
 ## Experiment 5: Deeper Model on Stochastic Experts
 
@@ -149,7 +151,7 @@ The two concrete failure pressures in this section remain the same as described 
 1. Mode ambiguity: without explicit conditioning or latent mode variables, the policy may switch or average.
 2. Compounding error: even when mode capture improves, rollout drift still accumulates over long horizons.
 
-![Part 5: Flexible BC on stochastic experts](assets/projects/behaviour-cloning/part5-stochastic-flexible-bc.png)
+<img src="/assets/projects/behaviour-cloning/part5-stochastic-flexible-bc.png" alt="Part 5: Flexible BC on stochastic experts" width="70%">
 
 ## Key Takeaways
 
