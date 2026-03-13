@@ -1,122 +1,113 @@
 ---
 ---
 
-<div id="publications">
-<table style="width:100%" cellspacing="0">
-  <col width="25%">
-  <col width="75%">
-<tr>
-
-<div id="{{entry.key}}">
-
-  <td style="border-left: 1px solid #000000; border-bottom: 1px solid #000000;">
-  {% if entry.image %}
-  <img src="{{entry.image | prepend: site.baseurl | prepend: site.url }}" style="width:100%;">
-  {% endif %}
-  {% if entry.teaser_video %}
-    <video poster="" id="" autoplay controls muted loop width="100%" playbackRate=2.0 style="border-radius: 5px;">
-        <source src="{{entry.teaser_video}}" type="video/mp4">
+<div id="{{entry.key}}" class="pub-entry">
+  {% if entry.image or entry.teaser_video %}
+  <div class="pub-image">
+    {% if entry.image %}
+    <img src="{{entry.image | prepend: site.baseurl | prepend: site.url}}" alt="{{entry.title}} teaser">
+    {% endif %}
+    {% if entry.teaser_video %}
+    <video autoplay controls muted loop>
+      <source src="{{entry.teaser_video}}" type="video/mp4">
     </video>
+    {% endif %}
+  </div>
   {% endif %}
-  </td>
 
-  <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000;>
-  {% if entry.type == "thesis" %}
-    {{reference}}
-  {% else %}
-    <span class="title"><b>{{entry.title}}</b></span>
-    <span class="author">
-    <br>
-      {% for author in entry.author_array %}
-      	{% assign fullname = author.first | append: " " | append: author.last %}
-        {% unless forloop.last %}
-          {% if author.last == site.scholar.last_name %}
-            <em>{{fullname}}</em>,
-          {% else %}
-            {% if site.data.coauthors[fullname] %}
+  <div class="pub-details">
+    {% if entry.type == "thesis" %}
+      {{reference}}
+    {% else %}
+      <div class="pub-title">{{entry.title}}</div>
+      <div class="pub-authors">
+        {% for author in entry.author_array %}
+          {% assign fullname = author.first | append: " " | append: author.last %}
+          {% unless forloop.last %}
+            {% if author.last == site.scholar.last_name %}
+              <em>{{fullname}}</em>,
+            {% elsif site.data.coauthors[fullname] %}
               <a href="{{site.data.coauthors[fullname].url}}" target="_blank">{{fullname}}</a>,
             {% else %}
               {{fullname}},
             {% endif %}
-          {% endif %}
-        {% else %}
-          and
-          {% if author.last == site.scholar.last_name %}
-            <em>{{fullname}}</em>
           {% else %}
-            {% if site.data.coauthors[fullname] %}
+            {% if author.last == site.scholar.last_name %}
+              <em>{{fullname}}</em>
+            {% elsif site.data.coauthors[fullname] %}
               <a href="{{site.data.coauthors[fullname].url}}" target="_blank">{{fullname}}</a>
             {% else %}
               {{fullname}}
             {% endif %}
-          {% endif %}
-        {% endunless %}
-      {% endfor %}
-    </span>
-	<br>
-    <span class="periodical">
-    {% if entry.type == "article" %}
-      <em>{{entry.journal}}</em>
-    {% elsif entry.type == "inproceedings" %}
-      <em>In {{entry.booktitle}}</em>
+          {% endunless %}
+        {% endfor %}
+      </div>
+      <div class="pub-venue">
+        {% if entry.type == "article" %}
+          <em>{{entry.journal}}</em>
+        {% elsif entry.type == "inproceedings" %}
+          <em>{{entry.booktitle}}</em>
+        {% endif %}
+        {% if entry.highlight %}
+          <strong class="pub-highlight">{{entry.highlight}}</strong>
+        {% endif %}
+      </div>
     {% endif %}
-    {% if entry.highlight %}
-      <b> {{entry.highlight}} </b>
+
+    <div class="pub-links">
+      {% if entry.abstract %}
+        <a class="pub-btn btn-abstract" role="button">Abstract</a>
+      {% endif %}
+      {% if entry.arxiv %}
+        <a href="http://arxiv.org/abs/{{ entry.arxiv }}" target="_blank" class="pub-btn btn-paper">arXiv</a>
+      {% endif %}
+      {% if entry.openreview %}
+        <a href="https://openreview.net/forum?id={{ entry.openreview }}" target="_blank" class="pub-btn btn-paper">OpenReview</a>
+      {% endif %}
+      {% if entry.url %}
+        <a href="{{ entry.url }}" target="_blank" class="pub-btn btn-paper">Link</a>
+      {% endif %}
+      {% if entry.html %}
+        <a href="{{ entry.html }}" target="_blank" class="pub-btn btn-paper">HTML</a>
+      {% endif %}
+      {% if entry.pdf %}
+        <a href="{{ entry.pdf }}" target="_blank" class="pub-btn btn-paper">PDF</a>
+      {% endif %}
+      {% if entry.supp %}
+        <a href="{{ entry.supp }}" target="_blank" class="pub-btn btn-extra">Supplementary</a>
+      {% endif %}
+      {% if entry.poster %}
+        <a href="{{ entry.poster }}" target="_blank" class="pub-btn btn-extra">Poster</a>
+      {% endif %}
+      {% if entry.slides %}
+        <a href="{{ entry.slides }}" target="_blank" class="pub-btn btn-extra">Slides</a>
+      {% endif %}
+      {% if entry.projectpage %}
+        <a href="{{ entry.projectpage }}" target="_blank" class="pub-btn btn-project">Project Page</a>
+      {% endif %}
+      {% if entry.code %}
+        <a href="{{ entry.code }}" target="_blank" class="pub-btn btn-project">Code</a>
+      {% endif %}
+      {% if entry.video %}
+        <a href="{{ entry.video }}" target="_blank" class="pub-btn btn-video">Video</a>
+      {% endif %}
+      <a class="pub-btn btn-bibtex" role="button">BibTeX</a>
+    </div>
+
+    {% if entry.abstract %}
+    <div class="pub-abstract pub-collapsible">
+      <p>{{ entry.abstract }}</p>
+    </div>
     {% endif %}
-    </span>
-  {% endif %}
-  <span class="links">
-  <br>
-  {% if entry.arxiv %}
-    <a href="http://arxiv.org/abs/{{ entry.arxiv }}" target="_blank" class="buttonTT">arXiv</a> |
-  {% endif %}
-  {% if entry.openreview %}
-    <a href="https://openreview.net/forum?id={{ entry.openreview }}" target="_blank" class="buttonTT">OpenReview</a> |
-  {% endif %}
-  {% if entry.html %}
-    [<a href="{{ entry.html }}" target="_blank">HTML</a>]
-  {% endif %}
-  {% if entry.url %}
-    [<a href="{{ entry.url }}" target="_blank">Link</a>]
-  {% endif %}
-  {% if entry.pdf %}
-    <a href="{{ entry.pdf | prepend: '/pdfs/' | prepend: site.baseurl | prepend: site.url }}" target="_blank" class="buttonTT">PDF</a> |
-  {% endif %}
-  {% if entry.supp %}
-    <a href="{{ entry.supp | prepend: '/pdfs/' | prepend: site.baseurl | prepend: site.url }}" target="_blank" class="buttonMM">Supplementary</a> |
-  {% endif %}
-  {% if entry.poster %}
-    <a href="{{ entry.poster | prepend: '/pdfs/' | prepend: site.baseurl | prepend: site.url }}" target="_blank" class="buttonMM">Poster</a> |
-  {% endif %}
-  {% if entry.slides %}
-    <a href="{{ entry.slides | prepend: '/pdfs/' | prepend: site.baseurl | prepend: site.url }}" target="_blank" class="buttonMM">Slides</a> |
-  {% endif %}
-  {% if entry.projectpage %}
-    <a href="{{ entry.projectpage }}" target="_blank" class="buttonPP">Project Page</a> |
-  {% endif %}
-  {% if entry.code %}
-    <a href="{{ entry.code }}" target="_blank" class="buttonPP">Code</a> |
-  {% endif %}
-  {% if entry.video %}
-    <a href="{{ entry.video }}" target="_blank" class="buttonSS">Video</a> |
-  {% endif %}
 
-  <!-- BibTeX -->
-  </span>
-
-  <!-- Hidden abstract block -->
-  {% if entry.abstract %}
-  <div id="abstract">
-  <span class="abstract hidden">
-  </span>
+    <div class="pub-bibtex pub-collapsible">
+      <pre>@{% if entry.type == "inproceedings" %}inproceedings{% elsif entry.type == "article" %}article{% else %}misc{% endif %}{ {{ entry.key }},
+  author    = { {% for author in entry.author_array %}{% unless forloop.last %}{{ author.last }}, {{ author.first }} and {% else %}{{ author.last }}, {{ author.first }}{% endunless %}{% endfor %} },
+  title     = { {{ entry.title }} },{% if entry.journal %}
+  journal   = { {{ entry.journal }} },{% endif %}{% if entry.booktitle %}
+  booktitle = { {{ entry.booktitle }} },{% endif %}{% if entry.year %}
+  year      = { {{ entry.year }} },{% endif %}
+}</pre>
+    </div>
   </div>
-  {% endif %}
-
-
-  </td>
-</div>
-
-</tr>
-</table>
-
 </div>

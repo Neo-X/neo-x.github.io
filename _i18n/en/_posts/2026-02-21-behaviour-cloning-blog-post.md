@@ -150,7 +150,7 @@ The two concrete failure pressures in this section remain the same as described 
 - More layers/width can improve fit but do not remove distribution shift.
 - Multi-modal experts expose a fundamental weakness of MSE imitation.
 
-Across all five experiments, the central pattern is consistent: better function approximation improves short-term behavior, but stable long-horizon imitation needs mechanisms that address *data distribution mismatch* and *mode ambiguity* directly.
+The pattern is consistent, better function approximation improves short-term behavior, but stable long-horizon imitation needs mechanisms that address *data distribution mismatch* and *mode ambiguity* directly.
 
 ## Where to Go Next
 

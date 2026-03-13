@@ -116,3 +116,153 @@ ul.people li p {
 		display: none;
 	}
 }
+
+/*
+ * Publications page
+ */
+
+.pub-year-header {
+	font-size: 1.4em;
+	font-weight: bold;
+	color: $brand-color;
+	border-bottom: 2px solid $grey-color-light;
+	margin: 2em 0 0.5em;
+	padding-bottom: 0.3em;
+}
+
+ol.bibliography {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.pub-entry {
+	display: flex;
+	gap: 20px;
+	padding: 16px 0;
+	border-bottom: 1px solid $grey-color-light;
+}
+
+.pub-image {
+	flex: 0 0 180px;
+	width: 180px;
+
+	img, video {
+		width: 100%;
+		border-radius: 4px;
+		display: block;
+	}
+}
+
+.pub-details {
+	flex: 1;
+	min-width: 0;
+}
+
+.pub-title {
+	font-weight: bold;
+	font-size: 1.0em;
+	margin-bottom: 4px;
+	line-height: 1.4;
+}
+
+.pub-authors {
+	color: $grey-color;
+	font-size: 0.88em;
+	margin-bottom: 3px;
+
+	em {
+		font-style: normal;
+		font-weight: 600;
+		color: $text-color;
+	}
+
+	a {
+		color: $brand-color;
+		text-decoration: none;
+		border-bottom: 1px dashed $brand-color;
+
+		&:hover {
+			border-bottom-style: solid;
+			text-decoration: none;
+		}
+	}
+}
+
+.pub-venue {
+	font-size: 0.88em;
+	color: $grey-color-dark;
+	margin-bottom: 8px;
+}
+
+.pub-highlight {
+	color: #c0392b;
+}
+
+.pub-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	margin-bottom: 6px;
+}
+
+.pub-btn {
+	display: inline-block;
+	padding: 2px 9px;
+	border-radius: 3px;
+	font-size: 0.75em;
+	font-weight: 500;
+	text-decoration: none;
+	cursor: pointer;
+	line-height: 1.8;
+
+	&:hover {
+		opacity: 0.85;
+		text-decoration: none;
+	}
+}
+
+.btn-abstract  { background: #17a2b8; color: #fff; }
+.btn-paper     { background: #138496; color: #fff; }
+.btn-extra     { background: $grey-color;  color: #fff; }
+.btn-project   { background: #6f42c1; color: #fff; }
+.btn-video     { background: #fd7e14; color: #fff; }
+.btn-bibtex    { background: #343a40; color: #fff; }
+
+.pub-collapsible {
+	display: none;
+	margin-top: 8px;
+	padding: 10px 14px;
+	background: #f8f9fa;
+	border-radius: 4px;
+	border-left: 3px solid $brand-color;
+	font-size: 0.85em;
+
+	p {
+		margin: 0;
+		line-height: 1.6;
+		text-align: justify;
+	}
+
+	pre {
+		margin: 0;
+		font-size: 0.88em;
+		white-space: pre-wrap;
+		word-wrap: break-word;
+		background: transparent;
+		border: none;
+		padding: 0;
+	}
+}
+
+@media only screen and (max-width: 640px) {
+	.pub-entry {
+		flex-direction: column;
+	}
+
+	.pub-image {
+		width: 100%;
+		flex: none;
+		max-width: 280px;
+	}
+}

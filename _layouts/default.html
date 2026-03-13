@@ -15,6 +15,26 @@
 
     {%- include footer.html -%}
 
+    <script>
+    document.addEventListener('click', function(e) {
+      var btn = e.target;
+      if (btn.classList.contains('btn-abstract')) {
+        var entry = btn.closest('.pub-entry');
+        if (entry) {
+          var panel = entry.querySelector('.pub-abstract');
+          if (panel) panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+        }
+      }
+      if (btn.classList.contains('btn-bibtex')) {
+        var entry = btn.closest('.pub-entry');
+        if (entry) {
+          var panel = entry.querySelector('.pub-bibtex');
+          if (panel) panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+        }
+      }
+    });
+    </script>
+
 </body>
 
 </html>
