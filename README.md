@@ -112,6 +112,7 @@ As the maintainer you may need to make modification which require local validati
 
 ```bash
 sudo apt-get install ruby-bundler ruby-dev build-essential autoconf libtool
+bundle config set --local path 'vendor/bundle'
 bundle install
 ```
 
