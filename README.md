@@ -122,5 +122,9 @@ bundle install
 LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 bundle exec jekyll serve
 ```
 
+## TODO / Future Improvements
+
+- [ ] Speed up the deployment process using `rsync` instead of the current approach in `deploy.sh` to reduce transfer time by only syncing changed files.
+
 ## how to build and deploy jekyll website to my domain.
 
