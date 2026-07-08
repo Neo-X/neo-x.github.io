@@ -6,6 +6,10 @@
 #   Therefore, do not remove old news, simply set the hidden: true
 #   property.
 
+- en: 'New position paper accepted to ICML 2026 on <a href="https://openreview.net/forum?id=Vhi9tHbKTa">Collusion Risks Among AI Reasoning Agents and why they justify certification requirements for making market decisions</a>!'
+  fr: "Nouvel article de position accepté à ICML 2026 sur <a href='https://openreview.net/forum?id=Vhi9tHbKTa'>les risques de collusion entre agents de raisonnement IA, qui justifient des exigences de certification pour la prise de décisions de marché</a>!"
+  date: 2026-07-07
+
 - en: 'Three new papers accepted to ICLR 2025 on <a href="https://openreview.net/forum?id=gqjT7g5ZRa">Efficient exploration with contrastive learning</a>, <a href="https://arxiv.org/abs/2506.10137">Self-Predictive Representations for Combinatorial Generalization</a>, and <a href="https://arxiv.org/abs/2510.14176">Use LLMs to generate structured reward functions</a>!'
 ## and in French
   fr: "Trois nouveaux articles acceptés à ICLR 2025 sur <a href='https://openreview.net/forum?id=gqjT7g5ZRa'>l'exploration efficace avec apprentissage contrastif</a>, <a href='https://arxiv.org/abs/2506.10137'>des représentations auto-prédictives pour la généralisation combinatoire</a>, et <a href='https://arxiv.org/abs/2510.14176'>l'utilisation des LLM pour générer des fonctions de récompense structurées</a>!"

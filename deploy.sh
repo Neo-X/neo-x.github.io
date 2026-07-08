@@ -29,7 +29,7 @@ lftp -u "${FTP_USER},${FTP_PASS}" "ftp://${FTP_HOST}" <<LFTP_CMDS
 set ftp:ssl-allow yes
 set ssl:verify-certificate no
 set ftp:passive-mode yes
-mirror --reverse --delete --verbose ${LOCAL_DIR}/ ${REMOTE_DIR}/
+mirror --reverse --delete --parallel=8 --verbose ${LOCAL_DIR}/ ${REMOTE_DIR}/
 bye
 LFTP_CMDS
 
