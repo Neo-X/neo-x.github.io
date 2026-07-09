@@ -1,8 +1,8 @@
 ---
 title: "My ICML 2026 Reading List: RL, Robot Learning, VLA & World Models"
 date: 2026-07-07
-description: "A prioritized reading list of ~90 ICML 2026 papers on reinforcement learning, robot learning, imitation learning, VLA models, diffusion for RL, world models, and generalization — filtered from 6,627 accepted papers."
-summary: "I filtered all 6,627 ICML 2026 papers down to a prioritized list for my own research areas — RL, robot learning, VLA models, imitation learning, diffusion for RL, world models, and generalization — plus a handful of relevant position papers. Sharing it here in case it's useful to others heading to Seoul."
+description: "A prioritized reading list of ~98 ICML 2026 papers on reinforcement learning, robot learning, imitation learning, VLA models, LLM RL post-training, diffusion for RL, world models, and generalization — filtered from 6,627 accepted papers."
+summary: "I filtered all 6,627 ICML 2026 papers down to a prioritized list for my own research areas — RL, robot learning, VLA models, imitation learning, LLM RL post-training, diffusion for RL, world models, and generalization — plus a handful of relevant position papers. Sharing it here in case it's useful to others heading to Seoul."
 category: Article
 tags:
    - reinforcement-learning
@@ -21,7 +21,7 @@ titleShort: ICML 2026 Reading List
 
 # My ICML 2026 Reading List
 
-ICML 2026 accepted 6,627 papers. Nobody is reading all of them, so I filtered the list down to what's relevant to my group's research: **reinforcement learning, robot learning, imitation learning, vision-language-action (VLA) models, diffusion for RL, world models, and generalization.** I'm sharing the filtered list here in case it's useful to others heading to Seoul.
+ICML 2026 accepted 6,627 papers. Nobody is reading all of them, so I filtered the list down to what's relevant to my group's research: **reinforcement learning, robot learning, imitation learning, vision-language-action (VLA) models, LLM RL post-training, diffusion for RL, world models, and generalization.** I'm sharing the filtered list here in case it's useful to others heading to Seoul.
 
 Papers are grouped into **P0 (must read)**, **P1 (should read)**, and **P2 (nice to read)**. Where a paper already has an arXiv preprint (✅) I've linked it directly; otherwise use the OpenReview link for the PDF.
 
@@ -37,6 +37,8 @@ Papers are grouped into **P0 (must read)**, **P1 (should read)**, and **P2 (nice
 - LARA: Latent Action Representation Alignment for VLMs — [OpenReview](https://openreview.net/forum?id=sQTzABTEQM)
 - From Pixels to Tokens: Systematic Study of Latent Action Supervision for VLMs — [OpenReview](https://openreview.net/forum?id=VMsumctGvg)
 - Can VLMs Diagnose and Recover from VLA Manipulation Faults? — [OpenReview](https://openreview.net/forum?id=Q0rAQZg9t5)
+- ✅ LaST₀: Latent Spatio-Temporal Chain-of-Thought for Robotic VLA (Spotlight) — [arXiv:2601.05248](https://arxiv.org/abs/2601.05248)
+- ✅ Contrastive Representation Regularization for VLA Models — [arXiv:2510.01711](https://arxiv.org/abs/2510.01711)
 
 ### Robot Learning & Imitation
 - ✅ Posterior Behavioral Cloning: Pretraining BC for Efficient RL Fine-tuning — [arXiv:2512.16911](https://arxiv.org/abs/2512.16911)
@@ -54,6 +56,14 @@ Papers are grouped into **P0 (must read)**, **P1 (should read)**, and **P2 (nice
 - ✅ Sample from What You See: Visuomotor Policy Learning via Diffusion Bridge — [arXiv:2512.07212](https://arxiv.org/abs/2512.07212)
 - ✅ SVL: Goal-Conditioned RL as Survival Learning — [arXiv:2604.17551](https://arxiv.org/abs/2604.17551)
 
+### LLM RL Post-Training: RLVR / GRPO vs PPO
+- ✅ Advantage Collapse in Group Relative Policy Optimization: Diagnosis and Mitigation — [arXiv:2605.21125](https://arxiv.org/abs/2605.21125)
+- ✅ The Unlearnability Phenomenon in RLVR for Language Models — [arXiv:2605.16787](https://arxiv.org/abs/2605.16787)
+- ✅ The Easy, the Hard, and the Learnable: Confidence and Difficulty-Adaptive Policy Optimization (CoDaPO) for LLM Reasoning — [arXiv:2606.07950](https://arxiv.org/abs/2606.07950)
+- ✅ The Obfuscation Atlas: Mapping Where Honesty Emerges in RLVR with Deception Probes (Honorable Mention, also an Oral) — [arXiv:2602.15515](https://arxiv.org/abs/2602.15515)
+- Learning Useful Supervision for Reinforcement Learning in Reasoning Models — [OpenReview](https://openreview.net/forum?id=xWvj03N4sJ)
+- Rubric Curriculum RL: Exploiting the Generation-Verification Gap in Creative Writing — [OpenReview](https://openreview.net/forum?id=LShWfvQzTP)
+
 ### RL Theory & Policy Optimization
 - ✅ Chain-of-Goals Hierarchical Policy for Long-Horizon Offline Goal-Conditioned RL — [arXiv:2602.03389](https://arxiv.org/abs/2602.03389)
 - ✅ Why Linear Recurrent Memory Works in Partially Observable RL — [arXiv:2605.31261](https://arxiv.org/abs/2605.31261)
@@ -61,6 +71,9 @@ Papers are grouped into **P0 (must read)**, **P1 (should read)**, and **P2 (nice
 - ✅ Learning to Perceive the World Through Control: Empowerment-Based Representation — [arXiv:2605.30656](https://arxiv.org/abs/2605.30656)
 - ✅ Reparameterization Flow Policy Optimization — [arXiv:2602.03501](https://arxiv.org/abs/2602.03501)
 - Reparameterization PPO — [OpenReview](https://openreview.net/forum?id=TknqRTyQ0a)
+- ✅ Towards Parameter-Free Temporal Difference Learning — [arXiv:2603.02577](https://arxiv.org/abs/2603.02577)
+- ✅ Dynamic Programming for Epistemic Uncertainty in MDPs (Spotlight) — [arXiv:2602.03381](https://arxiv.org/abs/2602.03381)
+- ✅ What Does Flow-Matching Bring to TD-Learning? — [arXiv:2603.04333](https://arxiv.org/abs/2603.04333)
 
 ## P1 — Should Read
 
@@ -69,6 +82,7 @@ Papers are grouped into **P0 (must read)**, **P1 (should read)**, and **P2 (nice
 - Learning Latent Action World Models In The Wild — [OpenReview](https://openreview.net/forum?id=HDf5semiaB)
 - VectorWorld: Efficient Streaming World Model via Diffusion Flow — [OpenReview](https://openreview.net/forum?id=yTEEiE3YtD)
 - Convergent World Representations and Divergent Tasks — [OpenReview](https://openreview.net/forum?id=Z4PjCncxzz)
+- ✅ dWorldEval: Scaling Robot Policy Evaluation via Discrete Diffusion World Model (Spotlight) — [arXiv:2604.22152](https://arxiv.org/abs/2604.22152)
 
 ### Offline RL
 - ✅ BiTrajDiff: Bidirectional Trajectory Generation with Diffusion for Offline RL — [arXiv:2506.05762](https://arxiv.org/abs/2506.05762)
@@ -99,6 +113,7 @@ Papers are grouped into **P0 (must read)**, **P1 (should read)**, and **P2 (nice
 - Meta-learning Structure-Preserving Dynamics — [OpenReview](https://openreview.net/forum?id=k66TZFhUSQ)
 - Dynamics Are Learned, Not Told: Zero-Shot Policy Adaptation — [OpenReview](https://openreview.net/forum?id=XQLa5PVQ0D)
 - Motion Dynamics Learning for Few-Shot Embodied Adaptation — [OpenReview](https://openreview.net/forum?id=EW7FmahpLs)
+- ✅ Hierarchical Successor Representation for Robust Transfer (Spotlight) — [arXiv:2602.12753](https://arxiv.org/abs/2602.12753)
 
 ### Multi-Agent/Hierarchical RL
 - Hierarchical Policy Learning via Spectral Decomposition — [OpenReview](https://openreview.net/forum?id=hyw7WLPZae)
@@ -106,6 +121,8 @@ Papers are grouped into **P0 (must read)**, **P1 (should read)**, and **P2 (nice
 - Offline Multi-agent Continual Cooperation via Skill Partition and Reuse — [OpenReview](https://openreview.net/forum?id=5kteupXJ7B)
 - Provably Convergent Actor-Critic in Risk-averse MARL — [OpenReview](https://openreview.net/forum?id=NpguYNGrG2)
 - HyPOLE: Hyperproperty-Guided MARL under Partial Observation — [OpenReview](https://openreview.net/forum?id=EVoPYB6ss3)
+- ✅ Factored Value Functions for Graph-Based Multi-Agent RL — [arXiv:2601.11401](https://arxiv.org/abs/2601.11401)
+- ✅ TeamTR: Trust-Region Fine-Tuning for Multi-Agent LLM Coordination — [arXiv:2605.15207](https://arxiv.org/abs/2605.15207)
 
 ### Additional
 - Geometry-Preserving Orthonormal Initialization for Low-Rank Adaptation in RL — [OpenReview](https://openreview.net/forum?id=Xo95FS2GTK)
@@ -113,6 +130,10 @@ Papers are grouped into **P0 (must read)**, **P1 (should read)**, and **P2 (nice
 - Debate2Create: Robot Co-design via Multi-Agent LLM Debate — [OpenReview](https://openreview.net/forum?id=1ufVo73uzD)
 - GAE: Unleashing Physical Potential of VLM with Generalizable Action Expert — [OpenReview](https://openreview.net/forum?id=6lq2MGo42H)
 - EAPO: Enhancing Policy Optimization with On-Demand Expert Assistance — [OpenReview](https://openreview.net/forum?id=luykjYIvEs)
+- ✅ CaP-X: Benchmarking & Improving Coding Agents for Robot Manipulation — [arXiv:2603.22435](https://arxiv.org/abs/2603.22435)
+- ✅ Demystifying Action Space Design for Robotic Manipulation Policies — [arXiv:2602.23408](https://arxiv.org/abs/2602.23408)
+- Clipping Low-Probability Tokens in SFT Yields a Generalizable Initialization for RL — [poster](https://icml.cc/virtual/2026/poster/61171)
+- ✅ ToM-SWE: User Mental Modeling for Software Engineering Agents — [arXiv:2510.21903](https://arxiv.org/abs/2510.21903)
 
 ## P2 — Nice to Read
 
@@ -137,19 +158,21 @@ Papers are grouped into **P0 (must read)**, **P1 (should read)**, and **P2 (nice
 ICML 2026 had 65 position papers this year. Six stood out as relevant to RL / robot learning / world models:
 
 **Must read:**
-- *Position: World Models as an Intermediary between Agents and the Real World* — Sherry Yang
-- *Position: RL Researchers Need to Distinguish Between Solving Simulators and Using Simulators as a Proxy* — Matthew Vandergrift, Esraa Elelimy, Martha White
+- *Position: World Models as an Intermediary between Agents and the Real World* — Sherry Yang — [poster](https://icml.cc/virtual/2026/poster/67241)
+- *Position: RL Researchers Need to Distinguish Between Solving Simulators and Using Simulators as a Proxy* — Matthew Vandergrift, Esraa Elelimy, Martha White — [poster](https://icml.cc/virtual/2026/poster/67184)
 
 **Should read:**
-- *Position: Good Embodied Reward Models Need Bad Behavior Data* — Thomas Tian, Yilin Wu, Andrea Bajcsy
-- *Position: Make Planning Research Rigorous Again!* — Michael Katz, Harsha Kokel, Christian Muise, Shirin Sohrabi, Sarath Sreedharan
+- *Position: Good Embodied Reward Models Need Bad Behavior Data* — Thomas Tian, Yilin Wu, Andrea Bajcsy — [poster](https://icml.cc/virtual/2026/poster/67248)
+- *Position: Make Planning Research Rigorous Again!* — Michael Katz, Harsha Kokel, Christian Muise, Shirin Sohrabi, Sarath Sreedharan — [poster](https://icml.cc/virtual/2026/poster/67244)
 
 **Nice to read:**
-- *Position: Assistive AI requires Personalized Specialists, not Generalists* — Homanga Bharadhwaj
-- *Position: Interestingness is an Inductive Heuristic for Future Compression Progress* — Vincent Herrmann, Jürgen Schmidhuber
+- *Position: Assistive AI requires Personalized Specialists, not Generalists* — Homanga Bharadhwaj — [poster](https://icml.cc/virtual/2026/poster/67096)
+- *Position: Interestingness is an Inductive Heuristic for Future Compression Progress* — Vincent Herrmann, Jürgen Schmidhuber — [poster](https://icml.cc/virtual/2026/poster/67070)
 
-(Search these titles on [OpenReview](https://openreview.net/group?id=ICML.cc/2026/Conference) — arXiv/OpenReview links for position papers were gated behind the ICML virtual-site login at the time of writing.)
+(arXiv/OpenReview links for position papers were gated behind the ICML virtual-site login at the time of writing — use the ICML poster links above for session details, or search titles on [OpenReview](https://openreview.net/group?id=ICML.cc/2026/Conference).)
 
 ## How I Built This List
 
-I started from the full accepted-papers list (6,627 papers) and filtered by keyword/topic match against my group's research areas — RL, robot learning, VLA, imitation learning, diffusion for RL, generalization, and world models — then ranked by relevance into P0/P1/P2. arXiv preprints (✅) were matched where available; everything else links through OpenReview or the ICML virtual poster page. If you're at ICML 2026 in Seoul and this overlaps with your interests, hope it saves you some filtering time.
+I started from the full accepted-papers list (6,627 papers) and filtered by keyword/topic match against my group's research areas — RL, robot learning, VLA, imitation learning, LLM RL post-training, diffusion for RL, generalization, and world models — then ranked by relevance into P0/P1/P2. arXiv preprints (✅) were matched where available; everything else links through OpenReview or the ICML virtual poster page. If you're at ICML 2026 in Seoul and this overlaps with your interests, hope it saves you some filtering time.
+
+**Update (2026-07-08):** Added a new P0 section on LLM RL post-training (RLVR / GRPO vs PPO) plus another ~15 papers spotted from poster-session photos on site, mostly with arXiv preprints already up.
