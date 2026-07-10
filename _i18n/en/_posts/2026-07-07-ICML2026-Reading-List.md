@@ -171,6 +171,18 @@ ICML 2026 had 65 position papers this year. Six stood out as relevant to RL / ro
 
 (arXiv/OpenReview links for position papers were gated behind the ICML virtual-site login at the time of writing — use the ICML poster links above for session details, or search titles on [OpenReview](https://openreview.net/group?id=ICML.cc/2026/Conference).)
 
+## Workshops
+
+ICML 2026 has 44 workshops. Five stood out as relevant to RL, robot learning, VLA, imitation learning, diffusion for RL, generalization, and world models:
+
+- **Decision-Making from Offline Datasets to Online Adaptation** — Jul 11, 8:00am–5:00pm KST, ASEM Ballroom 203 — Aryan Deshwal, Haruka Kiyohara, Nghia Hoang, Tang Thanh Nguyen, Willie Neiswanger, Syrine Belakaria, Jana Doppa — [workshop page](https://icml.cc/virtual/2026/workshop/54062)
+- **AI as a Tool for Mathematics, Computer Science, and Machine Learning** — Jul 10, 8:00am–5:00pm KST, Auditorium — Dmitriy Drusvyatskiy, Mikhail Belkin, Edgar Dobriban, Fanny Yang, Qingsong Wang — [workshop page](https://icml.cc/virtual/2026/workshop/54072)
+- **Continual Adaptation at Scale: Towards Sustainable AI** — Jul 10, 8:00am–5:00pm KST, Room 327 — Ghada Sokar, Gintare Karolina Dziugaite, Mohammad Emtiyaz Khan, Rupam Mahmood, Martin Mundt, Daniel Marczak — [workshop page](https://icml.cc/virtual/2026/workshop/54079)
+- **Planning in The Era of Language Models (LM4Plan)** — Jul 11, 8:00am–5:00pm KST, Grand Ballroom 101-102 — Michael Katz, Augusto B. Corrêa, Nir Lipovetzky, Sarath Sreedharan, Katharina Stein, Luckeciano Melo, Elliot Gestrin — [workshop page](https://icml.cc/virtual/2026/workshop/54095)
+- **The Second Workshop on Agents in the Wild: Safety, Security, and Beyond** — Jul 11, 8:00am–5:00pm KST, Hall B2 — Chenguang Wang, Xinyun Chen, Wenbo Guo, Yizhou Sun, Kyle Montgomery, Yiyou Sun, Jianhong Tu, Zhun Wang — [workshop page](https://icml.cc/virtual/2026/workshop/54082)
+
+A couple of connections worth flagging: Decision-Making pairs naturally with the Offline RL / RL theory sections above; Continual Adaptation at Scale ties to the Continual/Meta/Transfer Learning section; LM4Plan connects to the "Make Planning Research Rigorous Again!" position paper. I'll also be presenting two co-authored posters at Agents in the Wild. (See the [full workshop list](https://icml.cc/virtual/2026/events/workshop) for everything else on offer.)
+
 ## How I Built This List
 
 I started from the full accepted-papers list (6,627 papers) and filtered by keyword/topic match against my group's research areas — RL, robot learning, VLA, imitation learning, LLM RL post-training, diffusion for RL, generalization, and world models — then ranked by relevance into P0/P1/P2. arXiv preprints (✅) were matched where available; everything else links through OpenReview or the ICML virtual poster page. If you're at ICML 2026 in Seoul and this overlaps with your interests, hope it saves you some filtering time.
