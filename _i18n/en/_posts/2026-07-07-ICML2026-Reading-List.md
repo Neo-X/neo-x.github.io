@@ -1,7 +1,7 @@
 ---
 title: "My ICML 2026 Reading List: RL, Robot Learning, VLA & World Models"
 date: 2026-07-07
-description: "A prioritized reading list of ~98 ICML 2026 papers on reinforcement learning, robot learning, imitation learning, VLA models, LLM RL post-training, diffusion for RL, world models, and generalization — filtered from 6,627 accepted papers."
+description: "A prioritized reading list of ~101 ICML 2026 papers on reinforcement learning, robot learning, imitation learning, VLA models, LLM RL post-training, diffusion for RL, world models, and generalization — filtered from 6,627 accepted papers."
 summary: "I filtered all 6,627 ICML 2026 papers down to a prioritized list for my own research areas — RL, robot learning, VLA models, imitation learning, LLM RL post-training, diffusion for RL, world models, and generalization — plus a handful of relevant position papers. Sharing it here in case it's useful to others heading to Seoul."
 category: Article
 tags:
@@ -41,6 +41,8 @@ Papers are grouped into **P0 (must read)**, **P1 (should read)**, and **P2 (nice
 - ✅ Contrastive Representation Regularization for VLA Models — [arXiv:2510.01711](https://arxiv.org/abs/2510.01711)
 
 ### Robot Learning & Imitation
+- ✅ When Does Predictive Inverse Dynamics Outperform Behavior Cloning? — Schäfer, Choudhury, Lemkhenter, Lovett, Nath, França, Furtado de Mendonça, Lamb, Islam, et al. (Microsoft Research) — [arXiv:2601.21718](https://arxiv.org/abs/2601.21718)
+- ✅ On the Sample Efficiency of Inverse Dynamics Models for Semi-Supervised Imitation Learning — Sacha Morin, Moonsub Byeon, Alexia Jolicoeur-Martineau, Sébastien Lachapelle — [arXiv:2602.02762](https://arxiv.org/abs/2602.02762)
 - ✅ Posterior Behavioral Cloning: Pretraining BC for Efficient RL Fine-tuning — [arXiv:2512.16911](https://arxiv.org/abs/2512.16911)
 - ✅ NavOL: Navigation Policy with Online Imitation Learning — [arXiv:2605.11762](https://arxiv.org/abs/2605.11762)
 - ✅ Noise-Guided Transport: Imitation Learning from Random Priors — [arXiv:2509.26294](https://arxiv.org/abs/2509.26294)
@@ -50,6 +52,7 @@ Papers are grouped into **P0 (must read)**, **P1 (should read)**, and **P2 (nice
 - Learning Generalizable Skill Policy with Data-Efficient Unsupervised RL — [OpenReview](https://openreview.net/forum?id=qgAKuqzYBC)
 
 ### Diffusion for RL
+- ✅ Q-Flow: Stable and Expressive Reinforcement Learning with Flow-Based Policy — JaeHyeok Doo, Byeongguk Jeon, Seonghyeon Ye, Kimin Lee, Minjoon Seo — [arXiv:2605.13435](https://arxiv.org/abs/2605.13435)
 - Energy-based Compositional Diffusion Planning — [OpenReview](https://openreview.net/forum?id=r2sJKlXY3M)
 - ✅ Improving Diffusion Planners by Self-Supervised Action Gating with Energies — [arXiv:2603.02650](https://arxiv.org/abs/2603.02650)
 - Latent Diffusion Controller: Framework, Algorithms and Parameterization — [OpenReview](https://openreview.net/forum?id=IGTMjtehxq)
@@ -188,3 +191,5 @@ A couple of connections worth flagging: Decision-Making pairs naturally with the
 I started from the full accepted-papers list (6,627 papers) and filtered by keyword/topic match against my group's research areas — RL, robot learning, VLA, imitation learning, LLM RL post-training, diffusion for RL, generalization, and world models — then ranked by relevance into P0/P1/P2. arXiv preprints (✅) were matched where available; everything else links through OpenReview or the ICML virtual poster page. If you're at ICML 2026 in Seoul and this overlaps with your interests, hope it saves you some filtering time.
 
 **Update (2026-07-08):** Added a new P0 section on LLM RL post-training (RLVR / GRPO vs PPO) plus another ~15 papers spotted from poster-session photos on site, mostly with arXiv preprints already up.
+
+**Update (2026-07-10):** Added 3 more P0 papers with arXiv preprints: Q-Flow (flow-based policy RL), and a pair of inverse-dynamics-vs-behavior-cloning papers worth reading together — When Does Predictive Inverse Dynamics Outperform Behavior Cloning? and On the Sample Efficiency of Inverse Dynamics Models for Semi-Supervised Imitation Learning.
