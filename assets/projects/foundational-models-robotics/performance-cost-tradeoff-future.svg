@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="640"
+   height="420"
+   viewBox="0 0 640 420"
+   role="img"
+   aria-label="Line chart showing performance rising with cost but with diminishing returns at higher cost"
+   version="1.1"
+   id="svg46"
+   sodipodi:docname="performance-cost-tradeoff-future.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs50" />
+  <sodipodi:namedview
+     id="namedview48"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.4802979"
+     inkscape:cx="280.01121"
+     inkscape:cy="113.82844"
+     inkscape:window-width="1920"
+     inkscape:window-height="1131"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg46" />
+  <title
+     id="title2">Performance vs. Cost trade-off</title>
+  <desc
+     id="desc4">As cost increases, performance improves quickly at first, then flattens out, showing diminishing returns.</desc>
+  <!-- surface -->
+  <rect
+     x="0"
+     y="0"
+     width="640"
+     height="420"
+     fill="#fcfcfb"
+     id="rect6" />
+  <!-- chart title -->
+  <text
+     x="32"
+     y="34"
+     font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+     font-size="18"
+     font-weight="600"
+     fill="#0b0b0b"
+     id="text8">Performance vs. Cost</text>
+  <!-- plot area: x from 80 to 592, y from 340 (baseline) to 60 (top) -->
+  <!-- gridlines (recessive, horizontal only) -->
+  <g
+     stroke="#e1e0d9"
+     stroke-width="1"
+     id="g16">
+    <line
+       x1="80"
+       y1="270"
+       x2="592"
+       y2="270"
+       id="line10" />
+    <line
+       x1="80"
+       y1="200"
+       x2="592"
+       y2="200"
+       id="line12" />
+    <line
+       x1="80"
+       y1="130"
+       x2="592"
+       y2="130"
+       id="line14" />
+  </g>
+  <!-- axes -->
+  <g
+     stroke="#c3c2b7"
+     stroke-width="1.5"
+     id="g22">
+    <line
+       x1="80"
+       y1="340"
+       x2="592"
+       y2="340"
+       id="line18" />
+    <line
+       x1="80"
+       y1="340"
+       x2="80"
+       y2="60"
+       id="line20" />
+  </g>
+  <!-- axis labels -->
+  <text
+     x="336"
+     y="392"
+     text-anchor="middle"
+     font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+     font-size="14"
+     fill="#898781"
+     id="text24">Cost</text>
+  <text
+     x="28"
+     y="200"
+     text-anchor="middle"
+     font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+     font-size="14"
+     fill="#898781"
+     transform="rotate(-90 28 200)"
+     id="text26">Performance</text>
+  <!-- diminishing-returns curve: sharp rise, then flattening -->
+  <path
+     d="m 80,340 c 80,0 86.32593,-129.38532 177.62308,-175.39772 100,-22 215.3207,-31.08479 327.3207,-33.08479"
+     fill="none"
+     stroke="#2a78d6"
+     stroke-width="2.5"
+     stroke-linecap="round"
+     id="path28"
+     sodipodi:nodetypes="ccc" />
+  <path
+     d="m 80.112494,341.46935 c 79.928146,0 50.349796,-156.36401 136.928526,-223.79079 85.67107,-40.982879 255.66232,-64.662275 367.56173,-67.456246"
+     fill="none"
+     stroke="#2a78d6"
+     stroke-width="2.95353"
+     stroke-linecap="round"
+     id="path28-3"
+     sodipodi:nodetypes="ccc"
+     style="stroke:#d6862a;stroke-opacity:1" />
+  <!-- sweet-spot marker -->
+  <circle
+     cx="253.7915"
+     cy="166.82681"
+     r="5"
+     fill="#2a78d6"
+     stroke="#fcfcfb"
+     stroke-width="2"
+     id="circle30" />
+  <text
+     x="253.7915"
+     y="148.82681"
+     text-anchor="middle"
+     font-family="system-ui, '-apple-system', 'Segoe UI', sans-serif"
+     font-size="13px"
+     font-weight="600"
+     fill="#0b0b0b"
+     id="text32">sweet spot</text>
+  <!-- direct label on the curve's end -->
+  <text
+     x="560.14032"
+     y="85.58046"
+     text-anchor="middle"
+     font-family="system-ui, '-apple-system', 'Segoe UI', sans-serif"
+     font-size="13px"
+     fill="#52514e"
+     id="text34">diminishing returns</text>
+  <text
+     x="540.46039"
+     y="43.419697"
+     text-anchor="middle"
+     font-family="system-ui, '-apple-system', 'Segoe UI', sans-serif"
+     font-size="13px"
+     fill="#52514e"
+     id="text34-6"><tspan
+       style="stroke:#d6772a;stroke-opacity:1"
+       id="tspan2023">Optomistic future</tspan></text>
+  <text
+     x="544.36121"
+     y="122.13132"
+     text-anchor="middle"
+     font-family="system-ui, '-apple-system', 'Segoe UI', sans-serif"
+     font-size="13px"
+     fill="#52514e"
+     id="text34-6-7"><tspan
+       style="stroke:#2a8cd6;stroke-opacity:1"
+       id="tspan1919">Current progress</tspan></text>
+  <!-- progress marker: Minsky's early robotics work (~4/5 along on the right, well below the curve) -->
+  <circle
+     cx="472.16418"
+     cy="198.86617"
+     r="5"
+     fill="#2a78d6"
+     stroke="#fcfcfb"
+     stroke-width="2"
+     id="circle36" />
+  <text
+     x="472.16418"
+     y="218.86617"
+     text-anchor="middle"
+     font-family="system-ui, '-apple-system', 'Segoe UI', sans-serif"
+     font-size="13px"
+     font-weight="600"
+     fill="#0b0b0b"
+     id="text38">Minsky et al. (1960s)</text>
+  <!-- progress marker: foundational models for robotics (midway between the sweet spot and Minsky's work) -->
+  <circle
+     cx="372.08444"
+     cy="188.30357"
+     r="5"
+     fill="#2a78d6"
+     stroke="#fcfcfb"
+     stroke-width="2"
+     id="circle40" />
+  <text
+     x="372.08444"
+     y="172.30357"
+     text-anchor="middle"
+     font-family="system-ui, '-apple-system', 'Segoe UI', sans-serif"
+     font-size="13px"
+     font-weight="600"
+     fill="#0b0b0b"
+     id="text42">Foundational models</text>
+  <!-- annotation for the steep region -->
+  <text
+     x="120"
+     y="300"
+     text-anchor="middle"
+     font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+     font-size="13"
+     fill="#52514e"
+     id="text44">fast gains</text>
+</svg>

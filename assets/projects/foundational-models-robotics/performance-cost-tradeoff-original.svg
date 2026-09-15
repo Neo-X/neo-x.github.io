@@ -1,0 +1,43 @@
+<svg width="640" height="420" viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line chart showing performance rising with cost but with diminishing returns at higher cost">
+  <title>Performance vs. Cost trade-off</title>
+  <desc>As cost increases, performance improves quickly at first, then flattens out, showing diminishing returns.</desc>
+
+  <!-- surface -->
+  <rect x="0" y="0" width="640" height="420" fill="#fcfcfb"/>
+
+  <!-- chart title -->
+  <text x="32" y="34" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="18" font-weight="600" fill="#0b0b0b">Performance vs. Cost</text>
+
+  <!-- plot area: x from 80 to 592, y from 340 (baseline) to 60 (top) -->
+
+  <!-- gridlines (recessive, horizontal only) -->
+  <g stroke="#e1e0d9" stroke-width="1">
+    <line x1="80" y1="270" x2="592" y2="270"/>
+    <line x1="80" y1="200" x2="592" y2="200"/>
+    <line x1="80" y1="130" x2="592" y2="130"/>
+  </g>
+
+  <!-- axes -->
+  <g stroke="#c3c2b7" stroke-width="1.5">
+    <line x1="80" y1="340" x2="592" y2="340"/>
+    <line x1="80" y1="340" x2="80" y2="60"/>
+  </g>
+
+  <!-- axis labels -->
+  <text x="336" y="392" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#898781">Cost</text>
+  <text x="28" y="200" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" fill="#898781" transform="rotate(-90 28 200)">Performance</text>
+
+  <!-- diminishing-returns curve: sharp rise, then flattening -->
+  <path d="M 80 340 C 160 340, 200 120, 300 90 C 400 68, 480 62, 592 60"
+        fill="none" stroke="#2a78d6" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- sweet-spot marker -->
+  <circle cx="300" cy="90" r="5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+  <text x="300" y="72" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="13" font-weight="600" fill="#0b0b0b">sweet spot</text>
+
+  <!-- direct label on the curve's end -->
+  <text x="520" y="46" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="13" fill="#52514e">diminishing returns</text>
+
+  <!-- annotation for the steep region -->
+  <text x="120" y="300" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="13" fill="#52514e">fast gains</text>
+</svg>
