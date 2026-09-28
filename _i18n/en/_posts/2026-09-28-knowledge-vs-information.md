@@ -17,15 +17,15 @@ type: Article
 titleShort: Knowledge vs Information
 ---
 
-I wrote the first version of this post in 2015 as a graduate student, and the draft has remained unpublished since then. I am revisiting the draft now because of recent conversations with students, many of whom shared the feeling that little research remains to be done because foundational models can already accomplish so much. I find the opposite view, that now there are many more unanswered questions more compelling, and this old figure offers a useful way to explain why.
+I wrote the first version of this post in 2015 as a graduate student, and the draft has remained unpublished since then. I am revisiting the draft now because of recent conversations with students, many of whom shared the feeling that little research remains to be done because foundational models can already accomplish so much. I find the opposite view, that now there are many more unanswered questions, more compelling, and this old figure offers a useful way to explain why.
 
 ## The original idea
 
-Having spent a considerable amount of time studying and improving machine learning models, I believe there is an important difference between *knowledge* and *information*. The internet is full of information: countless small, *independent pieces of data*. In research, students spend most of their time learning *rules* that can be reused. *Learning* then becomes the process of connecting pieces of information together to build knowlege.
+Having spent a considerable amount of time studying and improving machine learning models, I believe there is an important difference between *knowledge* and *information*. The internet is full of information: countless small, *independent pieces of data*. In research, students spend most of their time learning *rules* that can be reused. *Learning* then becomes the process of connecting pieces of information together to build knowledge.
 
 <div align="center"><img src="/assets/projects/knowledge-vs-information.svg" alt="Knowledge vs Information: Bewilderment, Confusion, Ambiguity, and Wisdom" width="60%"></div>
 
-With little knowledge and little information, we are left in *bewilderment*. A large amount of information without the knowledge to organize that information leads to *ambiguity*. Knowledge without enough information to apply that knowledge leaves us with *confusion* to if our rules apply to other situations. Only the combination of knowledge and information produces *wisdom*. As a graduate student, I generated a large amount of information and rarely had enough time to study all of that information.
+With little knowledge and little information, we are left in *bewilderment*. A large amount of information without the knowledge to organize that information leads to *ambiguity*. Knowledge without enough information to apply that knowledge leaves us with *confusion* as to whether our rules apply to other situations. Only the combination of knowledge and information produces *wisdom*. As a graduate student, I generated a large amount of information and rarely had enough time to study all of that information.
 
 ## Where foundational models fit
 
