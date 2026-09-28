@@ -38,3 +38,31 @@ This gap is where I see a large number of open research questions:
 4. How can foundational models be improved, rather than only scaled?
 
 In many ways, I expect the introduction of foundational models to help focus our scientific direction. An existence proof tells researchers where to look. An existence proof also gives researchers a concrete object to analyze, along with many deep questions about how foundational models are built and how foundational models can be improved. Rather than leaving less research to do, foundational models have given us a great deal of information, and the work of turning that information into knowledge is just beginning.
+
+{% comment %}
+SOCIAL MEDIA DRAFTS (Liquid comment: stripped from the built page)
+URL: https://www.fracturedplane.com/blog/2026/09/28/knowledge-vs-information.html
+
+--- twitter ---
+Many students tell me there is little research left to do now that foundational models can accomplish so much. I believe the opposite: foundational models are an existence proof, and the work of turning that result into knowledge is just beginning. {{URL}}
+
+--- bluesky ---
+Little research left now that foundational models can do so much? I believe the opposite. Foundational models are an existence proof, and the work of turning that result into knowledge is just beginning. {{URL}}
+
+--- linkedin ---
+In recent conversations, many students have told me that little research remains to be done because foundational models can already accomplish so much. I believe the opposite is true.
+
+Back in 2015, as a graduate student, I sketched a simple figure separating knowledge from information. Information without knowledge leads to ambiguity, knowledge without information leads to confusion, and only the combination of the two produces wisdom.
+
+Foundational models are an existence proof: we now know that a single model can write code, answer questions across many subjects, and follow natural-language instructions. That result is a large step along the information axis, but not along the knowledge axis. Open questions remain:
+• How can we reproduce foundational models, and which parts of the training recipe matter?
+• How can we make foundational models faster and cheaper to train and deploy?
+• How do foundational models acquire their knowledge, and how is that knowledge represented?
+• How can foundational models be improved, rather than only scaled?
+
+The work of turning this information into knowledge is just beginning.
+
+{{URL}}
+
+#MachineLearning #AIResearch #FoundationModels #GradSchool
+{% endcomment %}
