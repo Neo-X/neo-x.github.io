@@ -24,12 +24,21 @@ cd "$SCRIPT_DIR"
 export PATH="$HOME/.local/share/gem/ruby/3.2.0/bin:$PATH"
 bundle exec jekyll build
 
+# The mirror compares by size only (--ignore-time), so a same-length edit to a page
+# (e.g. ".png" -> ".svg") is silently skipped. Text files are small (~4 MB), so we
+# always re-upload them; large assets keep the fast size-only check.
+TEXT_FILES=$(cd "$LOCAL_DIR" && find . -type f \( -name '*.html' -o -name '*.xml' -o -name '*.json' \
+  -o -name '*.txt' -o -name '*.css' -o -name '*.js' -o -name '*.svg' \) -printf '"%P" ')
+
 echo "==> Uploading to $FTP_HOST$REMOTE_DIR ..."
 lftp -u "${FTP_USER},${FTP_PASS}" "ftp://${FTP_HOST}" <<LFTP_CMDS
 set ftp:ssl-allow yes
 set ssl:verify-certificate no
 set ftp:passive-mode yes
 mirror --reverse --delete --ignore-time --no-perms --parallel=8 --verbose ${LOCAL_DIR}/ ${REMOTE_DIR}/
+lcd ${LOCAL_DIR}
+cd ${REMOTE_DIR}
+mput -d ${TEXT_FILES}
 bye
 LFTP_CMDS
 
