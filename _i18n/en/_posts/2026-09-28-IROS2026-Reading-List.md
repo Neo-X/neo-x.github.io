@@ -395,6 +395,8 @@ The IROS program site publishes an abstract for almost every paper. I used those
 
 arXiv preprints (✅) were matched by title where available. Some papers without a preprint may have one posted after the conference. If you're at IROS 2026 in Pittsburgh and this overlaps with your interests, I hope it saves you some filtering time.
 
+*A note on selection: this list is based on my own research interests, not on the quality of the work. There are great papers across all of IROS 2026, and many excellent ones aren't here simply because they fall outside my group's areas.*
+
 {% comment %}
 SOCIAL MEDIA DRAFTS (Liquid comment: stripped from the built page)
 URL: https://www.fracturedplane.com/blog/2026/09/28/IROS2026-Reading-List.html
