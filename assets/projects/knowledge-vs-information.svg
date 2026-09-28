@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="520" viewBox="0 0 640 520" role="img" aria-label="Two-by-two grid with knowledge on the horizontal axis and information on the vertical axis: low knowledge and low information is Bewilderment, low knowledge and high information is Ambiguity, high knowledge and low information is Confusion, and high knowledge and high information is Wisdom">
+  <title>Knowledge vs. Information</title>
+  <desc>Little of either gives bewilderment; information without knowledge gives ambiguity; knowledge without information gives confusion; the combination gives wisdom.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52514e"/>
+    </marker>
+  </defs>
+
+  <!-- surface -->
+  <rect x="0" y="0" width="640" height="520" fill="#fcfcfb"/>
+
+  <!-- quadrants: tint deepens toward Wisdom -->
+  <rect x="100" y="30"  width="251" height="206" rx="10" fill="#fbe9d0" stroke="#e8c99c"/>
+  <rect x="359" y="30"  width="251" height="206" rx="10" fill="#2a78d6"/>
+  <rect x="100" y="244" width="251" height="206" rx="10" fill="#eceae4" stroke="#d6d4cc"/>
+  <rect x="359" y="244" width="251" height="206" rx="10" fill="#dce9f8" stroke="#b5cfee"/>
+
+  <!-- quadrant labels -->
+  <g font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="30" font-weight="600" text-anchor="middle" dominant-baseline="central">
+    <text x="225.5" y="133" fill="#8a5a1c">Ambiguity</text>
+    <text x="484.5" y="133" fill="#ffffff">Wisdom</text>
+    <text x="225.5" y="347" fill="#52514e">Bewilderment</text>
+    <text x="484.5" y="347" fill="#1d4f8f">Confusion</text>
+  </g>
+
+  <!-- axes -->
+  <line x1="80" y1="470" x2="80"  y2="28"  stroke="#52514e" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="80" y1="470" x2="618" y2="470" stroke="#52514e" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- axis labels -->
+  <g font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="24" fill="#0b0b0b" text-anchor="middle">
+    <text x="355" y="506">Knowledge</text>
+    <text x="0" y="0" transform="translate(52 240) rotate(-90)">Information</text>
+  </g>
+</svg>
