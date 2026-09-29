@@ -23,7 +23,7 @@ permalink: /blog/:year/:month/:day/:title.html
 # in the templates via {{ site.myvariable }}.
 # title: Glen Berseth
 # email: your-email@example.com
-description: "I (he/him/il) am an assistant professor at the University de Montreal and Mila. My research explores how to use deep learning and reinforcement learning to develop generalist robots."
+description: "I (he/him/il) am an associate professor at the University de Montreal and Mila. My research explores how to use deep learning and reinforcement learning to develop generalist robots."
 ### I should add images of Mila, DIRO and UdeM down here.
 
 # description: >- # this means to ignore newlines until "baseurl:"

@@ -6,6 +6,10 @@
 #   Therefore, do not remove old news, simply set the hidden: true
 #   property.
 
+- en: 'I have been promoted to associate professor at the <a href="https://diro.umontreal.ca/">Université de Montréal</a>!'
+  fr: "J'ai été promu professeur agrégé à l'<a href='https://diro.umontreal.ca/'>Université de Montréal</a>!"
+  date: 2026-09-28
+
 - en: 'New position paper accepted to ICML 2026 on <a href="https://openreview.net/forum?id=Vhi9tHbKTa">Collusion Risks Among AI Reasoning Agents and why they justify certification requirements for making market decisions</a>!'
   fr: "Nouvel article de position accepté à ICML 2026 sur <a href='https://openreview.net/forum?id=Vhi9tHbKTa'>les risques de collusion entre agents de raisonnement IA, qui justifient des exigences de certification pour la prise de décisions de marché</a>!"
   date: 2026-07-07
