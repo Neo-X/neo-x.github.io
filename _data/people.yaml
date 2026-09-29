@@ -155,11 +155,11 @@
       fr: Les règles de mise à échelle
       
 - name: Faisal Ahmed
-  title: master
+  title: phd
   picture: faisal
   website: https://faisalahmed0.github.io/
   period:
-    start: 2024-09-01
+    start: 2026-09-01
   topics:
     - en: Deep Reinforcement Learning
       fr: Apprentissage profond
@@ -219,36 +219,36 @@
     - en: Robotics
       fr: Robotique
       
-- name: Anjelica Kovac
+- name: Rebekah Thompson
   title: dev
-  picture: anjelica
-  website: https://www.linkedin.com/in/anjelica-kovac-08b990141
+  picture: rebekah
+  website: https://mila.quebec/en/directory/rebekah-thompson
   period:
-    start: 2023-01-01
+    start: 2026-09-01
   topics:
     - en: Admin Assistant
       fr: Admin Assistant
 
-- name: Florence Cloutier
+- name: Charlotte Cloutier
   title: master
-  picture: florence
-  website: https://www.linkedin.com/in/florencecloutier/
+  picture: charlotte
+  website: https://www.linkedin.com/in/charlotte-cloutier-994654203/
   period:
-    start: 2024-09-01
+    start: 2026-09-01
   topics:
-    - en: Robotics
-      fr: Robotique
     - en: Reinforcement Learning
       fr: Apprentissage par renforcement
     - en: Sustainable Development
       fr: Développement durable
+    - en: Urban Agriculture
+      fr: Agriculture urbaine
 
 - name: Alexandre Brown
-  title: master
+  title: phd
   picture: alexbrown
   website: https://alexandrebrown.github.io/
   period:
-    start: 2024-09-01
+    start: 2026-09-01
   topics:
     - en: Visual Reinforcement Learning
       fr: Apprentissage par renforcement visuel
@@ -276,6 +276,20 @@
     - en: Robotics
       fr: Robotique
 
+- name: Michael Przystupa
+  title: postdoc
+  picture: michael
+  website: https://www.linkedin.com/in/michael-przystupa-984816120/
+  period:
+    start: 2026-09-01
+  topics:
+    - en: Robotics
+      fr: Robotique
+    - en: Reinforcement Learning
+      fr: Apprentissage par renforcement
+    - en: NSERC Postdoctoral Fellow
+      fr: Boursier postdoctoral du CRSNG
+
 - name: Homayoun Honari
   title: intern
   picture: homayoun
@@ -289,3 +303,18 @@
       fr: Robotique
     - en: Safety
       fr: Sequrité
+
+- name: Naser Kazemi
+  title: intern
+  cosupervisor: Tabitha Edith Lee
+  picture: naser
+  website: https://scholar.google.com/citations?user=pJu9XeoAAAAJ&hl=en
+  period:
+    start: 2026-07-13
+  topics:
+    - en: World Models
+      fr: Modèles du monde
+    - en: Causality
+      fr: Causalité
+    - en: Reinforcement Learning
+      fr: Apprentissage par renforcement

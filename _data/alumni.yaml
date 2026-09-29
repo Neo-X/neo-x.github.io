@@ -70,7 +70,7 @@
     end: 2024-08-31
   next:
     en: PhD @ Mila
-    fr: Ou
+    fr: Doctorat @ Mila
 
 - name: Rodney Yi
   title: ugrad
@@ -80,7 +80,7 @@
     end: 2022-09-01
   next:
     en: Industry
-    fr: Ou
+    fr: Industrie
     
 - name: Razvan Ciuca
   title: ugrad
@@ -102,8 +102,8 @@
     start: 2023-05-01
     end: 2023-09-01
   next:
-    en: Ungergraduate at McGill
-    fr: Ungergraduate at McGill
+    en: Undergraduate at McGill
+    fr: Baccalauréat à McGill
     
 - name: Karim Boumghar
   title: ugrad
@@ -114,7 +114,7 @@
     end: 2022-12-01
   next:
     en: Industry
-    fr: Ou
+    fr: Industrie
       
 - name: Jeremy Qin
   title: ugrad
@@ -125,7 +125,7 @@
     end: 2023-03-01
   next:
     en: MSc @ Mila
-    fr: Ou
+    fr: Maîtrise @ Mila
     
 - name: Saurabh Bodhe
   title: intern
@@ -136,7 +136,7 @@
     end: 2023-05-01
   next:
     en: Machine Learning Researcher @ Huawei
-    fr: Ou
+    fr: Recherche en apprentissage automatique @ Huawei
     
 - name: Amine Obeid
   title: ugrad
@@ -147,7 +147,7 @@
     end: 2024-09-01
   next:
     en: MSc @ UT Austin
-    fr: Ou
+    fr: Maîtrise @ UT Austin
 
 - name: Jiajun Fan
   title: intern
@@ -158,7 +158,7 @@
     end: 2024-09-01
   next:
     en: PhD @ University of Illinois Urbana-Champaign
-    fr: Ou
+    fr: "Doctorat @ Université de l'Illinois à Urbana-Champaign"
 
 - name: Raj Ghugare
   title: master
@@ -169,7 +169,7 @@
     end: 2024-05-01
   next:
     en: PhD @ Princeton
-    fr: Ou
+    fr: Doctorat @ Princeton
 
 - name: Faisal Ahmed
   title: intern
@@ -180,7 +180,7 @@
     end: 2024-09-01
   next:
     en: MSc @ Mila
-    fr: Ou
+    fr: Maîtrise @ Mila
 
 - name: Hongyao Tang
   title: postdoc
@@ -195,8 +195,8 @@
     - en: Representation learning
       fr: Representation learning
   next:
-    en: Professor @ Tianjin Univeristy
-    fr: Ou
+    en: Professor @ Tianjin University
+    fr: Corps professoral @ Université de Tianjin
 
 - name: Victor Gilbert
   title: ugrad
@@ -211,8 +211,8 @@
     - en: Robotics
       fr: Robotique
   next:
-    en: Continues as Ungergraduate at Polytechnique
-    fr: Ou
+    en: Continues as Undergraduate at Polytechnique
+    fr: Poursuit son baccalauréat à Polytechnique
 
 - name: Angela Hu
   title: ugrad
@@ -225,8 +225,8 @@
     - en: Reinforcement learning
       fr: Apprentissage par renforcement
   next:
-    en: Continues as Ungergraduate at McGill
-    fr: Ou
+    en: Continues as Undergraduate at McGill
+    fr: Poursuit son baccalauréat à McGill
 
 - name: Anas Awadalla
   title: intern
@@ -240,7 +240,7 @@
       fr: Apprentissage par renforcement
   next:
     en: Industry Researcher
-    fr: Ou
+    fr: Recherche en industrie
 
 - name: Parnika Parnika
   title: intern
@@ -256,7 +256,7 @@
       fr: Généralisation multitâche
   next:
     en: MSc @ Mila
-    fr: Ou
+    fr: Maîtrise @ Mila
 
 - name: Charlie Gauthier
   title: phd
@@ -276,6 +276,7 @@
 
 - name: Charlotte Cloutier
   title: intern
+  profile_page: false
   picture: charlotte
   website: https://www.linkedin.com/in/charlotte-cloutier-994654203/
   period:
@@ -307,3 +308,77 @@
   next:
     en: Internship
     fr: Internship
+
+- name: Florence Cloutier
+  title: master
+  profile_page: true
+  picture: florence
+  website: https://www.linkedin.com/in/florencecloutier/
+  period:
+    start: 2024-09-01
+    end: 2026-09-01
+  topics:
+    - en: Robotics
+      fr: Robotique
+    - en: Reinforcement Learning
+      fr: Apprentissage par renforcement
+    - en: Sustainable Development
+      fr: Développement durable
+  next:
+    en: PhD @ Mila with Pierre-Luc Bacon and Emma Frejinger
+    fr: Doctorat @ Mila avec Pierre-Luc Bacon et Emma Frejinger
+
+- name: Alexandre Brown
+  title: master
+  profile_page: false
+  website: https://alexandrebrown.github.io/
+  period:
+    start: 2024-09-01
+    end: 2026-09-01
+  next:
+    en: PhD @ Mila
+    fr: Doctorat @ Mila
+
+- name: Faisal Ahmed
+  title: master
+  profile_page: false
+  website: https://faisalahmed0.github.io/
+  period:
+    start: 2024-09-01
+    end: 2026-09-01
+  next:
+    en: PhD @ Mila
+    fr: Doctorat @ Mila
+
+- name: Josué Saint-Martin Junior Mongan
+  title: intern
+  profile_page: false
+  period:
+    start: 2026-05-04
+    end: 2026-08-28
+  topics:
+    - en: Reinforcement Learning
+      fr: Apprentissage par renforcement
+    - en: Vision-Language-Action Models
+      fr: Modèles vision-langage-action
+  next:
+    en: B.Sc. @ Université de Montréal
+    fr: Baccalauréat @ Université de Montréal
+
+- name: Bhargava Teja Uppuluri
+  title: intern
+  profile_page: false
+  cosupervisor: Tabitha Edith Lee
+  picture: bhargava
+  website: https://bhargavauppuluri.github.io/
+  period:
+    start: 2026-02-01
+    end: 2026-08-07
+  topics:
+    - en: Robotics
+      fr: Robotique
+    - en: Task Generation
+      fr: Génération de tâches
+  next:
+    en: MS in Robotics @ CMU
+    fr: Maîtrise en robotique @ CMU
