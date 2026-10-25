@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 398 362" width="398" height="362">
+<defs>
+  <pattern id="bp" width="10" height="10" patternUnits="userSpaceOnUse">
+    <path d="M10 0L0 0 0 10" fill="none" stroke="#7A8AA0" stroke-width="0.5" stroke-opacity="0.10"/>
+  </pattern>
+</defs>
+<rect x="0.000" y="0.000" width="398.000" height="362.000" fill="#F6F7FA" stroke="#C4CADC" stroke-width="1"/>
+<rect x="0.000" y="0.000" width="398.000" height="362.000" fill="url(#bp)"/>
+<rect x="90.000" y="18.000" width="296.000" height="296.000" fill="#FFFFFF" opacity="0.550"/>
+<line x1="90.000" y1="18.000" x2="386.000" y2="18.000" stroke="#A8B0C8" stroke-width="1.60"/>
+<line x1="90.000" y1="92.000" x2="386.000" y2="92.000" stroke="#A8B0C8" stroke-width="1.00"/>
+<line x1="90.000" y1="166.000" x2="386.000" y2="166.000" stroke="#A8B0C8" stroke-width="1.00"/>
+<line x1="90.000" y1="240.000" x2="386.000" y2="240.000" stroke="#A8B0C8" stroke-width="1.00"/>
+<line x1="90.000" y1="314.000" x2="386.000" y2="314.000" stroke="#A8B0C8" stroke-width="1.60"/>
+<line x1="90.000" y1="18.000" x2="90.000" y2="314.000" stroke="#A8B0C8" stroke-width="1.60"/>
+<line x1="164.000" y1="18.000" x2="164.000" y2="314.000" stroke="#A8B0C8" stroke-width="1.00"/>
+<line x1="238.000" y1="18.000" x2="238.000" y2="314.000" stroke="#A8B0C8" stroke-width="1.00"/>
+<line x1="312.000" y1="18.000" x2="312.000" y2="314.000" stroke="#A8B0C8" stroke-width="1.00"/>
+<line x1="386.000" y1="18.000" x2="386.000" y2="314.000" stroke="#A8B0C8" stroke-width="1.60"/>
+<rect x="23.000" y="29.000" width="44.000" height="44.000" fill="none" rx="6.00" opacity="0.600" stroke="#6A8AB0" stroke-width="1.4" stroke-dasharray="4,3"/>
+<line x1="33.000" y1="41.000" x2="57.000" y2="39.000" stroke="#6A8AB0" stroke-width="1.30" opacity="0.700" stroke-dasharray="2,2"/>
+<line x1="57.000" y1="39.000" x2="45.000" y2="61.000" stroke="#6A8AB0" stroke-width="1.30" opacity="0.700" stroke-dasharray="2,2"/>
+<line x1="45.000" y1="61.000" x2="33.000" y2="41.000" stroke="#6A8AB0" stroke-width="1.30" opacity="0.700" stroke-dasharray="2,2"/>
+<circle cx="33.000" cy="41.000" r="3.000" fill="#6A8AB0" opacity="0.850"/>
+<circle cx="57.000" cy="39.000" r="3.000" fill="#6A8AB0" opacity="0.850"/>
+<circle cx="45.000" cy="61.000" r="3.000" fill="#6A8AB0" opacity="0.850"/>
+<text x="45.00" y="55.00" font-size="13" fill="#6A8AB0" font-weight="700" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">?</text>
+<text x="45.00" y="82.00" font-size="9.5" fill="#566070" font-weight="400" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-style="italic">morph n</text>
+<circle cx="45.000" cy="110.000" r="6.000" fill="#0E1F32"/>
+<circle cx="45.000" cy="110.000" r="3.400" fill="#D86000"/>
+<rect x="37.000" y="117.000" width="16.000" height="16.000" fill="#3D5878" rx="3.00"/>
+<rect x="39.000" y="119.000" width="12.000" height="8.000" fill="#6A8AB0" rx="2.00" opacity="0.350"/>
+<line x1="37.000" y1="120.000" x2="29.000" y2="130.000" stroke="#3D5878" stroke-width="3.40" stroke-linecap="round"/>
+<line x1="53.000" y1="120.000" x2="61.000" y2="130.000" stroke="#3D5878" stroke-width="3.40" stroke-linecap="round"/>
+<line x1="41.000" y1="133.000" x2="38.000" y2="145.000" stroke="#0E1F32" stroke-width="3.60" stroke-linecap="round"/>
+<line x1="49.000" y1="133.000" x2="52.000" y2="145.000" stroke="#0E1F32" stroke-width="3.60" stroke-linecap="round"/>
+<text x="45.00" y="156.00" font-size="6.5" fill="#566070" font-weight="700" text-anchor="middle" font-family="'Courier New', monospace" letter-spacing="0.05em">HUMANOID</text>
+<rect x="29.000" y="189.000" width="32.000" height="13.000" fill="#3D5878" rx="5.00"/>
+<rect x="32.000" y="191.000" width="24.000" height="6.000" fill="#6A8AB0" rx="3.00" opacity="0.350"/>
+<line x1="32.000" y1="199.000" x2="30.000" y2="217.000" stroke="#0E1F32" stroke-width="3.20" stroke-linecap="round"/>
+<line x1="39.000" y1="199.000" x2="40.000" y2="217.000" stroke="#0E1F32" stroke-width="3.20" stroke-linecap="round"/>
+<line x1="51.000" y1="199.000" x2="50.000" y2="217.000" stroke="#0E1F32" stroke-width="3.20" stroke-linecap="round"/>
+<line x1="58.000" y1="199.000" x2="60.000" y2="217.000" stroke="#0E1F32" stroke-width="3.20" stroke-linecap="round"/>
+<circle cx="61.000" cy="192.000" r="5.000" fill="#0E1F32"/>
+<circle cx="63.000" cy="191.000" r="1.600" fill="#D86000"/>
+<line x1="30.000" y1="190.000" x2="26.000" y2="184.000" stroke="#6A8AB0" stroke-width="2.00"/>
+<circle cx="26.000" cy="183.000" r="2.400" fill="#D86000"/>
+<text x="45.00" y="230.00" font-size="6.5" fill="#566070" font-weight="700" text-anchor="middle" font-family="'Courier New', monospace" letter-spacing="0.05em">QUADRUPED</text>
+<line x1="45.000" y1="273.000" x2="30.000" y2="262.000" stroke="#0E1F32" stroke-width="2.60" stroke-linecap="round"/>
+<line x1="45.000" y1="273.000" x2="60.000" y2="262.000" stroke="#0E1F32" stroke-width="2.60" stroke-linecap="round"/>
+<line x1="45.000" y1="273.000" x2="30.000" y2="284.000" stroke="#0E1F32" stroke-width="2.60" stroke-linecap="round"/>
+<line x1="45.000" y1="273.000" x2="60.000" y2="284.000" stroke="#0E1F32" stroke-width="2.60" stroke-linecap="round"/>
+<circle cx="30.000" cy="262.000" r="7.000" fill="none" stroke="#3D5878" stroke-width="2"/>
+<circle cx="30.000" cy="262.000" r="2.000" fill="#6A8AB0"/>
+<circle cx="60.000" cy="262.000" r="7.000" fill="none" stroke="#3D5878" stroke-width="2"/>
+<circle cx="60.000" cy="262.000" r="2.000" fill="#6A8AB0"/>
+<circle cx="30.000" cy="284.000" r="7.000" fill="none" stroke="#3D5878" stroke-width="2"/>
+<circle cx="30.000" cy="284.000" r="2.000" fill="#6A8AB0"/>
+<circle cx="60.000" cy="284.000" r="7.000" fill="none" stroke="#3D5878" stroke-width="2"/>
+<circle cx="60.000" cy="284.000" r="2.000" fill="#6A8AB0"/>
+<rect x="39.000" y="269.000" width="12.000" height="8.000" fill="#3D5878" rx="2.00"/>
+<circle cx="45.000" cy="267.000" r="3.000" fill="#D86000"/>
+<ellipse cx="45.000" cy="280.000" rx="4.000" ry="2.000" fill="#0E1F32" opacity="0.600"/>
+<text x="45.00" y="304.00" font-size="6.5" fill="#566070" font-weight="700" text-anchor="middle" font-family="'Courier New', monospace" letter-spacing="0.05em">AERIAL</text>
+<text x="127.00" y="334.00" font-size="11" fill="#17202E" font-weight="600" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">clean</text>
+<text x="201.00" y="334.00" font-size="11" fill="#17202E" font-weight="600" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">assemble</text>
+<text x="275.00" y="334.00" font-size="11" fill="#17202E" font-weight="600" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">search</text>
+<text x="349.00" y="334.00" font-size="11" fill="#566070" font-weight="600" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-style="italic">task m</text>
+<ellipse cx="349.000" cy="56.500" rx="22.000" ry="6.000" fill="#A84C00"/>
+<rect x="327.000" y="49.500" width="44.000" height="7.000" fill="#D86000"/>
+<line x1="327.000" y1="49.500" x2="327.000" y2="56.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<line x1="371.000" y1="49.500" x2="371.000" y2="56.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<ellipse cx="349.000" cy="49.500" rx="22.000" ry="6.000" fill="#D86000"/>
+<ellipse cx="349.000" cy="49.500" rx="22.000" ry="6.000" fill="#FFFFFF" opacity="0.220"/>
+<circle cx="364.000" cy="59.000" r="1.300" fill="#FFFFFF" opacity="0.700"/>
+<ellipse cx="349.000" cy="46.500" rx="22.000" ry="6.000" fill="#A84C00"/>
+<rect x="327.000" y="39.500" width="44.000" height="7.000" fill="#D86000"/>
+<line x1="327.000" y1="39.500" x2="327.000" y2="46.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<line x1="371.000" y1="39.500" x2="371.000" y2="46.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<ellipse cx="349.000" cy="39.500" rx="22.000" ry="6.000" fill="#D86000"/>
+<ellipse cx="349.000" cy="39.500" rx="22.000" ry="6.000" fill="#FFFFFF" opacity="0.220"/>
+<circle cx="364.000" cy="49.000" r="1.300" fill="#FFFFFF" opacity="0.700"/>
+<ellipse cx="349.000" cy="36.500" rx="22.000" ry="6.000" fill="#A84C00"/>
+<rect x="327.000" y="29.500" width="44.000" height="7.000" fill="#D86000"/>
+<line x1="327.000" y1="29.500" x2="327.000" y2="36.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<line x1="371.000" y1="29.500" x2="371.000" y2="36.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<ellipse cx="349.000" cy="29.500" rx="22.000" ry="6.000" fill="#D86000"/>
+<ellipse cx="349.000" cy="29.500" rx="22.000" ry="6.000" fill="#FFFFFF" opacity="0.220"/>
+<circle cx="364.000" cy="39.000" r="1.300" fill="#FFFFFF" opacity="0.700"/>
+<text x="349.00" y="83.00" font-size="13" fill="#D86000" font-weight="700" text-anchor="middle" font-family="'Courier New', monospace" letter-spacing="0.08em">DATA</text>
+<ellipse cx="201.000" cy="130.500" rx="22.000" ry="6.000" fill="#A84C00"/>
+<rect x="179.000" y="123.500" width="44.000" height="7.000" fill="#D86000"/>
+<line x1="179.000" y1="123.500" x2="179.000" y2="130.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<line x1="223.000" y1="123.500" x2="223.000" y2="130.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<ellipse cx="201.000" cy="123.500" rx="22.000" ry="6.000" fill="#D86000"/>
+<ellipse cx="201.000" cy="123.500" rx="22.000" ry="6.000" fill="#FFFFFF" opacity="0.220"/>
+<circle cx="216.000" cy="133.000" r="1.300" fill="#FFFFFF" opacity="0.700"/>
+<ellipse cx="201.000" cy="120.500" rx="22.000" ry="6.000" fill="#A84C00"/>
+<rect x="179.000" y="113.500" width="44.000" height="7.000" fill="#D86000"/>
+<line x1="179.000" y1="113.500" x2="179.000" y2="120.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<line x1="223.000" y1="113.500" x2="223.000" y2="120.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<ellipse cx="201.000" cy="113.500" rx="22.000" ry="6.000" fill="#D86000"/>
+<ellipse cx="201.000" cy="113.500" rx="22.000" ry="6.000" fill="#FFFFFF" opacity="0.220"/>
+<circle cx="216.000" cy="123.000" r="1.300" fill="#FFFFFF" opacity="0.700"/>
+<ellipse cx="201.000" cy="110.500" rx="22.000" ry="6.000" fill="#A84C00"/>
+<rect x="179.000" y="103.500" width="44.000" height="7.000" fill="#D86000"/>
+<line x1="179.000" y1="103.500" x2="179.000" y2="110.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<line x1="223.000" y1="103.500" x2="223.000" y2="110.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<ellipse cx="201.000" cy="103.500" rx="22.000" ry="6.000" fill="#D86000"/>
+<ellipse cx="201.000" cy="103.500" rx="22.000" ry="6.000" fill="#FFFFFF" opacity="0.220"/>
+<circle cx="216.000" cy="113.000" r="1.300" fill="#FFFFFF" opacity="0.700"/>
+<text x="201.00" y="157.00" font-size="13" fill="#D86000" font-weight="700" text-anchor="middle" font-family="'Courier New', monospace" letter-spacing="0.08em">DATA</text>
+<ellipse cx="127.000" cy="204.500" rx="22.000" ry="6.000" fill="#A84C00"/>
+<rect x="105.000" y="197.500" width="44.000" height="7.000" fill="#D86000"/>
+<line x1="105.000" y1="197.500" x2="105.000" y2="204.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<line x1="149.000" y1="197.500" x2="149.000" y2="204.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<ellipse cx="127.000" cy="197.500" rx="22.000" ry="6.000" fill="#D86000"/>
+<ellipse cx="127.000" cy="197.500" rx="22.000" ry="6.000" fill="#FFFFFF" opacity="0.220"/>
+<circle cx="142.000" cy="207.000" r="1.300" fill="#FFFFFF" opacity="0.700"/>
+<ellipse cx="127.000" cy="194.500" rx="22.000" ry="6.000" fill="#A84C00"/>
+<rect x="105.000" y="187.500" width="44.000" height="7.000" fill="#D86000"/>
+<line x1="105.000" y1="187.500" x2="105.000" y2="194.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<line x1="149.000" y1="187.500" x2="149.000" y2="194.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<ellipse cx="127.000" cy="187.500" rx="22.000" ry="6.000" fill="#D86000"/>
+<ellipse cx="127.000" cy="187.500" rx="22.000" ry="6.000" fill="#FFFFFF" opacity="0.220"/>
+<circle cx="142.000" cy="197.000" r="1.300" fill="#FFFFFF" opacity="0.700"/>
+<ellipse cx="127.000" cy="184.500" rx="22.000" ry="6.000" fill="#A84C00"/>
+<rect x="105.000" y="177.500" width="44.000" height="7.000" fill="#D86000"/>
+<line x1="105.000" y1="177.500" x2="105.000" y2="184.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<line x1="149.000" y1="177.500" x2="149.000" y2="184.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<ellipse cx="127.000" cy="177.500" rx="22.000" ry="6.000" fill="#D86000"/>
+<ellipse cx="127.000" cy="177.500" rx="22.000" ry="6.000" fill="#FFFFFF" opacity="0.220"/>
+<circle cx="142.000" cy="187.000" r="1.300" fill="#FFFFFF" opacity="0.700"/>
+<text x="127.00" y="231.00" font-size="13" fill="#D86000" font-weight="700" text-anchor="middle" font-family="'Courier New', monospace" letter-spacing="0.08em">DATA</text>
+<ellipse cx="275.000" cy="278.500" rx="22.000" ry="6.000" fill="#A84C00"/>
+<rect x="253.000" y="271.500" width="44.000" height="7.000" fill="#D86000"/>
+<line x1="253.000" y1="271.500" x2="253.000" y2="278.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<line x1="297.000" y1="271.500" x2="297.000" y2="278.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<ellipse cx="275.000" cy="271.500" rx="22.000" ry="6.000" fill="#D86000"/>
+<ellipse cx="275.000" cy="271.500" rx="22.000" ry="6.000" fill="#FFFFFF" opacity="0.220"/>
+<circle cx="290.000" cy="281.000" r="1.300" fill="#FFFFFF" opacity="0.700"/>
+<ellipse cx="275.000" cy="268.500" rx="22.000" ry="6.000" fill="#A84C00"/>
+<rect x="253.000" y="261.500" width="44.000" height="7.000" fill="#D86000"/>
+<line x1="253.000" y1="261.500" x2="253.000" y2="268.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<line x1="297.000" y1="261.500" x2="297.000" y2="268.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<ellipse cx="275.000" cy="261.500" rx="22.000" ry="6.000" fill="#D86000"/>
+<ellipse cx="275.000" cy="261.500" rx="22.000" ry="6.000" fill="#FFFFFF" opacity="0.220"/>
+<circle cx="290.000" cy="271.000" r="1.300" fill="#FFFFFF" opacity="0.700"/>
+<ellipse cx="275.000" cy="258.500" rx="22.000" ry="6.000" fill="#A84C00"/>
+<rect x="253.000" y="251.500" width="44.000" height="7.000" fill="#D86000"/>
+<line x1="253.000" y1="251.500" x2="253.000" y2="258.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<line x1="297.000" y1="251.500" x2="297.000" y2="258.500" stroke="#A84C00" stroke-width="1.00" opacity="0.500"/>
+<ellipse cx="275.000" cy="251.500" rx="22.000" ry="6.000" fill="#D86000"/>
+<ellipse cx="275.000" cy="251.500" rx="22.000" ry="6.000" fill="#FFFFFF" opacity="0.220"/>
+<circle cx="290.000" cy="261.000" r="1.300" fill="#FFFFFF" opacity="0.700"/>
+<text x="275.00" y="305.00" font-size="13" fill="#D86000" font-weight="700" text-anchor="middle" font-family="'Courier New', monospace" letter-spacing="0.08em">DATA</text>
+<line x1="227.000" y1="117.000" x2="245.000" y2="117.000" stroke="#3D5878" stroke-width="2.00" stroke-dasharray="4,4" stroke-linecap="round"/>
+<path d="M 253.00 117.00 L 245.00 121.50 L 245.00 112.50 Z" fill="#3D5878"/>
+<line x1="275.000" y1="243.000" x2="275.000" y2="147.000" stroke="#3D5878" stroke-width="2.00" stroke-dasharray="4,4" stroke-linecap="round"/>
+<path d="M 275.00 139.00 L 279.50 147.00 L 270.50 147.00 Z" fill="#3D5878"/>
+<line x1="260.000" y1="102.000" x2="290.000" y2="132.000" stroke="#7A3020" stroke-width="5.00" stroke-linecap="round"/>
+<line x1="260.000" y1="132.000" x2="290.000" y2="102.000" stroke="#7A3020" stroke-width="5.00" stroke-linecap="round"/>
+</svg>
