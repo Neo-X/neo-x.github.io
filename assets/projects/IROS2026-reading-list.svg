@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Funnel: 1,933 papers in the IROS 2026 program, 747 with abstracts on the core topics, 130 on the reading list, split into 38 must read, 69 should read and 23 nice to read">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Funnel: 1,929 papers in the IROS 2026 program, 742 candidates on the core topics, 142 on the reading list, split into 38 must read, 74 should read and 30 nice to read">
   <title>IROS 2026 Reading List</title>
-  <desc>Bar widths are proportional to paper counts. The 130 papers on the list are expanded below by priority tier.</desc>
+  <desc>Bar widths are proportional to paper counts. The 142 papers on the list are expanded below by priority tier.</desc>
 
   <!-- surface -->
   <rect x="0" y="0" width="1200" height="630" fill="#fcfcfb"/>
@@ -10,29 +10,29 @@
     <text x="80" y="92" font-size="50" font-weight="700" fill="#1f1e1c">IROS 2026 Reading List</text>
     <text x="80" y="136" font-size="24" fill="#52514e">Robot learning · VLAs · RL fine-tuning · Imitation · World models</text>
 
-    <!-- funnel stages: width proportional to count (1,933 = 700px) -->
+    <!-- funnel stages: width proportional to count (1,929 = 700px) -->
     <rect x="80" y="175" width="700" height="60" rx="4" fill="#86b6ef"/>
-    <rect x="80" y="253" width="270.5" height="60" rx="4" fill="#3987e5"/>
-    <rect x="80" y="331" width="47.1" height="60" rx="4" fill="#1c5cab"/>
+    <rect x="80" y="253" width="269.3" height="60" rx="4" fill="#3987e5"/>
+    <rect x="80" y="331" width="51.5" height="60" rx="4" fill="#1c5cab"/>
 
-    <text x="820" y="217" fill="#1f1e1c"><tspan font-size="36" font-weight="700">1,933</tspan><tspan dx="14" font-size="22" fill="#52514e">papers in the program</tspan></text>
-    <text x="820" y="295" fill="#1f1e1c"><tspan font-size="36" font-weight="700">747</tspan><tspan dx="14" font-size="22" fill="#52514e">abstracts on the core topics</tspan></text>
-    <text x="820" y="373" fill="#1f1e1c"><tspan font-size="36" font-weight="700">130</tspan><tspan dx="14" font-size="22" fill="#52514e">on the reading list</tspan></text>
+    <text x="820" y="217" fill="#1f1e1c"><tspan font-size="36" font-weight="700">1,929</tspan><tspan dx="14" font-size="22" fill="#52514e">papers in the program</tspan></text>
+    <text x="820" y="295" fill="#1f1e1c"><tspan font-size="36" font-weight="700">742</tspan><tspan dx="14" font-size="22" fill="#52514e">candidates on the core topics</tspan></text>
+    <text x="820" y="373" fill="#1f1e1c"><tspan font-size="36" font-weight="700">142</tspan><tspan dx="14" font-size="22" fill="#52514e">on the reading list</tspan></text>
 
-    <!-- expansion of the 130 into priority tiers -->
-    <path d="M80,391 L127.1,391 L780,440 L80,440 Z" fill="#eceae4"/>
+    <!-- expansion of the 142 into priority tiers -->
+    <path d="M80,391 L131.5,391 L780,440 L80,440 Z" fill="#eceae4"/>
 
-    <rect x="80" y="440" width="203.4" height="90" rx="4" fill="#0d366b"/>
-    <rect x="285.4" y="440" width="369.4" height="90" rx="4" fill="#256abf"/>
-    <rect x="656.8" y="440" width="123.2" height="90" rx="4" fill="#86b6ef"/>
+    <rect x="80" y="440" width="186.3" height="90" rx="4" fill="#0d366b"/>
+    <rect x="268.3" y="440" width="362.7" height="90" rx="4" fill="#256abf"/>
+    <rect x="633.0" y="440" width="147.0" height="90" rx="4" fill="#86b6ef"/>
 
     <g text-anchor="middle">
-      <text x="181.7" y="481" font-size="32" font-weight="700" fill="#ffffff">38</text>
-      <text x="181.7" y="510" font-size="18" fill="#ffffff">must read</text>
-      <text x="470.1" y="481" font-size="32" font-weight="700" fill="#ffffff">69</text>
-      <text x="470.1" y="510" font-size="18" fill="#ffffff">should read</text>
-      <text x="718.4" y="481" font-size="32" font-weight="700" fill="#1f1e1c">23</text>
-      <text x="718.4" y="510" font-size="18" fill="#1f1e1c">nice to read</text>
+      <text x="173.1" y="481" font-size="32" font-weight="700" fill="#ffffff">38</text>
+      <text x="173.1" y="510" font-size="18" fill="#ffffff">must read</text>
+      <text x="449.7" y="481" font-size="32" font-weight="700" fill="#ffffff">74</text>
+      <text x="449.7" y="510" font-size="18" fill="#ffffff">should read</text>
+      <text x="706.5" y="481" font-size="32" font-weight="700" fill="#1f1e1c">30</text>
+      <text x="706.5" y="510" font-size="18" fill="#1f1e1c">nice to read</text>
     </g>
     <text x="820" y="492" font-size="22" fill="#52514e">by priority</text>
 

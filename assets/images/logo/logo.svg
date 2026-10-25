@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- Fractured plane: a square split along a crack into two offset shards, on minima's brand blue. -->
+  <rect width="512" height="512" rx="104" fill="#2a7ae2"/>
+  <polygon transform="translate(-18,12)" fill="#ffffff"
+           points="92,92 234,92 292,204 220,280 276,420 92,420"/>
+  <polygon transform="translate(18,-12)" fill="#cfe1f9"
+           points="234,92 420,92 420,420 276,420 220,280 292,204"/>
+</svg>
